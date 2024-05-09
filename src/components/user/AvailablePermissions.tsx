@@ -2,9 +2,9 @@ import { RootState } from '@/redux';
 import { useAssignPermissionMutation, useUserAvailablePermissionQuery } from '@/redux/apis/userApi';
 import { logger } from '@/services';
 import { IError, IPermission, QueryParamsType } from '@/types';
-import { PopConfirm } from '@/ui';
-import Button from '@/ui/Button';
-import Table from '@/ui/Table';
+import { PHUPopConfirm } from '@/ui';
+import PHUButton from '@/ui/PHUButton';
+import PHUTable from '@/ui/PHUTable';
 import { notifyError } from '@/ui/ToastNotification';
 import { ColumnsType } from 'antd/es/table';
 import React, { useState } from 'react';
@@ -54,7 +54,7 @@ function AvailablePermisisons() {
 				logger.log(data);
 				return (
 					<>
-						<PopConfirm
+						<PHUPopConfirm
 							placement="bottom"
 							title="Assign permission"
 							description="want to assign this permission?"
@@ -62,8 +62,8 @@ function AvailablePermisisons() {
 							cancelText="cancel"
 							onConfirm={() => handleAssignPermission(data.id, userState?.userId as string)}
 						>
-							<Button htmlType="button">assign</Button>
-						</PopConfirm>
+							<PHUButton htmlType="button">assign</PHUButton>
+						</PHUPopConfirm>
 					</>
 				);
 			},
@@ -77,7 +77,7 @@ function AvailablePermisisons() {
 
 	return (
 		<>
-			<Table
+			<PHUTable
 				loading={isLoading}
 				columns={columns}
 				dataSource={permissions}

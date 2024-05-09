@@ -1,12 +1,12 @@
-import { ActionBar, BreadCrumbsComp, Drawer, SearchInput } from '@/ui';
+import { ActionBar, BreadCrumbsComp, PHUDrawer, SearchInput } from '@/ui';
 import { IError, QueryParamsType } from '@/types';
 import { useMemo, useState } from 'react';
 import { useDebounce } from '@/hooks';
 import { DEBOUNCE_DELAY, USER_ROLE } from '@/constants';
 import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
-import Table from '@/ui/Table';
-import Modal from '@/ui/Modal';
+import PHUTable from '@/ui/PHUTable';
+import PHUModal from '@/ui/PHUModal';
 import { Button, Tag, Tooltip } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useDeleteUserMutation, useUsersQuery } from '@/redux/apis/userApi';
@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setDefault, setFilter, setSort, setUserId } from '@/redux/slices/userSlice';
 import { RootState } from '@/redux';
 import { DeleteOutlined, SafetyCertificateOutlined, ReloadOutlined } from '@ant-design/icons';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { IUser } from '@/types/user';
 import { SorterResult } from 'antd/es/table/interface';
 import RoleFilter from './filter-options/RoleFilter';
@@ -186,14 +186,14 @@ const ViewUsers = () => {
 				<RoleFilter />
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</Button>
+						</PHUButton>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<Table
+			<PHUTable
 				loading={isLoading}
 				columns={columns}
 				dataSource={users}
@@ -204,16 +204,16 @@ const ViewUsers = () => {
 				onChange={onChange}
 			/>
 
-			<Modal
+			<PHUModal
 				title="remove user"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteUserHandler(userState.userId as string)}
 			>
 				<p className="my-5">Do you want to remove this user?</p>
-			</Modal>
+			</PHUModal>
 
-			<Drawer
+			<PHUDrawer
 				open={openPermissionDrawer}
 				title="View all permissions"
 				width={650}
@@ -223,7 +223,7 @@ const ViewUsers = () => {
 				}}
 			>
 				<ViewAllPermissions />
-			</Drawer>
+			</PHUDrawer>
 		</>
 	);
 };

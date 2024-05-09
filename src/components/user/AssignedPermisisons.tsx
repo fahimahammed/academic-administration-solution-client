@@ -2,8 +2,8 @@ import { RootState } from '@/redux';
 import { useRemovePermissionMutation, useUserAssignedPermissionQuery } from '@/redux/apis/userApi';
 import { logger } from '@/services';
 import { IError, IPermission, QueryParamsType } from '@/types';
-import { PopConfirm } from '@/ui';
-import Table from '@/ui/Table';
+import { PHUPopConfirm } from '@/ui';
+import PHUTable from '@/ui/PHUTable';
 import { notifyError } from '@/ui/ToastNotification';
 import { Button } from 'antd';
 import { ColumnsType } from 'antd/es/table';
@@ -53,7 +53,7 @@ function AssignedPermisisons() {
 				logger.log(data);
 				return (
 					<>
-						<PopConfirm
+						<PHUPopConfirm
 							placement="bottom"
 							title="Remove permission"
 							description="want to remove this permission?"
@@ -64,7 +64,7 @@ function AssignedPermisisons() {
 							<Button htmlType="button" type="primary" danger>
 								remove
 							</Button>
-						</PopConfirm>
+						</PHUPopConfirm>
 					</>
 				);
 			},
@@ -78,7 +78,7 @@ function AssignedPermisisons() {
 
 	return (
 		<>
-			<Table
+			<PHUTable
 				loading={isLoading}
 				columns={columns}
 				dataSource={permissions}

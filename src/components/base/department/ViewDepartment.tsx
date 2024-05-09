@@ -7,11 +7,11 @@ import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tooltip } from 'antd';
-import Modal from '@/ui/Modal';
-import Table from '@/ui/Table';
+import PHUModal from '@/ui/PHUModal';
+import PHUTable from '@/ui/PHUTable';
 import LinkButton from '@/ui/LinkButton';
 import { DeleteOutlined, EditOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { useDeleteDepartmentMutation, useDepartmentsQuery } from '@/redux/apis/departmentApi';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { SorterResult } from 'antd/es/table/interface';
@@ -154,14 +154,14 @@ const ViewDepartment = ({ base }: { base: string }) => {
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</Button>
+						</PHUButton>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<Table
+			<PHUTable
 				loading={isLoading}
 				columns={columns}
 				dataSource={departments}
@@ -172,14 +172,14 @@ const ViewDepartment = ({ base }: { base: string }) => {
 				onChange={onChange}
 			/>
 
-			<Modal
+			<PHUModal
 				title="remove department"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteDepartmentHandler(departmentId)}
 			>
 				<p className="my-5">Do you want to remove this department?</p>
-			</Modal>
+			</PHUModal>
 		</>
 	);
 };

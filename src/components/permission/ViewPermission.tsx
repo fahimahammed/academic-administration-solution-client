@@ -8,12 +8,12 @@ import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { useDeletePermissionMutation, usePermissionsQuery } from '@/redux/apis/permissionApi';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { ColumnsType } from 'antd/es/table';
-import Table from '@/ui/Table';
-import Modal from '@/ui/Modal';
+import Table from '@/ui/PHUTable';
+import Modal from '@/ui/PHUModal';
 import { Button, Tooltip } from 'antd';
 import LinkButton from '@/ui/LinkButton';
 import { DeleteOutlined, EditOutlined, EyeOutlined, ReloadOutlined } from '@ant-design/icons';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 
 const ViewPermissions = () => {
 	const [page, setPage] = useState<number>(1);
@@ -139,9 +139,9 @@ const ViewPermissions = () => {
 				</LinkButton>
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</Button>
+						</PHUButton>
 					</Tooltip>
 				) : null}
 			</ActionBar>

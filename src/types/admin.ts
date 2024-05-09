@@ -1,9 +1,11 @@
 import { RcFile } from 'antd/es/upload';
-import { IBaseUser, Name } from './common';
+import { IBaseUser } from './common';
 
 export interface IAdmin extends IBaseUser {
 	id: string;
-	name: Name & { id: string };
+	firstName: string;
+	lastName: string;
+	middleName: string;
 	designation: string;
 	createdAt: string;
 	updatedAt: string;

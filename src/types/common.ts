@@ -1,14 +1,10 @@
 import { RcFile } from 'antd/es/upload';
 import { ReactElement, ReactNode } from 'react';
 
-export interface Name {
+export interface IBaseUser {
 	firstName: string;
 	lastName: string;
 	middleName: string;
-}
-
-export interface IBaseUser {
-	name: Name;
 	dateOfBirth: string;
 	gender: string;
 	bloodGroup: string;
@@ -17,7 +13,6 @@ export interface IBaseUser {
 	emergencyContactNo: string;
 	presentAddress: string;
 	permanentAddress: string;
-	department: string;
 }
 
 export type ResponseSccessType = {

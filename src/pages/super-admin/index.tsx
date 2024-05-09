@@ -5,8 +5,8 @@ import { NextPage } from 'next';
 const SuperAdminDashboardPage: NextPage = () => {
 	return (
 		<>
-			<Helmet>account profile</Helmet>
-			<p>super admin profile coming soon ...</p>
+			<Helmet>Account profile</Helmet>
+			<p>Super Admin</p>
 		</>
 	);
 };

@@ -121,28 +121,28 @@ export const sidebarItems = (role: string) => {
 			icon: <TableOutlined />,
 			key: `/${base}/user`,
 		},
-		{
-			label: 'Manage permission',
-			key: 'manage-permission',
-			icon: <AppstoreOutlined />,
-			children: [
-				{
-					label: <Link href={`/${base}/permission`}>View permissions</Link>,
-					key: `/${base}/permission`,
-				},
-			],
-		},
-		{
-			label: 'Management',
-			key: 'management',
-			icon: <AppstoreOutlined />,
-			children: [
-				{
-					label: <Link href={`/${base}/department`}>Department</Link>,
-					key: `/${base}/department`,
-				},
-			],
-		},
+		// {
+		// 	label: 'Manage permission',
+		// 	key: 'manage-permission',
+		// 	icon: <AppstoreOutlined />,
+		// 	children: [
+		// 		{
+		// 			label: <Link href={`/${base}/permission`}>View permissions</Link>,
+		// 			key: `/${base}/permission`,
+		// 		},
+		// 	],
+		// },
+		// {
+		// 	label: 'Management',
+		// 	key: 'management',
+		// 	icon: <AppstoreOutlined />,
+		// 	children: [
+		// 		{
+		// 			label: <Link href={`/${base}/department`}>Department</Link>,
+		// 			key: `/${base}/department`,
+		// 		},
+		// 	],
+		// },
 	];
 
 	const studentSidebarItems: MenuProps['items'] = [

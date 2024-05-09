@@ -1,4 +1,4 @@
-import { ActionBar, BreadCrumbsComp, Drawer, SearchInput } from '@/ui';
+import { ActionBar, BreadCrumbsComp, PHUDrawer, SearchInput } from '@/ui';
 import { IAdmin, IDepartment, IError, QueryParamsType } from '@/types';
 import { useMemo, useState } from 'react';
 import { useDebounce } from '@/hooks';
@@ -8,11 +8,11 @@ import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { useAdminsQuery, useDeleteAdminMutation } from '@/redux/apis/base-admin/admin/adminApi';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tooltip } from 'antd';
-import Modal from '@/ui/Modal';
-import Table from '@/ui/Table';
+import PHUModal from '@/ui/PHUModal';
+import PHUTable from '@/ui/PHUTable';
 import LinkButton from '@/ui/LinkButton';
 import { DeleteOutlined, EditOutlined, FilterOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/redux';
 import FilterOptions from './fitler-options/FilterOptions';
@@ -202,9 +202,9 @@ const ViewAdmins = () => {
 				</LinkButton>
 
 				<Tooltip title="filter" placement="bottom">
-					<Button onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
+					<PHUButton onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
 						<FilterOutlined />
-					</Button>
+					</PHUButton>
 				</Tooltip>
 
 				{showResetFilterOption ? (
@@ -216,7 +216,7 @@ const ViewAdmins = () => {
 				) : null}
 			</ActionBar>
 
-			<Table
+			<PHUTable
 				loading={isLoading}
 				columns={columns}
 				dataSource={admins}
@@ -227,15 +227,15 @@ const ViewAdmins = () => {
 				onChange={onChange}
 			/>
 
-			<Modal
+			<PHUModal
 				title="remove admin"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteAdminHandler(adminId)}
 			>
 				<p className="my-5">Do you want to remove this admin?</p>
-			</Modal>
-			<Drawer
+			</PHUModal>
+			<PHUDrawer
 				open={openFilterDrawer}
 				title="Filtering options"
 				width={450}
@@ -244,7 +244,7 @@ const ViewAdmins = () => {
 				}}
 			>
 				<FilterOptions />
-			</Drawer>
+			</PHUDrawer>
 		</>
 	);
 };

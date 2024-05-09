@@ -39,7 +39,7 @@ function UserProfileNav() {
 	];
 
 	const image =
-		!data?.profileImage.startsWith('https') || !data?.profileImage.startsWith('http') ? (
+		!data?.profileImage?.startsWith('https') || !data?.profileImage.startsWith('http') ? (
 			<img src="/default-avatar.png" width="150" height="150" alt={''} />
 		) : (
 			<img src={`${data?.profileImage}`} width="150" height="150" alt={''} />

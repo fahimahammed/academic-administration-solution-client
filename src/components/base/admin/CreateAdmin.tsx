@@ -9,10 +9,9 @@ import { useAddAdminWithFormDataMutation } from '@/redux/apis/base-admin/admin/a
 import { parseAdminRequestPayload } from '@/transformer/admin';
 import { AdminPayload, IError } from '@/types';
 import { Col, Row } from 'antd';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import FormDatePicker from '@/components/forms/FormDatePicker';
-import DepartmentField from './DepartmentField';
-import UploadImage from '@/ui/UploadImage';
+import PHUUploadImage from '@/ui/PHUUploadImage';
 import { RcFile } from 'antd/es/upload';
 
 const CreateAdmin = () => {
@@ -46,15 +45,15 @@ const CreateAdmin = () => {
 					<p style={{ fontSize: '18px', fontWeight: '500', margin: '5px 0px' }}>Admin information</p>
 					<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 						<Col span={8} style={{ margin: '10px 0' }}>
-							<FormInput name="admin.name.firstName" label="first name" />
+							<FormInput name="admin.firstName" label="first name" />
 						</Col>
 
 						<Col span={8} style={{ margin: '10px 0' }}>
-							<FormInput name="admin.name.middleName" label="middle name" />
+							<FormInput name="admin.middleName" label="middle name" />
 						</Col>
 
 						<Col span={8} style={{ margin: '10px 0' }}>
-							<FormInput name="admin.name.lastName" label="last name" />
+							<FormInput name="admin.lastName" label="last name" />
 						</Col>
 
 						<Col span={8} style={{ margin: '10px 0' }}>
@@ -65,12 +64,12 @@ const CreateAdmin = () => {
 							<FormSelectField name="admin.gender" label="Gender" options={genderOptions} />
 						</Col>
 
-						<Col span={8} style={{ margin: '10px 0' }}>
+						{/* <Col span={8} style={{ margin: '10px 0' }}>
 							<DepartmentField name="admin.managementDepartment" label="department" />
-						</Col>
+						</Col> */}
 
 						<Col span={8} style={{ margin: '10px 0' }}>
-							<UploadImage name="file" />
+							<PHUUploadImage name="file" />
 						</Col>
 					</Row>
 				</div>
@@ -113,7 +112,7 @@ const CreateAdmin = () => {
 					</Row>
 				</div>
 
-				<Button htmlType="submit">submit</Button>
+				<PHUButton htmlType="submit">submit</PHUButton>
 			</Form>
 		</>
 	);
