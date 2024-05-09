@@ -4,7 +4,7 @@ import { useAcademicFacultiesQuery } from '@/redux/apis/academic/facultyApi';
 import { logger } from '@/services';
 import { IError, SelectOption } from '@/types';
 import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { Col } from 'antd';
 import React from 'react';
@@ -69,9 +69,9 @@ function EditDepartment({ id }: { id: string }) {
 					</div>
 				</Col>
 				<div>
-					<Button htmlType="submit" style={{ margin: '5px 0px' }}>
+					<PHUButton htmlType="submit" style={{ margin: '5px 0px' }}>
 						update
-					</Button>
+					</PHUButton>
 				</div>
 			</Form>
 		</>

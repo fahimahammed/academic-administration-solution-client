@@ -3,7 +3,7 @@ import { useAddAcademicFacultyMutation } from '@/redux/apis/academic/facultyApi'
 import { logger } from '@/services';
 import { IError } from '@/types';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { Col, Row } from 'antd';
 import React from 'react';
@@ -46,9 +46,9 @@ function CreateFaculty() {
 					</Col>
 				</Row>
 				<div>
-					<Button htmlType="submit" style={{ margin: '5px 0px' }}>
+					<PHUButton htmlType="submit" style={{ margin: '5px 0px' }}>
 						add
-					</Button>
+					</PHUButton>
 				</div>
 			</Form>
 		</>

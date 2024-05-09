@@ -1,7 +1,7 @@
 import { Form, FormInput } from '@/components/forms';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
 import { Col, Row } from 'antd';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import CourseScheduleFields from './CourseScheduleFields';
 import { parseOfferedCourseSectionRequestPayload } from '@/transformer/offered-courese.section';
 import { useAddOfferedCourseSectionMutation } from '@/redux/apis/offerdCourseSectionApi';
@@ -97,7 +97,7 @@ const CreateOfferedCourseSection = () => {
 						<div style={{ margin: '10px 0' }}>
 							<FormInput type="number" name="maxCapacity" label="max capacity" />
 						</div>
-						<Button htmlType="submit">add</Button>
+						<PHUButton htmlType="submit">add</PHUButton>
 					</Col>
 					<Col span={15}>
 						<h3 style={{ margin: '0px 20px', textTransform: 'capitalize' }}>course schedules </h3>

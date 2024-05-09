@@ -4,7 +4,7 @@ import React from 'react';
 import AcademicSemester from '../AcademicSemester';
 import AcademicDepartmentField from '../../common-form-field/AcademicDepartmentField';
 import AcademicFacultyField from '../../common-form-field/AcademicFacultyField';
-import UploadImage from '@/ui/UploadImage';
+import UploadImage from '@/ui/PHUUploadImage';
 import { genderOptions } from '@/constants';
 
 export default function StudentInfo() {

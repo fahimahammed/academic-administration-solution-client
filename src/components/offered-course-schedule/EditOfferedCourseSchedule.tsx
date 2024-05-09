@@ -1,7 +1,7 @@
 import { Form, FormSelectField, FormTimePicker } from '@/components/forms';
 import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
 import { Col, Row } from 'antd';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { logger } from '@/services';
 import { OfferedCourseSectionPayload } from '@/types/offered-course-section';
@@ -78,7 +78,7 @@ const EditOfferedCourseSchedule = ({ id }: { id: string }) => {
 						</div>
 					</Col>
 				</Row>
-				<Button htmlType="submit">update</Button>
+				<PHUButton htmlType="submit">update</PHUButton>
 			</Form>
 		</>
 	);

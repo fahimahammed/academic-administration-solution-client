@@ -7,10 +7,10 @@ import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tooltip } from 'antd';
-import Modal from '@/ui/Modal';
-import Table from '@/ui/Table';
+import PHUModal from '@/ui/PHUModal';
+import PHUTable from '@/ui/PHUTable';
 import { DeleteOutlined, EditOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { IAcademicFaculty } from '@/types/academic/faculty';
@@ -175,14 +175,14 @@ const ViewDepartments = () => {
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</Button>
+						</PHUButton>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<Table
+			<PHUTable
 				loading={isLoading}
 				columns={columns}
 				dataSource={academicDepartments}
@@ -193,14 +193,14 @@ const ViewDepartments = () => {
 				onChange={onChange}
 			/>
 
-			<Modal
+			<PHUModal
 				title="remove academic department"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteAcademicDepartmentHandler(academicDepartmentId)}
 			>
 				<p className="my-5">Do you want to remove this academic faculty?</p>
-			</Modal>
+			</PHUModal>
 		</>
 	);
 };

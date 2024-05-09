@@ -1,19 +1,19 @@
 import { useDeleteStudentMutation, useStudentsQuery } from '@/redux/apis/base-admin/student/studentApi';
-import { ActionBar, BreadCrumbsComp, Drawer, SearchInput } from '@/ui';
+import { ActionBar, BreadCrumbsComp, PHUDrawer, SearchInput } from '@/ui';
 import { IError, IStudent, QueryParamsType } from '@/types';
 import { useMemo, useState } from 'react';
 import { useDebounce } from '@/hooks';
 import { DEBOUNCE_DELAY } from '@/constants';
 import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
-import Table from '@/ui/Table';
-import Modal from '@/ui/Modal';
+import Table from '@/ui/PHUTable';
+import Modal from '@/ui/PHUModal';
 import type { ColumnsType } from 'antd/es/table';
 import LinkButton from '@/ui/LinkButton';
 import { Button, Tooltip } from 'antd';
 import { DeleteOutlined, EditOutlined, FilterOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
 import FilterOptions from './filter-options/FilterOptions';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/redux';
 import { setDefault, setSort } from '@/redux/slices/studentSlice';
@@ -202,16 +202,16 @@ const ViewStudents = ({ base }: { base?: string }) => {
 				</LinkButton>
 
 				<Tooltip title="filter" placement="bottom">
-					<Button onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
+					<PHUButton onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
 						<FilterOutlined />
-					</Button>
+					</PHUButton>
 				</Tooltip>
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</Button>
+						</PHUButton>
 					</Tooltip>
 				) : null}
 			</ActionBar>
@@ -238,7 +238,7 @@ const ViewStudents = ({ base }: { base?: string }) => {
 				</div>
 			</Modal>
 
-			<Drawer
+			<PHUDrawer
 				open={openFilterDrawer}
 				title="Filtering options"
 				width={450}
@@ -247,7 +247,7 @@ const ViewStudents = ({ base }: { base?: string }) => {
 				}}
 			>
 				<FilterOptions />
-			</Drawer>
+			</PHUDrawer>
 		</>
 	);
 };

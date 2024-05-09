@@ -1,7 +1,7 @@
 import { Form, FormInput } from '@/components/forms';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
 import { Col, Row } from 'antd';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { logger } from '@/services';
 import { useAddCourseMutation } from '@/redux/apis/courseApi';
@@ -51,7 +51,7 @@ const CreateCourse = () => {
 						</div>
 					</Col>
 				</Row>
-				<Button htmlType="submit">add</Button>
+				<PHUButton htmlType="submit">add</PHUButton>
 			</Form>
 		</>
 	);

@@ -6,12 +6,12 @@ import {
 } from '@/redux/apis/semesterRegistrationApi';
 import { logger } from '@/services';
 import { IError, IGetMyCourseRegistration, IOfferedCourseSchedule, IOfferedCourseSection, ItemProps } from '@/types';
-import Collapse from '@/ui/Collapse';
+import PHUCollapse from '@/ui/PHUCollapse';
 import { Button, Empty } from 'antd';
 import React, { useState } from 'react';
 import { blue } from '@ant-design/colors';
 import { ActionBar } from '@/ui';
-import Modal from '@/ui/Modal';
+import PHUModal from '@/ui/PHUModal';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { useRouter } from 'next/router';
 
@@ -190,7 +190,7 @@ export default function StudentPreRegistration() {
 					<Empty description="no course found" />
 				</div>
 			)}
-			<Collapse items={availableCourses} defaultActiveKey={availableCourses.map(item => item.key)} />
+			<PHUCollapse items={availableCourses} defaultActiveKey={availableCourses.map(item => item.key)} />
 
 			{isAtleastOneCourseTaken && (
 				<div style={{ margin: '10px 0px' }}>
@@ -203,7 +203,7 @@ export default function StudentPreRegistration() {
 				</div>
 			)}
 
-			<Modal
+			<PHUModal
 				title="Confirm registration"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
@@ -213,7 +213,7 @@ export default function StudentPreRegistration() {
 					<b>Warning:</b> After confirming the registration you will not be able to change any courses. So be
 					careful about your changes
 				</p>
-			</Modal>
+			</PHUModal>
 		</>
 	);
 }

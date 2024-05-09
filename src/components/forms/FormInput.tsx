@@ -2,7 +2,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import FormLabel from './FormLabel';
 import { getErrorMessageByProperty } from '@/utils/schema-validation';
 import { red } from '@ant-design/colors';
-import Input from '@/ui/Input';
+import Input from '@/ui/PHUInput';
 
 interface IInput {
 	size?: 'large' | 'small';

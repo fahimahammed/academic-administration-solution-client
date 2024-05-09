@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, FormPasswordField } from '../forms';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
-import Button from '@/ui/Button';
+import Button from '@/ui/PHUButton';
 import { useChangePasswordMutation } from '@/redux/apis/authApi';
 import { IError } from '@/types';
 import { logger } from '@/services';

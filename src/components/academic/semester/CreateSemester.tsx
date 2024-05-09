@@ -1,7 +1,7 @@
 import { Form, FormInput, FormPicker, FormSelectField } from '@/components/forms';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
 import { Col, Row } from 'antd';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { monthOptions } from '@/constants';
 import { useAddAcademicSemesterMutation } from '@/redux/apis/academic/semesterApi';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
@@ -56,7 +56,7 @@ const CreateSemester = () => {
 						</div>
 					</Col>
 				</Row>
-				<Button htmlType="submit">submit</Button>
+				<PHUButton htmlType="submit">submit</PHUButton>
 			</Form>
 		</>
 	);

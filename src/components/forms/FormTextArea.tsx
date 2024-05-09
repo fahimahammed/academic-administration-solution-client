@@ -1,6 +1,6 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import APLabel from './FormLabel';
-import TextArea from '@/ui/TextArea';
+import TextArea from '@/ui/PHUTextArea';
 
 type APTextAreaProps = {
 	name: string;

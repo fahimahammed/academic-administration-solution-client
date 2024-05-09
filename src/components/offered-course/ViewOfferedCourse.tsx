@@ -1,4 +1,4 @@
-import { ActionBar, BreadCrumbsComp, Drawer, SearchInput } from '@/ui';
+import { ActionBar, BreadCrumbsComp, PHUDrawer, SearchInput } from '@/ui';
 import { IError, IOfferedCourse, QueryParamsType } from '@/types';
 import { useMemo, useState } from 'react';
 import { useDebounce } from '@/hooks';
@@ -7,11 +7,11 @@ import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tooltip } from 'antd';
-import Modal from '@/ui/Modal';
-import Table from '@/ui/Table';
+import PHUModal from '@/ui/PHUModal';
+import PHUTable from '@/ui/PHUTable';
 import LinkButton from '@/ui/LinkButton';
 import { DeleteOutlined, EditOutlined, ReloadOutlined, EyeOutlined, FilterOutlined } from '@ant-design/icons';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { SorterResult } from 'antd/es/table/interface';
 import { useDispatch, useSelector } from 'react-redux';
@@ -195,14 +195,14 @@ const ViewOfferedCourse = () => {
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</Button>
+						</PHUButton>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<Table
+			<PHUTable
 				loading={isLoading}
 				columns={columns}
 				dataSource={offeredCourses}
@@ -213,16 +213,16 @@ const ViewOfferedCourse = () => {
 				onChange={onChange}
 			/>
 
-			<Modal
+			<PHUModal
 				title="remove offered course"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteOfferedCourseHandler(offeredCourseId)}
 			>
 				<p className="my-5">Do you want to remove this offered course?</p>
-			</Modal>
+			</PHUModal>
 
-			<Drawer
+			<PHUDrawer
 				open={openFilterDrawer}
 				title="Filtering options"
 				width={450}
@@ -231,7 +231,7 @@ const ViewOfferedCourse = () => {
 				}}
 			>
 				<FilterOptions />
-			</Drawer>
+			</PHUDrawer>
 		</>
 	);
 };

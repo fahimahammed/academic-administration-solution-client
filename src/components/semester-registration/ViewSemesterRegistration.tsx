@@ -7,11 +7,11 @@ import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tooltip } from 'antd';
-import Modal from '@/ui/Modal';
-import Table from '@/ui/Table';
+import PHUModal from '@/ui/PHUModal';
+import PHUTable from '@/ui/PHUTable';
 import LinkButton from '@/ui/LinkButton';
 import { DeleteOutlined, EditOutlined, ReloadOutlined, EyeOutlined, PlayCircleOutlined } from '@ant-design/icons';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { SorterResult } from 'antd/es/table/interface';
 import { useDeleteCourseMutation } from '@/redux/apis/courseApi';
@@ -223,14 +223,14 @@ const ViewSemesterRegistration = () => {
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</Button>
+						</PHUButton>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<Table
+			<PHUTable
 				loading={isLoading}
 				columns={columns}
 				dataSource={semesterRegistrations}
@@ -241,23 +241,23 @@ const ViewSemesterRegistration = () => {
 				onChange={onChange}
 			/>
 
-			<Modal
+			<PHUModal
 				title="remove semester registration"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteSemesterRegistrationHandler(semesterRegistrationId)}
 			>
 				<p className="my-5">Do you want to remove this semester registration?</p>
-			</Modal>
+			</PHUModal>
 
-			<Modal
+			<PHUModal
 				title="start new semester"
 				isOpen={openNewSemeter}
 				closeModal={() => setOpenNewSemeter(false)}
 				handleOk={() => startNewSemesterHandler(semesterRegistrationId)}
 			>
 				<p className="my-5">Do you want to start this semester?</p>
-			</Modal>
+			</PHUModal>
 		</>
 	);
 };

@@ -1,7 +1,7 @@
 import { Form, FormInput } from '@/components/forms';
 import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
 import { Col, Row } from 'antd';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { logger } from '@/services';
 import { useBuildingQuery, useUpdateBuildingMutation } from '@/redux/apis/buildingApi';
@@ -43,7 +43,7 @@ const EditBuilding = ({ id }: { id: string }) => {
 						<FormInput name="title" label="title" />
 					</Col>
 				</Row>
-				<Button htmlType="submit">update</Button>
+				<PHUButton htmlType="submit">update</PHUButton>
 			</Form>
 		</>
 	);

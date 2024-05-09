@@ -1,4 +1,4 @@
-import { ActionBar, BreadCrumbsComp, Drawer, SearchInput } from '@/ui';
+import { ActionBar, BreadCrumbsComp, PHUDrawer, SearchInput } from '@/ui';
 import { IError, IFaculty, QueryParamsType } from '@/types';
 import { useMemo, useState } from 'react';
 import { useDebounce } from '@/hooks';
@@ -6,12 +6,12 @@ import { DEBOUNCE_DELAY } from '@/constants';
 import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { useDeleteFacultyMutation, useFacultiesQuery } from '@/redux/apis/base-admin/faculty/facultyApi';
-import Table from '@/ui/Table';
-import Modal from '@/ui/Modal';
+import PHUTable from '@/ui/PHUTable';
+import PHUModal from '@/ui/PHUModal';
 import LinkButton from '@/ui/LinkButton';
 import { Button, Tooltip } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { DeleteOutlined, EditOutlined, FilterOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/redux';
@@ -193,21 +193,21 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 					<span>create faculty</span>
 				</LinkButton>
 				<Tooltip title="filter" placement="bottom">
-					<Button onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
+					<PHUButton onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
 						<FilterOutlined />
-					</Button>
+					</PHUButton>
 				</Tooltip>
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</Button>
+						</PHUButton>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<Table
+			<PHUTable
 				loading={isLoading}
 				columns={columns}
 				dataSource={faculties}
@@ -218,16 +218,16 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 				onChange={onChange}
 			/>
 
-			<Modal
+			<PHUModal
 				title="remove permission"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteFacultyHandler(facultyId)}
 			>
 				<p className="my-5">Do you want to remove this permission?</p>
-			</Modal>
+			</PHUModal>
 
-			<Drawer
+			<PHUDrawer
 				open={openFilterDrawer}
 				title="Filtering options"
 				width={450}
@@ -236,7 +236,7 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 				}}
 			>
 				<FilterOptions />
-			</Drawer>
+			</PHUDrawer>
 		</>
 	);
 };

@@ -1,7 +1,7 @@
 import { Form, FormInput } from '@/components/forms';
 import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
 import { Col, Row } from 'antd';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { logger } from '@/services';
 import { useCourseQuery, useUpdateCourseMutation } from '@/redux/apis/courseApi';
@@ -50,7 +50,7 @@ const EditCourse = ({ id }: { id: string }) => {
 						<FormInput name="code" label="code" />
 						<FormInput name="credits" label="credits" />
 						<div style={{ margin: '10px 0px' }}>
-							<Button htmlType="submit">update</Button>
+							<PHUButton htmlType="submit">update</PHUButton>
 						</div>
 					</Col>
 

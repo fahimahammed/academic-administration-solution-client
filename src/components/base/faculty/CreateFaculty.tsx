@@ -8,11 +8,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useAddFacultyWithFormDataMutation } from '@/redux/apis/base-admin/faculty/facultyApi';
 import { Col, Row } from 'antd';
 import FormDatePicker from '@/components/forms/FormDatePicker';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { FacultyPayload, IError } from '@/types';
 import AcademicDepartment from '../common-form-field/AcademicDepartmentField';
 import AcademicFacultyField from '../common-form-field/AcademicFacultyField';
-import UploadImage from '@/ui/UploadImage';
+import UploadImage from '@/ui/PHUUploadImage';
 import { parseFacultyRequestPayload } from '@/transformer/faculty';
 import { RcFile } from 'antd/es/upload';
 
@@ -118,7 +118,7 @@ const CreateFaculty = ({ base }: { base?: string }) => {
 					</Row>
 				</div>
 
-				<Button htmlType="submit">submit</Button>
+				<PHUButton htmlType="submit">submit</PHUButton>
 			</Form>
 		</>
 	);

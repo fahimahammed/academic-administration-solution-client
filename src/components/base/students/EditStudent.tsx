@@ -8,7 +8,7 @@ import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
 import { IError, StudentPayload } from '@/types';
 import { Col, Row } from 'antd';
 import FormDatePicker from '@/components/forms/FormDatePicker';
-import Button from '@/ui/Button';
+import Button from '@/ui/PHUButton';
 
 type EditStudentProps = {
 	id: string | string[] | undefined;
