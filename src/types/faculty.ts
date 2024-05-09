@@ -1,12 +1,11 @@
 import { RcFile } from 'antd/es/upload';
-import { IBaseUser, Name } from './common';
+import { IBaseUser } from './common';
 import { ICourse } from './course';
 import { IOfferedCourseSection } from './offered-course-section';
 import { IOfferedCourseSchedule } from './offered-course-schedule';
 
 export interface IFaculty extends IBaseUser {
 	id: string;
-	name: Name & { id: string };
 	designation: string;
 	createdAt: string;
 	updatedAt: string;

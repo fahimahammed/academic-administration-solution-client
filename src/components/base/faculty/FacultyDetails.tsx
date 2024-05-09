@@ -19,10 +19,10 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 					{ label: `${base}`, link: `/${base}` },
 					{ label: 'faculty', link: `/${base}/faculty` },
 					{ label: 'details', link: '' },
-					{ label: data?.id, link: `/${base}/faculty/details/${data?.id}` },
+					{ label: data?.userId, link: `/${base}/faculty/details/${data?.userId}` },
 				]}
 			/>
-			<ActionBar title={`view faculty - ${data?.id}`}></ActionBar>
+			<ActionBar title={`view faculty - ${data?.userId}`}></ActionBar>
 			<div style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '15px', marginBottom: '10px' }}>
 				<Row gutter={14}>
 					<Col span={10}>
@@ -38,7 +38,7 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 								>
 									First Name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.name?.firstName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.firstName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -52,7 +52,7 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 								>
 									Middle Name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.name?.middleName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.middleName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -66,7 +66,7 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 								>
 									Last Name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.name?.lastName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.lastName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -239,7 +239,7 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 						</table>
 					</Col>
 					<Col span={4}>
-						{!data?.profileImage.startsWith('https') || !data?.profileImage.startsWith('http') ? (
+						{!data?.profileImage?.startsWith('https') || !data?.profileImage?.startsWith('http') ? (
 							<Image src="/default-profile.png" width="300" height="300" alt={''} />
 						) : (
 							<Image src={`${data?.profileImage}`} width="300" height="300" alt={''} />

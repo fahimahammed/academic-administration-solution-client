@@ -22,7 +22,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 					{ label: data?.studentId, link: `/${base}/student/details/${data?.id}` },
 				]}
 			/>
-			<ActionBar title={`view student - ${data?.id}`}></ActionBar>
+			<ActionBar title={`view student - ${data?.userId}`}></ActionBar>
 			<div style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '15px', marginBottom: '10px' }}>
 				<Row gutter={14}>
 					<Col span={10}>
@@ -38,7 +38,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 								>
 									First Name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.name?.firstName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.firstName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -52,7 +52,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 								>
 									Middle Name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.name?.middleName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.middleName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -66,7 +66,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 								>
 									Last Name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.name?.lastName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.lastName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -204,20 +204,6 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										textAlign: 'right',
 									}}
 								>
-									Emergency contact no.
-								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.emergencyContactNo}</td>
-							</tr>
-
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
 									present address
 								</td>
 								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.presentAddress}</td>
@@ -248,7 +234,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 								>
 									father name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.guardian?.fatherName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.fatherName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -263,7 +249,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 									father occupation
 								</td>
 								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-									{data?.guardian?.fatherOccupation}
+									{data?.fatherOccupation}
 								</td>
 							</tr>
 
@@ -278,7 +264,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 								>
 									father contact no.
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.guardian?.fatherContactNo}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.fatherContactNo}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -292,7 +278,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 								>
 									mother name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.guardian?.motherName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.motherName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -307,7 +293,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 									mother occupation
 								</td>
 								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-									{data?.guardian?.motherOccupation}
+									{data?.motherOccupation}
 								</td>
 							</tr>
 
@@ -322,21 +308,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 								>
 									mother contact no.
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.guardian?.motherContactNo}</td>
-							</tr>
-
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									guardian address
-								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.guardian?.address}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.motherContactNo}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -350,7 +322,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 								>
 									local guardian name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.localGuardian?.name}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.localGuardianName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -364,7 +336,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 								>
 									local guardian occupation
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.localGuardian?.occupation}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.localGuardianOccupation}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -378,7 +350,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 								>
 									local guardian address
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.localGuardian?.address}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.localGuardianAddress}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -392,7 +364,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 								>
 									local contact no
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.localGuardian?.contactNo}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.localGuardianContactNo}</td>
 							</tr>
 						</table>
 					</Col>

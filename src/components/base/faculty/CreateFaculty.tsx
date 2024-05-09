@@ -47,15 +47,15 @@ const CreateFaculty = ({ base }: { base?: string }) => {
 					<p style={{ fontSize: '18px', fontWeight: '500', margin: '5px 0px' }}>Faculty information</p>
 					<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="faculty.name.firstName" label="first name" />
+							<FormInput name="faculty.firstName" label="first name" />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="faculty.name.middleName" label="middle name" />
+							<FormInput name="faculty.middleName" label="middle name" />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="faculty.name.lastName" label="last name" />
+							<FormInput name="faculty.lastName" label="last name" />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
@@ -66,11 +66,11 @@ const CreateFaculty = ({ base }: { base?: string }) => {
 						</Col>
 
 						<Col span={8} style={{ margin: '10px 0' }}>
-							<AcademicFacultyField name="faculty.academicFaculty" label="academic faculty" />
+							<AcademicFacultyField name="faculty.academicFacultyId" label="academic faculty" />
 						</Col>
 
 						<Col span={8} style={{ margin: '10px 0' }}>
-							<AcademicDepartment name="faculty.academicDepartment" label="academic department" />
+							<AcademicDepartment name="faculty.academicDepartmentId" label="academic department" />
 						</Col>
 
 						<Col span={8} style={{ margin: '10px 0' }}>

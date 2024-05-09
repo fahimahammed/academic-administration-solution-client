@@ -6,8 +6,8 @@ import { useDebounce } from '@/hooks';
 import { DEBOUNCE_DELAY } from '@/constants';
 import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
-import Table from '@/ui/PHUTable';
-import Modal from '@/ui/PHUModal';
+import PHUTable from '@/ui/PHUTable';
+import PHUModal from '@/ui/PHUModal';
 import type { ColumnsType } from 'antd/es/table';
 import LinkButton from '@/ui/LinkButton';
 import { Button, Tooltip } from 'antd';
@@ -93,7 +93,7 @@ const ViewStudents = ({ base }: { base?: string }) => {
 	const columns: ColumnsType<IStudent> = [
 		{
 			title: 'Id',
-			dataIndex: 'studentId',
+			dataIndex: 'userId',
 			sorter: true,
 		},
 		{
@@ -126,7 +126,7 @@ const ViewStudents = ({ base }: { base?: string }) => {
 		},
 		{
 			title: 'Action',
-			dataIndex: 'studentId',
+			dataIndex: 'userId',
 			render: function (data: string) {
 				return (
 					<>
@@ -216,7 +216,7 @@ const ViewStudents = ({ base }: { base?: string }) => {
 				) : null}
 			</ActionBar>
 
-			<Table
+			<PHUTable
 				loading={isLoading}
 				columns={columns}
 				dataSource={students}
@@ -227,7 +227,7 @@ const ViewStudents = ({ base }: { base?: string }) => {
 				onChange={onChange}
 			/>
 
-			<Modal
+			<PHUModal
 				title="remove student"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
@@ -236,7 +236,7 @@ const ViewStudents = ({ base }: { base?: string }) => {
 				<div>
 					<p className="my-5">Do you want to remove this student?</p>
 				</div>
-			</Modal>
+			</PHUModal>
 
 			<PHUDrawer
 				open={openFilterDrawer}

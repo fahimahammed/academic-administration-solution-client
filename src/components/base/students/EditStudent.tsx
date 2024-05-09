@@ -33,36 +33,29 @@ const EditStudent = ({ id, base }: EditStudentProps) => {
 	if (isLoading) return <Spinner />;
 
 	const defaultValue = {
-		name: {
-			firstName: data?.name?.firstName || '',
-			lastName: data?.name?.lastName || '',
-			middleName: data?.name?.middleName || '',
-		},
+		firstName: data?.firstName || '',
+		lastName: data?.lastName || '',
+		middleName: data?.middleName || '',
 		dateOfBirth: data?.dateOfBirth || '',
 		email: data?.email || '',
-		subject: data?.subject || '',
-		department: data?.department || '',
 		contactNo: data?.contactNo || '',
 		emergencyContactNo: data?.emergencyContactNo || '',
 		permanentAddress: data?.permanentAddress || '',
 		presentAddress: data?.presentAddress || '',
 		gender: data?.gender || '',
 		bloodGroup: data?.bloodGroup || '',
-		guardian: {
-			fatherName: data?.guardian?.fatherName || '',
-			fatherOccupation: data?.guardian?.fatherOccupation || '',
-			fatherContactNo: data?.guardian?.fatherContactNo || '',
-			motherName: data?.guardian?.motherName || '',
-			motherOccupation: data?.guardian?.motherOccupation || '',
-			motherContactNo: data?.guardian?.motherContactNo || '',
-			address: data?.guardian?.address || '',
-		},
-		localGuardian: {
-			name: data?.localGuardian?.name || '',
-			occupation: data?.localGuardian?.occupation || '',
-			contactNo: data?.localGuardian?.contactNo || '',
-			address: data?.localGuardian?.address || '',
-		},
+
+		fatherName: data?.fatherName || '',
+		fatherOccupation: data?.fatherOccupation || '',
+		fatherContactNo: data?.fatherContactNo || '',
+		motherName: data?.motherName || '',
+		motherOccupation: data?.motherOccupation || '',
+		motherContactNo: data?.motherContactNo || '',
+
+		localGuardianName: data?.localGuardianName || '',
+		localGuardianOccupation: data?.localGuardianOccupation || '',
+		localGuardianContactNo: data?.localGuardianContactNo || '',
+		localGuardianAddress: data?.localGuardianAddress || '',
 	};
 
 	return (
@@ -82,15 +75,15 @@ const EditStudent = ({ id, base }: EditStudentProps) => {
 					<p style={{ fontSize: '18px', fontWeight: '500', margin: '5px 0px' }}>Student information</p>
 					<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="name.firstName" label="first name" />
+							<FormInput name="firstName" label="first name" />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="name.middleName" label="middle name" />
+							<FormInput name="middleName" label="middle name" />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="name.lastName" label="last name" />
+							<FormInput name="lastName" label="last name" />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
@@ -138,47 +131,43 @@ const EditStudent = ({ id, base }: EditStudentProps) => {
 					<p style={{ fontSize: '18px', fontWeight: '500', margin: '5px 0px' }}>Guardian information</p>
 					<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="guardian.fatherName" label="Father name" />
+							<FormInput name="fatherName" label="Father name" />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="guardian.fatherOccupation" label="Father occupation" />
+							<FormInput name="fatherOccupation" label="Father occupation" />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="guardian.fatherContactNo" label="Father contact no." />
+							<FormInput name="fatherContactNo" label="Father contact no." />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="guardian.motherName" label="Mother name" />
+							<FormInput name="motherName" label="Mother name" />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="guardian.motherOccupation" label="Mother occupation" />
+							<FormInput name="motherOccupation" label="Mother occupation" />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="guardian.motherContactNo" label="Mother contact no." />
+							<FormInput name="motherContactNo" label="Mother contact no." />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="guardian.address" label="Address" />
+							<FormInput name="localGuardianName" label="Local gurdian name" />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="localGuardian.name" label="Local gurdian name" />
+							<FormInput name="localGuardianOccupation" label="Local gurdian occupation" />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="localGuardian.occupation" label="Local gurdian occupation" />
+							<FormInput name="localGuardianContactNo" label="Local gurdian contact no." />
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="localGuardian.contactNo" label="Local gurdian contact no." />
-						</Col>
-
-						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormInput name="localGuardian.address" label="Local gurdian address" />
+							<FormInput name="localGuardianAddress" label="Local gurdian address" />
 						</Col>
 					</Row>
 				</div>
