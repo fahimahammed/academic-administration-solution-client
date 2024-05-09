@@ -3,7 +3,7 @@ import { COMMON_ROUTES } from '@/constants';
 import { useResetPasswordMutation } from '@/redux/apis/authApi';
 import { logger } from '@/services';
 import { IError } from '@/types';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -37,16 +37,17 @@ function ResetPassword({ id, token }: FormData) {
 	};
 
 	return (
-		<div style={{ margin: '100px 0', display: 'flex', justifyContent: 'center' }}>
+		<div style={{ margin: '0', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 			<Form onSubmit={onSubmit} defaultValues={defaultValues}>
-				<h3>reset password</h3>
+				<h1>Reset Password</h1>
+				<p style={{ marginBottom: '20px', color: 'gray' }}>Enter your new password.</p>
 				<div style={{ margin: '5px 0' }}>
-					<FormInput type="text" name="id" label="User Id" />
+					<FormInput type="text" size='large' name="id" label="User Id" />
 				</div>
 				<div style={{ margin: '5px 0' }}>
-					<FormPasswordField name="newPassword" label="New password" />
+					<FormPasswordField size='large' name="newPassword" label="New password" />
 				</div>
-				<Button htmlType="submit">submit</Button>
+				<PHUButton style={{ marginTop: '10px' }} size='large' htmlType="submit">Set new Password</PHUButton>
 			</Form>
 		</div>
 	);
