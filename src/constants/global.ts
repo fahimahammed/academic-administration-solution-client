@@ -3,10 +3,10 @@ export const DOTS = -1;
 export const defaultTablePageSize = [10, 20, 50, 100] as number[];
 
 export enum USER_ROLE {
-	ADMIN = 'admin',
-	SUPER_ADMIN = 'super_admin',
-	STUDENT = 'student',
-	FACULTY = 'faculty',
+	ADMIN = 'ADMIN',
+	SUPER_ADMIN = 'SUPER_ADMIN',
+	STUDENT = 'STUDENT',
+	FACULTY = 'FACULTY',
 }
 
 export enum START_BASE_ROUTES {

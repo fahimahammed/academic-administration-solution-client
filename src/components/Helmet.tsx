@@ -4,7 +4,7 @@ export default function Helmet({ children }: { children: React.ReactNode | null 
 	return (
 		<>
 			<Head>
-				<title>PH University {children ? `- ${children}` : null}</title>
+				<title>Academic Administration Solution {children ? `- ${children}` : null}</title>
 			</Head>
 		</>
 	);
