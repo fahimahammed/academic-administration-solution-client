@@ -1,0 +1,11 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.example {
+	margin: 10px 0;
+	margin-bottom: 10px;
+	padding: 20px 30px;
+	text-align: center;
+}

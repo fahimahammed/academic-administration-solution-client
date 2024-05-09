@@ -1,0 +1,22 @@
+{
+	"plugins": ["@typescript-eslint", "unused-imports", "simple-import-sort"],
+	"extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
+
+	"rules": {
+		"unused-imports/no-unused-imports": "error",
+		"@typescript-eslint/no-unused-vars": "error",
+		"no-extra-boolean-cast": 0,
+		"prefer-const": "off",
+		"max-len": [
+			"error",
+			{
+				"code": 1000
+			}
+		],
+		"no-console": ["error", { "allow": ["info", "warn", "error"] }],
+		"@typescript-eslint/no-empty-function": 0,
+		"@typescript-eslint/no-empty-interface": "off",
+		"@typescript-eslint/no-var-requires": 0,
+		"@typescript-eslint/no-unsafe-return": 0
+	}
+}

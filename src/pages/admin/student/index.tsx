@@ -1,0 +1,15 @@
+import { NextPage } from 'next';
+import withLayout from '@/components/layouts/withLayout';
+import { Helmet } from '@/components';
+import { ViewStudents } from '@/components/base/students';
+
+const ViewStudentPage: NextPage = () => {
+	return (
+		<>
+			<Helmet>view students</Helmet>
+			<ViewStudents base="admin" />
+		</>
+	);
+};
+
+export default withLayout(ViewStudentPage);
