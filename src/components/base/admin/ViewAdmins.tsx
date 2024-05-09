@@ -1,5 +1,5 @@
 import { ActionBar, BreadCrumbsComp, PHUDrawer, SearchInput } from '@/ui';
-import { IAdmin, IDepartment, IError, QueryParamsType } from '@/types';
+import { IAdmin, IError, QueryParamsType } from '@/types';
 import { useMemo, useState } from 'react';
 import { useDebounce } from '@/hooks';
 import { DEBOUNCE_DELAY } from '@/constants';
@@ -35,7 +35,6 @@ const ViewAdmins = () => {
 		return (
 			!!adminState.filterOptions.gender ||
 			!!adminState.filterOptions.bloodGroup ||
-			!!adminState.filterOptions.managementDepartment ||
 			!!adminState.sortBy ||
 			!!adminState.sortOrder ||
 			!!searchTerm
@@ -43,7 +42,6 @@ const ViewAdmins = () => {
 	}, [
 		adminState.filterOptions.bloodGroup,
 		adminState.filterOptions.gender,
-		adminState.filterOptions.managementDepartment,
 		adminState.sortBy,
 		adminState.sortOrder,
 		searchTerm,
@@ -53,7 +51,7 @@ const ViewAdmins = () => {
 	query['page'] = page;
 	query['gender'] = adminState.filterOptions.gender;
 	query['bloodGroup'] = adminState.filterOptions.bloodGroup;
-	query['managementDepartment'] = adminState.filterOptions.managementDepartment;
+	//query['managementDepartment'] = adminState.filterOptions.managementDepartment;
 	query['sortOrder'] = adminState.sortOrder;
 	query['sortBy'] = adminState.sortBy;
 
@@ -87,12 +85,12 @@ const ViewAdmins = () => {
 	const columns: ColumnsType<IAdmin> = [
 		{
 			title: 'Id',
-			dataIndex: 'id',
+			dataIndex: 'userId',
 			sorter: true,
 		},
 		{
 			title: 'Name',
-			dataIndex: 'name',
+			dataIndex: '',
 			render: function (data: Record<string, string>) {
 				const fullName = `${data?.firstName} ${data?.middleName} ${data?.lastName}`;
 				return <>{fullName}</>;
@@ -101,13 +99,6 @@ const ViewAdmins = () => {
 		{
 			title: 'Email',
 			dataIndex: 'email',
-		},
-		{
-			title: 'Department',
-			dataIndex: 'managementDepartment',
-			render: function (data: IDepartment) {
-				return <>{data?.title}</>;
-			},
 		},
 		{
 			title: 'Designation',
@@ -127,7 +118,7 @@ const ViewAdmins = () => {
 		},
 		{
 			title: 'Action',
-			dataIndex: 'id',
+			dataIndex: 'userId',
 			render: function (data: string) {
 				return (
 					<>

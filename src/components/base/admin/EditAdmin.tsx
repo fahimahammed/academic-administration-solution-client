@@ -7,8 +7,7 @@ import { parsedAdminUpdateRequestPayload } from '@/transformer/admin';
 import { useAdminQuery, useUpdateAdminMutation } from '@/redux/apis/base-admin/admin/adminApi';
 import { Col, Row } from 'antd';
 import FormDatePicker from '@/components/forms/FormDatePicker';
-import Button from '@/ui/Button';
-import DepartmentField from './DepartmentField';
+import PHUButton from '@/ui/PHUButton';
 import { AdminPayload, IError } from '@/types';
 
 type EditStudentProps = {
@@ -33,22 +32,19 @@ const EditAdmin = ({ id }: EditStudentProps) => {
 	if (isLoading) return <Spinner />;
 
 	const defaultValues = {
-		name: {
-			firstName: data?.name?.firstName || '',
-			lastName: data?.name?.lastName || '',
-			middleName: data?.name?.middleName || '',
-		},
+
+		firstName: data?.firstName || '',
+		lastName: data?.lastName || '',
+		middleName: data?.middleName || '',
 		dateOfBirth: data?.dateOfBirth || '',
 		email: data?.email || '',
 		designation: data?.designation || '',
-		department: data?.department || '',
 		contactNo: data?.contactNo || '',
 		emergencyContactNo: data?.emergencyContactNo || '',
 		permanentAddress: data?.permanentAddress || '',
 		presentAddress: data?.presentAddress || '',
 		bloodGroup: data?.bloodGroup || '',
 		gender: data?.gender || '',
-		managementDepartment: data?.managementDepartment?.id || '',
 	};
 
 	return (
@@ -58,25 +54,25 @@ const EditAdmin = ({ id }: EditStudentProps) => {
 					{ label: 'super-admin', link: '/super-admin' },
 					{ label: 'admin', link: '/super-admin/admin' },
 					{ label: 'edit', link: '' },
-					{ label: data?.id, link: `/super-admin/admin/edit/${data?.id}` },
+					{ label: data?.userId, link: `/super-admin/admin/edit/${data?.userId}` },
 				]}
 			/>
-			<ActionBar title={`edit admin - ${data?.id}`}></ActionBar>
+			<ActionBar title={`edit admin - ${data?.userId}`}></ActionBar>
 			<Form onSubmit={studentOnSubmit} defaultValues={defaultValues}>
 				{/* admin information */}
 				<div style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '15px', marginBottom: '10px' }}>
 					<p style={{ fontSize: '18px', fontWeight: '500', margin: '5px 0px' }}>Admin information</p>
 					<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 						<Col span={8} style={{ margin: '10px 0' }}>
-							<FormInput name="name.firstName" label="first name" />
+							<FormInput name="firstName" label="first name" />
 						</Col>
 
 						<Col span={8} style={{ margin: '10px 0' }}>
-							<FormInput name="name.middleName" label="middle name" />
+							<FormInput name="middleName" label="middle name" />
 						</Col>
 
 						<Col span={8} style={{ margin: '10px 0' }}>
-							<FormInput name="name.lastName" label="last name" />
+							<FormInput name="lastName" label="last name" />
 						</Col>
 
 						<Col span={8} style={{ margin: '10px 0' }}>
@@ -102,16 +98,16 @@ const EditAdmin = ({ id }: EditStudentProps) => {
 						</Col>
 
 						<Col span={6} style={{ margin: '10px 0' }}>
-							<FormDatePicker name="dateOfBirth" label="Date of birth" />
+							<FormDatePicker name="dateOfBirth" label="Date of Birth" />
 						</Col>
 
 						<Col span={8} style={{ margin: '10px 0' }}>
 							<FormSelectField name="bloodGroup" label="Blood group" options={bloodGroupOptions} />
 						</Col>
 
-						<Col span={8} style={{ margin: '10px 0' }}>
+						{/* <Col span={8} style={{ margin: '10px 0' }}>
 							<DepartmentField name="managementDepartment" label="department" />
-						</Col>
+						</Col> */}
 
 						<Col span={8} style={{ margin: '10px 0' }}>
 							<FormInput name="designation" label="Designation" />
@@ -127,7 +123,7 @@ const EditAdmin = ({ id }: EditStudentProps) => {
 					</Row>
 				</div>
 
-				<Button htmlType="submit">update</Button>
+				<PHUButton htmlType="submit">update</PHUButton>
 			</Form>
 		</>
 	);

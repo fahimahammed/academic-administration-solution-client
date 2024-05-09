@@ -19,10 +19,10 @@ const AdminDetails = ({ id }: EditStudentProps) => {
 					{ label: `super-admin`, link: `/super-admin` },
 					{ label: 'admin', link: `/super-admin/admin` },
 					{ label: 'details', link: '' },
-					{ label: data?.id, link: `/super-admin/admin/details/${data?.id}` },
+					{ label: data?.userId, link: `/super-admin/admin/details/${data?.userId}` },
 				]}
 			/>
-			<ActionBar title={`view admin - ${data?.id}`}></ActionBar>
+			<ActionBar title={`view admin - ${data?.userId}`}></ActionBar>
 			<div style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '15px', marginBottom: '10px' }}>
 				<Row gutter={14}>
 					<Col span={10}>
@@ -38,7 +38,7 @@ const AdminDetails = ({ id }: EditStudentProps) => {
 								>
 									First Name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.name?.firstName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.firstName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -52,7 +52,7 @@ const AdminDetails = ({ id }: EditStudentProps) => {
 								>
 									Middle Name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.name?.middleName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.middleName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -66,23 +66,7 @@ const AdminDetails = ({ id }: EditStudentProps) => {
 								>
 									Last Name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.name?.lastName}</td>
-							</tr>
-
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									management department
-								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-									{data?.managementDepartment?.title}
-								</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.lastName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -167,20 +151,6 @@ const AdminDetails = ({ id }: EditStudentProps) => {
 									Contact no.
 								</td>
 								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.contactNo}</td>
-							</tr>
-
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									Emergency contact no.
-								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.emergencyContactNo}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>

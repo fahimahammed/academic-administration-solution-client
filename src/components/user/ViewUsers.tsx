@@ -71,7 +71,7 @@ const ViewUsers = () => {
 	const columns: ColumnsType<IUser> = [
 		{
 			title: 'Id',
-			dataIndex: 'id',
+			dataIndex: 'userId',
 			sorter: true,
 		},
 		{
@@ -84,7 +84,7 @@ const ViewUsers = () => {
 
 						{data === USER_ROLE.SUPER_ADMIN ? <Tag color="cyan">{data}</Tag> : null}
 
-						{data === USER_ROLE.STUDENT ? <Tag color="volcano">{data}</Tag> : null}
+						{data === USER_ROLE.STUDENT ? <Tag color="gray">{data}</Tag> : null}
 
 						{data === USER_ROLE.FACULTY ? <Tag color="magenta">{data}</Tag> : null}
 					</>
@@ -95,7 +95,7 @@ const ViewUsers = () => {
 			title: 'Password change needed',
 			dataIndex: 'needsPasswordChange',
 			render: function (data: boolean) {
-				return <>{data ? <Tag color="green">Required</Tag> : <Tag color="red">Not required</Tag>}</>;
+				return <>{data ? <Tag color="red">Required</Tag> : <Tag color="green">Not required</Tag>}</>;
 			},
 		},
 		{
