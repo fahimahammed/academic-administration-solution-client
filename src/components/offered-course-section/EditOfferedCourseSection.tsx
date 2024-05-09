@@ -1,7 +1,7 @@
 import { Form, FormInput } from '@/components/forms';
 import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
 import { Col, Row } from 'antd';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { parseOfferedCourseSectionRequestPayload } from '@/transformer/offered-courese.section';
 import { useOfferedCourseSectionQuery, useUpdateOfferedCourseSectionMutation } from '@/redux/apis/offerdCourseSectionApi';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
@@ -55,7 +55,7 @@ const CreateOfferedCourseSection = ({ id }: { id: string }) => {
 						<div style={{ margin: '10px 0' }}>
 							<FormInput name="maxCapacity" label="max capacity" />
 						</div>
-						<PHUButton htmlType="submit">update</PHUButton>
+						<Button htmlType="submit">update</Button>
 					</Col>
 				</Row>
 			</Form>

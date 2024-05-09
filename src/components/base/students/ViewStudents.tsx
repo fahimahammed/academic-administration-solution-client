@@ -1,19 +1,19 @@
 import { useDeleteStudentMutation, useStudentsQuery } from '@/redux/apis/base-admin/student/studentApi';
-import { ActionBar, BreadCrumbsComp, PHUDrawer, SearchInput } from '@/ui';
+import { ActionBar, BreadCrumbsComp, Drawer, SearchInput } from '@/ui';
 import { IError, IStudent, QueryParamsType } from '@/types';
 import { useMemo, useState } from 'react';
 import { useDebounce } from '@/hooks';
 import { DEBOUNCE_DELAY } from '@/constants';
 import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
-import PHUTable from '@/ui/PHUTable';
-import PHUModal from '@/ui/PHUModal';
+import Table from '@/ui/Table';
+import Modal from '@/ui/Modal';
 import type { ColumnsType } from 'antd/es/table';
-import PHULinkButton from '@/ui/LinkButton';
+import LinkButton from '@/ui/LinkButton';
 import { Button, Tooltip } from 'antd';
 import { DeleteOutlined, EditOutlined, FilterOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
 import FilterOptions from './filter-options/FilterOptions';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/redux';
 import { setDefault, setSort } from '@/redux/slices/studentSlice';
@@ -130,19 +130,19 @@ const ViewStudents = ({ base }: { base?: string }) => {
 			render: function (data: string) {
 				return (
 					<>
-						<PHULinkButton
+						<LinkButton
 							link={`/${base}/student/details/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EyeOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
-						<PHULinkButton
+						<LinkButton
 							link={`/${base}/student/edit/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EditOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
 						<Button
 							type="primary"
@@ -191,7 +191,7 @@ const ViewStudents = ({ base }: { base?: string }) => {
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
 					value={searchTerm}
 				/>
-				<PHULinkButton
+				<LinkButton
 					link={`/${base}/student/create`}
 					customStyle={{
 						marginLeft: 'auto',
@@ -199,24 +199,24 @@ const ViewStudents = ({ base }: { base?: string }) => {
 					}}
 				>
 					<span>create student</span>
-				</PHULinkButton>
+				</LinkButton>
 
 				<Tooltip title="filter" placement="bottom">
-					<PHUButton onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
+					<Button onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
 						<FilterOutlined />
-					</PHUButton>
+					</Button>
 				</Tooltip>
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable
+			<Table
 				loading={isLoading}
 				columns={columns}
 				dataSource={students}
@@ -227,7 +227,7 @@ const ViewStudents = ({ base }: { base?: string }) => {
 				onChange={onChange}
 			/>
 
-			<PHUModal
+			<Modal
 				title="remove student"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
@@ -236,9 +236,9 @@ const ViewStudents = ({ base }: { base?: string }) => {
 				<div>
 					<p className="my-5">Do you want to remove this student?</p>
 				</div>
-			</PHUModal>
+			</Modal>
 
-			<PHUDrawer
+			<Drawer
 				open={openFilterDrawer}
 				title="Filtering options"
 				width={450}
@@ -247,7 +247,7 @@ const ViewStudents = ({ base }: { base?: string }) => {
 				}}
 			>
 				<FilterOptions />
-			</PHUDrawer>
+			</Drawer>
 		</>
 	);
 };

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { CSSProperties, ReactNode } from 'react';
 import { purple } from '@ant-design/colors';
 
-function PHULinkButton({
+function LinkButton({
 	link,
 	customStyle,
 	children,
@@ -17,6 +17,7 @@ function PHULinkButton({
 				href={link}
 				style={{
 					background: purple.primary,
+					padding: '1rem',
 					color: '#fff',
 					borderRadius: '5px',
 					textDecoration: 'none',
@@ -29,4 +30,4 @@ function PHULinkButton({
 	);
 }
 
-export default PHULinkButton;
+export default LinkButton;

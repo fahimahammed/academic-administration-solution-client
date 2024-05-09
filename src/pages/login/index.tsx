@@ -10,7 +10,7 @@ import { getFromLocalStorage } from '@/utils/local-storage';
 import { COMMON_ROUTES, START_BASE_ROUTES, USER_ROLE, authKey } from '@/constants';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import Link from 'next/link';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { Col, Row } from 'antd';
 import { Form, FormInput, FormPasswordField } from '@/components/forms';
 import { useAdminLoginMutation } from '@/redux/apis/authApi';
@@ -111,7 +111,7 @@ export default function StudentLoginPage() {
 							</div>
 						</div>
 
-						<PHUButton htmlType="submit">Login</PHUButton>
+						<Button htmlType="submit">Login</Button>
 					</Form>
 				</Col>
 			</Row>

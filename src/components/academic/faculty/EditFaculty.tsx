@@ -3,7 +3,7 @@ import { useAcademicFacultyQuery, useUpdateAcademicFacultyMutation } from '@/red
 import { logger } from '@/services';
 import { IError } from '@/types';
 import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { Col, Row } from 'antd';
 import React from 'react';
@@ -53,9 +53,9 @@ function EditFaculty({ id }: { id: string }) {
 					</Col>
 				</Row>
 				<div>
-					<PHUButton htmlType="submit" style={{ margin: '5px 0px' }}>
+					<Button htmlType="submit" style={{ margin: '5px 0px' }}>
 						update
-					</PHUButton>
+					</Button>
 				</div>
 			</Form>
 		</>

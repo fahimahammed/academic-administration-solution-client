@@ -8,7 +8,7 @@ import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
 import { IError, StudentPayload } from '@/types';
 import { Col, Row } from 'antd';
 import FormDatePicker from '@/components/forms/FormDatePicker';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 
 type EditStudentProps = {
 	id: string | string[] | undefined;
@@ -183,7 +183,7 @@ const EditStudent = ({ id, base }: EditStudentProps) => {
 					</Row>
 				</div>
 
-				<PHUButton htmlType="submit">update</PHUButton>
+				<Button htmlType="submit">update</Button>
 			</Form>
 		</>
 	);

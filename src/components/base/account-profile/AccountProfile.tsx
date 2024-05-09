@@ -34,7 +34,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 								>
 									First Name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.name?.firstName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.firstName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -48,7 +48,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 								>
 									Middle Name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.name?.middleName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.middleName}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -62,7 +62,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 								>
 									Last Name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.name?.lastName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.lastName}</td>
 							</tr>
 
 							{role === USER_ROLE.STUDENT || role === USER_ROLE.FACULTY ? (
@@ -115,24 +115,6 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 									</td>
 									<td style={{ textAlign: 'left', padding: '5px 15px' }}>
 										{data?.academicSemester?.title}
-									</td>
-								</tr>
-							) : null}
-
-							{role === USER_ROLE.ADMIN ? (
-								<tr style={{ margin: '0px 0px' }}>
-									<td
-										style={{
-											fontWeight: 700,
-											marginRight: '10px',
-											textTransform: 'capitalize',
-											textAlign: 'right',
-										}}
-									>
-										management department
-									</td>
-									<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-										{data?.managementDepartment?.title}
 									</td>
 								</tr>
 							) : null}
@@ -221,20 +203,6 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 									Contact no.
 								</td>
 								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.contactNo}</td>
-							</tr>
-
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									Emergency contact no.
-								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.emergencyContactNo}</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>

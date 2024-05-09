@@ -2,7 +2,7 @@ import { DEBOUNCE_DELAY } from '@/constants';
 import { useDebounce } from '@/hooks';
 import { useCoursesQuery } from '@/redux/apis/courseApi';
 import { CourseUpdatePayload, ICourse, IPreRequisite, QueryParamsType, SelectOption } from '@/types';
-import PHUTable from '@/ui/PHUTable';
+import Table from '@/ui/Table';
 import { Button, Tag, message } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 import React, { useEffect, useMemo, useState } from 'react';
@@ -185,7 +185,7 @@ export default function PreRequisiteCourses({ prerequisites }: PreRequisiteCours
 				}}
 				loading={isLoading}
 			/>
-			<PHUTable columns={columns} dataSource={prerequisiteCourses} />
+			<Table columns={columns} dataSource={prerequisiteCourses} />
 		</>
 	);
 }

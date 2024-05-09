@@ -2,7 +2,7 @@ import { useAddPermissionMutation } from '@/redux/apis/permissionApi';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import React from 'react';
 import { Form } from '../forms';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { FormInput } from '../forms';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
 import { IError } from '@/types';
@@ -37,9 +37,9 @@ function CreatePermission() {
 					<FormInput type="text" name="title" label="Permission title" />
 				</div>
 				<div>
-					<PHUButton htmlType="submit" style={{ margin: '5px 0px' }}>
+					<Button htmlType="submit" style={{ margin: '5px 0px' }}>
 						add
-					</PHUButton>
+					</Button>
 				</div>
 			</Form>
 		</>

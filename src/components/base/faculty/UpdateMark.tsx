@@ -4,7 +4,7 @@ import { logger } from '@/services';
 import { updateStudentMarkRequestPayload } from '@/transformer/faculty';
 import { IError, UpdateMarkPayload } from '@/types';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -51,7 +51,7 @@ export default function UpdateMark() {
 			<Form defaultValues={defaultValues} onSubmit={onSubmit}>
 				<div style={{ margin: '10px 0px' }}>Exam type: {examType}</div>
 				<FormInput name="marks" label="marks" />
-				<PHUButton htmlType="submit">update</PHUButton>
+				<Button htmlType="submit">update</Button>
 			</Form>
 		</>
 	);

@@ -1,4 +1,4 @@
-import { ActionBar, BreadCrumbsComp, PHUDrawer, SearchInput } from '@/ui';
+import { ActionBar, BreadCrumbsComp, Drawer, SearchInput } from '@/ui';
 import { IError, IFaculty, QueryParamsType } from '@/types';
 import { useMemo, useState } from 'react';
 import { useDebounce } from '@/hooks';
@@ -6,12 +6,12 @@ import { DEBOUNCE_DELAY } from '@/constants';
 import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { useDeleteFacultyMutation, useFacultiesQuery } from '@/redux/apis/base-admin/faculty/facultyApi';
-import PHUTable from '@/ui/PHUTable';
-import PHUModal from '@/ui/PHUModal';
-import PHULinkButton from '@/ui/LinkButton';
+import Table from '@/ui/Table';
+import Modal from '@/ui/Modal';
+import LinkButton from '@/ui/LinkButton';
 import { Button, Tooltip } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { DeleteOutlined, EditOutlined, FilterOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/redux';
@@ -122,18 +122,18 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 			render: function (data: string) {
 				return (
 					<>
-						<PHULinkButton
+						<LinkButton
 							link={`/${base}/faculty/details/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EyeOutlined />
-						</PHULinkButton>
-						<PHULinkButton
+						</LinkButton>
+						<LinkButton
 							link={`/${base}/faculty/edit/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EditOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
 						<Button
 							type="primary"
@@ -183,7 +183,7 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 					value={searchTerm}
 				/>
 
-				<PHULinkButton
+				<LinkButton
 					link={`/${base}/faculty/create`}
 					customStyle={{
 						marginLeft: 'auto',
@@ -191,23 +191,23 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 					}}
 				>
 					<span>create faculty</span>
-				</PHULinkButton>
+				</LinkButton>
 				<Tooltip title="filter" placement="bottom">
-					<PHUButton onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
+					<Button onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
 						<FilterOutlined />
-					</PHUButton>
+					</Button>
 				</Tooltip>
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable
+			<Table
 				loading={isLoading}
 				columns={columns}
 				dataSource={faculties}
@@ -218,16 +218,16 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 				onChange={onChange}
 			/>
 
-			<PHUModal
+			<Modal
 				title="remove permission"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteFacultyHandler(facultyId)}
 			>
 				<p className="my-5">Do you want to remove this permission?</p>
-			</PHUModal>
+			</Modal>
 
-			<PHUDrawer
+			<Drawer
 				open={openFilterDrawer}
 				title="Filtering options"
 				width={450}
@@ -236,7 +236,7 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 				}}
 			>
 				<FilterOptions />
-			</PHUDrawer>
+			</Drawer>
 		</>
 	);
 };

@@ -7,8 +7,8 @@ import { USER_ROLE } from '@/constants';
 const AdminDashboardPage: NextPage = () => {
 	return (
 		<>
-			<Helmet>account profile</Helmet>
-			<AccountProfile title="admin information" role={USER_ROLE.ADMIN} />
+			<Helmet>Profile</Helmet>
+			<AccountProfile title="Admin information" role={USER_ROLE.ADMIN} />
 		</>
 	);
 };

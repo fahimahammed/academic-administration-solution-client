@@ -8,12 +8,12 @@ import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { useDeletePermissionMutation, usePermissionsQuery } from '@/redux/apis/permissionApi';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { ColumnsType } from 'antd/es/table';
-import PHUTable from '@/ui/PHUTable';
-import PHUModal from '@/ui/PHUModal';
+import Table from '@/ui/Table';
+import Modal from '@/ui/Modal';
 import { Button, Tooltip } from 'antd';
-import PHULinkButton from '@/ui/LinkButton';
+import LinkButton from '@/ui/LinkButton';
 import { DeleteOutlined, EditOutlined, EyeOutlined, ReloadOutlined } from '@ant-design/icons';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 
 const ViewPermissions = () => {
 	const [page, setPage] = useState<number>(1);
@@ -74,19 +74,19 @@ const ViewPermissions = () => {
 			render: function (data) {
 				return (
 					<>
-						<PHULinkButton
+						<LinkButton
 							link={`/super-admin/permission/details/${data.id}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EyeOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
-						<PHULinkButton
+						<LinkButton
 							link={`/super-admin/permission/edit/${data.id}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EditOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
 						<Button
 							type="primary"
@@ -128,7 +128,7 @@ const ViewPermissions = () => {
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
 					value={searchTerm}
 				/>
-				<PHULinkButton
+				<LinkButton
 					link="/super-admin/permission/create"
 					customStyle={{
 						marginLeft: 'auto',
@@ -136,17 +136,17 @@ const ViewPermissions = () => {
 					}}
 				>
 					<span>create permission</span>
-				</PHULinkButton>
+				</LinkButton>
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable
+			<Table
 				loading={isLoading}
 				columns={columns}
 				dataSource={permissions}
@@ -156,14 +156,14 @@ const ViewPermissions = () => {
 				onPaginationChange={onPaginationChange}
 			/>
 
-			<PHUModal
+			<Modal
 				title="remove permission"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deletePermissionHandler(permissionId)}
 			>
 				<p className="my-5">Do you want to remove this permission?</p>
-			</PHUModal>
+			</Modal>
 		</>
 	);
 };

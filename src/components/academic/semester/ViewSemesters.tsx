@@ -7,11 +7,11 @@ import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tooltip } from 'antd';
-import PHUModal from '@/ui/PHUModal';
-import PHUTable from '@/ui/PHUTable';
-import PHULinkButton from '@/ui/LinkButton';
+import Modal from '@/ui/Modal';
+import Table from '@/ui/Table';
+import LinkButton from '@/ui/LinkButton';
 import { DeleteOutlined, EditOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { useAcademicSemestersQuery, useDeleteAcademicSemesterMutation } from '@/redux/apis/academic/semesterApi';
 import { IAcademicSemester } from '@/types/academic/semester';
 import { formatDateTime } from '@/utils/datetime-converter';
@@ -102,18 +102,18 @@ const ViewSemesters = () => {
 			render: function (data: string) {
 				return (
 					<>
-						<PHULinkButton
+						<LinkButton
 							link={`/admin/academic/semester/details/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EyeOutlined />
-						</PHULinkButton>
-						<PHULinkButton
+						</LinkButton>
+						<LinkButton
 							link={`/admin/academic/semester/edit/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EditOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
 						<Button
 							type="primary"
@@ -164,7 +164,7 @@ const ViewSemesters = () => {
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
 					value={searchTerm}
 				/>
-				<PHULinkButton
+				<LinkButton
 					link="/admin/academic/semester/create"
 					customStyle={{
 						marginLeft: 'auto',
@@ -172,18 +172,18 @@ const ViewSemesters = () => {
 					}}
 				>
 					<span>create semester</span>
-				</PHULinkButton>
+				</LinkButton>
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable
+			<Table
 				loading={isLoading}
 				columns={columns}
 				dataSource={academicSemesters}
@@ -194,14 +194,14 @@ const ViewSemesters = () => {
 				onChange={onChange}
 			/>
 
-			<PHUModal
+			<Modal
 				title="remove academic semester"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteAcademicSemesterHandler(academicSemesterId)}
 			>
 				<p className="my-5">Do you want to remove this academic semester?</p>
-			</PHUModal>
+			</Modal>
 		</>
 	);
 };

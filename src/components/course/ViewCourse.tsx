@@ -7,11 +7,11 @@ import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tooltip } from 'antd';
-import PHUModal from '@/ui/PHUModal';
-import PHUTable from '@/ui/PHUTable';
-import PHULinkButton from '@/ui/LinkButton';
+import Modal from '@/ui/Modal';
+import Table from '@/ui/Table';
+import LinkButton from '@/ui/LinkButton';
 import { DeleteOutlined, EditOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { SorterResult } from 'antd/es/table/interface';
 import { useCoursesQuery, useDeleteCourseMutation } from '@/redux/apis/courseApi';
@@ -92,18 +92,18 @@ const ViewCourse = () => {
 			render: function (data: string) {
 				return (
 					<>
-						<PHULinkButton
+						<LinkButton
 							link={`/admin/course/details/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EyeOutlined />
-						</PHULinkButton>
-						<PHULinkButton
+						</LinkButton>
+						<LinkButton
 							link={`/admin/course/edit/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EditOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
 						<Button
 							type="primary"
@@ -153,7 +153,7 @@ const ViewCourse = () => {
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
 					value={searchTerm}
 				/>
-				<PHULinkButton
+				<LinkButton
 					link="/admin/course/create"
 					customStyle={{
 						marginLeft: 'auto',
@@ -161,18 +161,18 @@ const ViewCourse = () => {
 					}}
 				>
 					<span>create course</span>
-				</PHULinkButton>
+				</LinkButton>
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable
+			<Table
 				loading={isLoading}
 				columns={columns}
 				dataSource={courses}
@@ -183,14 +183,14 @@ const ViewCourse = () => {
 				onChange={onChange}
 			/>
 
-			<PHUModal
+			<Modal
 				title="remove course"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteCourseHandler(courseId)}
 			>
 				<p className="my-5">Do you want to remove this course?</p>
-			</PHUModal>
+			</Modal>
 		</>
 	);
 };

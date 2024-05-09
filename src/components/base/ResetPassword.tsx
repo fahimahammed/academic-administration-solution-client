@@ -3,7 +3,7 @@ import { COMMON_ROUTES } from '@/constants';
 import { useResetPasswordMutation } from '@/redux/apis/authApi';
 import { logger } from '@/services';
 import { IError } from '@/types';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -46,7 +46,7 @@ function ResetPassword({ id, token }: FormData) {
 				<div style={{ margin: '5px 0' }}>
 					<FormPasswordField name="newPassword" label="New password" />
 				</div>
-				<PHUButton htmlType="submit">submit</PHUButton>
+				<Button htmlType="submit">submit</Button>
 			</Form>
 		</div>
 	);

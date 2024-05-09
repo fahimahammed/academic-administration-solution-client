@@ -2,7 +2,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import FormLabel from './FormLabel';
 import { getErrorMessageByProperty } from '@/utils/schema-validation';
 import { red } from '@ant-design/colors';
-import PHUInput from '@/ui/PHUInput';
+import Input from '@/ui/Input';
 
 interface IInput {
 	size?: 'large' | 'small';
@@ -35,7 +35,7 @@ export default function FormInput({ size, type = 'text', name, label = '', value
 				name={name}
 				control={control}
 				render={({ field }) => (
-					<PHUInput
+					<Input
 						type={type}
 						size={size}
 						placeholder={placeholder}

@@ -1,7 +1,7 @@
 import { Form, FormInput } from '@/components/forms';
 import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
 import { Col, Row } from 'antd';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { logger } from '@/services';
 import { useRoomQuery, useUpdateRoomMutation } from '@/redux/apis/roomApi';
@@ -54,7 +54,7 @@ const EditRoom = ({ id }: { id: string }) => {
 						</div>
 					</Col>
 				</Row>
-				<PHUButton htmlType="submit">save</PHUButton>
+				<Button htmlType="submit">save</Button>
 			</Form>
 		</>
 	);

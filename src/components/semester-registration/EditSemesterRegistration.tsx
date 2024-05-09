@@ -1,7 +1,7 @@
 import { Form, FormInput, FormSelectField } from '@/components/forms';
 import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
 import { Col, Row } from 'antd';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { logger } from '@/services';
 import { IError, SemesterRegistrationPayload } from '@/types';
@@ -93,7 +93,7 @@ const EditSemesterRegistration = ({ id }: { id: string }) => {
 						</div>
 					</Col>
 				</Row>
-				<PHUButton htmlType="submit">update</PHUButton>
+				<Button htmlType="submit">update</Button>
 			</Form>
 		</>
 	);

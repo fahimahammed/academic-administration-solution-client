@@ -1,4 +1,4 @@
-import { PHUTab } from '@/ui';
+import { Tab } from '@/ui';
 import { TabsProps } from 'antd';
 import React from 'react';
 import AvailablePermissions from './AvailablePermissions';
@@ -20,7 +20,7 @@ function ViewAllPermissions() {
 
 	return (
 		<>
-			<PHUTab defaultActiveKey="1" items={permissionTabItems} />
+			<Tab defaultActiveKey="1" items={permissionTabItems} />
 		</>
 	);
 }

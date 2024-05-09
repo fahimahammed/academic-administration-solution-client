@@ -1,12 +1,12 @@
 import { ICourse, IFacultyCourse, IOfferedCourseSchedule, IOfferedCourseSection, QueryParamsType } from '@/types';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
-import PHUTable from '@/ui/PHUTable';
+import Table from '@/ui/Table';
 import { Tooltip } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import React, { useMemo } from 'react';
 import { RootState } from '@/redux';
 import { useDispatch, useSelector } from 'react-redux';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { setDefault } from '@/redux/slices/academic/coreSemesterSlice';
 import { ReloadOutlined } from '@ant-design/icons';
 import AcademicSemesterFilter from '../students/filter-options/AcademicSemesterFilter';
@@ -86,7 +86,7 @@ export default function FacultyCourses() {
 							return (
 								<div key={index} style={{ margin: '20px 0px' }}>
 									{coreAcademicSemesterState?.filterOptions?.academicSemesterId ? (
-										<PHUButton
+										<Button
 											onClick={() => {
 												router.push(
 													`/faculty/courses/student?courseId=${data?.course?.id}&offeredCourseSectionId=${el.id}&academicSemesterId=${coreAcademicSemesterState?.filterOptions?.academicSemesterId}`
@@ -94,7 +94,7 @@ export default function FacultyCourses() {
 											}}
 										>
 											view all students
-										</PHUButton>
+										</Button>
 									) : null}
 								</div>
 							);
@@ -122,14 +122,14 @@ export default function FacultyCourses() {
 				<AcademicSemesterFilter />
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '10px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '10px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable loading={isLoading} dataSource={data?.myCourses} columns={columns} showPagination={false} />
+			<Table loading={isLoading} dataSource={data?.myCourses} columns={columns} showPagination={false} />
 		</>
 	);
 }

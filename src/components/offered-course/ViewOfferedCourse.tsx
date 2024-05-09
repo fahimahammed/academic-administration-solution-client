@@ -1,4 +1,4 @@
-import { ActionBar, BreadCrumbsComp, PHUDrawer, SearchInput } from '@/ui';
+import { ActionBar, BreadCrumbsComp, Drawer, SearchInput } from '@/ui';
 import { IError, IOfferedCourse, QueryParamsType } from '@/types';
 import { useMemo, useState } from 'react';
 import { useDebounce } from '@/hooks';
@@ -7,11 +7,11 @@ import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tooltip } from 'antd';
-import PHUModal from '@/ui/PHUModal';
-import PHUTable from '@/ui/PHUTable';
-import PHULinkButton from '@/ui/LinkButton';
+import Modal from '@/ui/Modal';
+import Table from '@/ui/Table';
+import LinkButton from '@/ui/LinkButton';
 import { DeleteOutlined, EditOutlined, ReloadOutlined, EyeOutlined, FilterOutlined } from '@ant-design/icons';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { SorterResult } from 'antd/es/table/interface';
 import { useDispatch, useSelector } from 'react-redux';
@@ -118,18 +118,18 @@ const ViewOfferedCourse = () => {
 			render: function (data: string) {
 				return (
 					<>
-						<PHULinkButton
+						<LinkButton
 							link={`/admin/offered-course/details/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EyeOutlined />
-						</PHULinkButton>
-						<PHULinkButton
+						</LinkButton>
+						<LinkButton
 							link={`/admin/offered-course/edit/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EditOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
 						<Button
 							type="primary"
@@ -177,7 +177,7 @@ const ViewOfferedCourse = () => {
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
 					value={searchTerm}
 				/>
-				<PHULinkButton
+				<LinkButton
 					link="/admin/offered-course/create"
 					customStyle={{
 						marginLeft: 'auto',
@@ -185,24 +185,24 @@ const ViewOfferedCourse = () => {
 					}}
 				>
 					<span>create offered course</span>
-				</PHULinkButton>
+				</LinkButton>
 
 				<Tooltip title="filter" placement="bottom">
-					<PHUButton onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
+					<Button onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
 						<FilterOutlined />
-					</PHUButton>
+					</Button>
 				</Tooltip>
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable
+			<Table
 				loading={isLoading}
 				columns={columns}
 				dataSource={offeredCourses}
@@ -213,16 +213,16 @@ const ViewOfferedCourse = () => {
 				onChange={onChange}
 			/>
 
-			<PHUModal
+			<Modal
 				title="remove offered course"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteOfferedCourseHandler(offeredCourseId)}
 			>
 				<p className="my-5">Do you want to remove this offered course?</p>
-			</PHUModal>
+			</Modal>
 
-			<PHUDrawer
+			<Drawer
 				open={openFilterDrawer}
 				title="Filtering options"
 				width={450}
@@ -231,7 +231,7 @@ const ViewOfferedCourse = () => {
 				}}
 			>
 				<FilterOptions />
-			</PHUDrawer>
+			</Drawer>
 		</>
 	);
 };

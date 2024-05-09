@@ -1,18 +1,18 @@
 import { useMyCoursesQuery } from '@/redux/apis/base-admin/student/coreStudentApi';
 import { ICourse, IMyCourse, QueryParamsType } from '@/types';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
-import PHUTable from '@/ui/PHUTable';
+import Table from '@/ui/Table';
 import { Tooltip } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import React, { useMemo } from 'react';
 import AcademicSemesterFilter from './filter-options/AcademicSemesterFilter';
 import { RootState } from '@/redux';
 import { useDispatch, useSelector } from 'react-redux';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { setDefault } from '@/redux/slices/academic/coreSemesterSlice';
 import { ReloadOutlined } from '@ant-design/icons';
 import { EyeOutlined } from '@ant-design/icons';
-import PHULinkButton from '@/ui/LinkButton';
+import LinkButton from '@/ui/LinkButton';
 
 export default function EnrolledCourses() {
 	const query: Record<string, QueryParamsType> = {};
@@ -74,12 +74,12 @@ export default function EnrolledCourses() {
 			render: function (data: IMyCourse) {
 				return (
 					<>
-						<PHULinkButton
+						<LinkButton
 							link={`/student/courses/marks?academicSemesterId=${data.academicSemesterId}&courseId=${data?.courseId}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EyeOutlined />
-						</PHULinkButton>
+						</LinkButton>
 					</>
 				);
 			},
@@ -103,14 +103,14 @@ export default function EnrolledCourses() {
 				<AcademicSemesterFilter />
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '10px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '10px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable loading={isLoading} dataSource={data?.myCourses} columns={columns} showPagination={false} />
+			<Table loading={isLoading} dataSource={data?.myCourses} columns={columns} showPagination={false} />
 		</>
 	);
 }

@@ -8,11 +8,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useAddFacultyWithFormDataMutation } from '@/redux/apis/base-admin/faculty/facultyApi';
 import { Col, Row } from 'antd';
 import FormDatePicker from '@/components/forms/FormDatePicker';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { FacultyPayload, IError } from '@/types';
 import AcademicDepartment from '../common-form-field/AcademicDepartmentField';
 import AcademicFacultyField from '../common-form-field/AcademicFacultyField';
-import PHUUploadImage from '@/ui/PHUUploadImage';
+import UploadImage from '@/ui/UploadImage';
 import { parseFacultyRequestPayload } from '@/transformer/faculty';
 import { RcFile } from 'antd/es/upload';
 
@@ -74,7 +74,7 @@ const CreateFaculty = ({ base }: { base?: string }) => {
 						</Col>
 
 						<Col span={8} style={{ margin: '10px 0' }}>
-							<PHUUploadImage name="file" />
+							<UploadImage name="file" />
 						</Col>
 					</Row>
 				</div>
@@ -118,7 +118,7 @@ const CreateFaculty = ({ base }: { base?: string }) => {
 					</Row>
 				</div>
 
-				<PHUButton htmlType="submit">submit</PHUButton>
+				<Button htmlType="submit">submit</Button>
 			</Form>
 		</>
 	);

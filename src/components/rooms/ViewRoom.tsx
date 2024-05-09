@@ -7,11 +7,11 @@ import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tooltip } from 'antd';
-import PHUModal from '@/ui/PHUModal';
-import PHUTable from '@/ui/PHUTable';
-import PHULinkButton from '@/ui/LinkButton';
+import Modal from '@/ui/Modal';
+import Table from '@/ui/Table';
+import LinkButton from '@/ui/LinkButton';
 import { DeleteOutlined, EditOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { SorterResult } from 'antd/es/table/interface';
 import { IBuilding } from '@/types/building';
@@ -100,18 +100,18 @@ const ViewRoom = () => {
 			render: function (data: string) {
 				return (
 					<>
-						<PHULinkButton
+						<LinkButton
 							link={`/admin/room/details/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EyeOutlined />
-						</PHULinkButton>
-						<PHULinkButton
+						</LinkButton>
+						<LinkButton
 							link={`/admin/room/edit/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EditOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
 						<Button
 							type="primary"
@@ -160,7 +160,7 @@ const ViewRoom = () => {
 					value={searchTerm}
 				/>
 				<BuildingFilter />
-				<PHULinkButton
+				<LinkButton
 					link="/admin/room/create"
 					customStyle={{
 						// marginLeft: 'auto',
@@ -169,18 +169,18 @@ const ViewRoom = () => {
 					}}
 				>
 					<span>create room</span>
-				</PHULinkButton>
+				</LinkButton>
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable
+			<Table
 				loading={isLoading}
 				columns={columns}
 				dataSource={rooms}
@@ -191,14 +191,14 @@ const ViewRoom = () => {
 				onChange={onChange}
 			/>
 
-			<PHUModal
+			<Modal
 				title="remove room"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteRoomHandler(roomId)}
 			>
 				<p className="my-5">Do you want to remove this room?</p>
-			</PHUModal>
+			</Modal>
 		</>
 	);
 };

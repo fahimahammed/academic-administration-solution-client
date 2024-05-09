@@ -9,10 +9,10 @@ import { useAddAdminWithFormDataMutation } from '@/redux/apis/base-admin/admin/a
 import { parseAdminRequestPayload } from '@/transformer/admin';
 import { AdminPayload, IError } from '@/types';
 import { Col, Row } from 'antd';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import FormDatePicker from '@/components/forms/FormDatePicker';
 import DepartmentField from './DepartmentField';
-import PHUUploadImage from '@/ui/PHUUploadImage';
+import UploadImage from '@/ui/UploadImage';
 import { RcFile } from 'antd/es/upload';
 
 const CreateAdmin = () => {
@@ -70,7 +70,7 @@ const CreateAdmin = () => {
 						</Col>
 
 						<Col span={8} style={{ margin: '10px 0' }}>
-							<PHUUploadImage name="file" />
+							<UploadImage name="file" />
 						</Col>
 					</Row>
 				</div>
@@ -113,7 +113,7 @@ const CreateAdmin = () => {
 					</Row>
 				</div>
 
-				<PHUButton htmlType="submit">submit</PHUButton>
+				<Button htmlType="submit">submit</Button>
 			</Form>
 		</>
 	);

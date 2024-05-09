@@ -5,9 +5,9 @@ import { useDebounce } from '@/hooks';
 import { DEBOUNCE_DELAY, ExamType } from '@/constants';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tag, Tooltip } from 'antd';
-import PHUTable from '@/ui/PHUTable';
+import Table from '@/ui/Table';
 import { ReloadOutlined } from '@ant-design/icons';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { SorterResult } from 'antd/es/table/interface';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,7 +19,7 @@ import {
 import BaseRow from '../base/BaseRow';
 import { setDefault, setSort } from '@/redux/slices/StudentEnrolledCourseMarkSlice';
 import { useRouter } from 'next/router';
-import PHUModal from '@/ui/PHUModal';
+import Modal from '@/ui/Modal';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { logger } from '@/services';
 
@@ -225,9 +225,9 @@ const StudentCourseMarks = () => {
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 
@@ -238,9 +238,9 @@ const StudentCourseMarks = () => {
 							if (el.marks > 0) {
 								return (
 									<Fragment key={index}>
-										<PHUButton size="large" onClick={() => setOpen(true)}>
+										<Button size="large" onClick={() => setOpen(true)}>
 											update final marks
-										</PHUButton>
+										</Button>
 									</Fragment>
 								);
 							}
@@ -248,7 +248,7 @@ const StudentCourseMarks = () => {
 				</div>
 			</ActionBar>
 
-			<PHUTable
+			<Table
 				loading={isLoading}
 				columns={columns}
 				dataSource={studentEnrolledCourseMarks}
@@ -259,7 +259,7 @@ const StudentCourseMarks = () => {
 				onChange={onChange}
 			/>
 
-			<PHUModal
+			<Modal
 				title="final marks"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
@@ -272,7 +272,7 @@ const StudentCourseMarks = () => {
 				}}
 			>
 				<p className="my-5">Do you want to update final marks?</p>
-			</PHUModal>
+			</Modal>
 		</>
 	);
 };

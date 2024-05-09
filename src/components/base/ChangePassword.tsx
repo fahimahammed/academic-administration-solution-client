@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, FormPasswordField } from '../forms';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { useChangePasswordMutation } from '@/redux/apis/authApi';
 import { IError } from '@/types';
 import { logger } from '@/services';
@@ -34,7 +34,7 @@ function ChangePassword() {
 					<div style={{ margin: '10px 0px' }}>
 						<FormPasswordField size="large" name="newPassword" label="New password" />
 					</div>
-					<PHUButton htmlType="submit">submit</PHUButton>
+					<Button htmlType="submit">submit</Button>
 				</Form>
 			</div>
 		</>

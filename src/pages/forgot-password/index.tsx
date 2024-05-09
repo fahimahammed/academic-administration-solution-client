@@ -3,7 +3,7 @@ import { Form, FormInput } from '@/components/forms';
 import { useForgotPasswordMutation } from '@/redux/apis/authApi';
 import { logger } from '@/services';
 import { IError } from '@/types';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 
 function ForgotPasswordPage() {
@@ -27,7 +27,7 @@ function ForgotPasswordPage() {
 					<div style={{ margin: '5px 0' }}>
 						<FormInput name="id" placeholder="enter your id" />
 					</div>
-					<PHUButton htmlType="submit">submit</PHUButton>
+					<Button htmlType="submit">submit</Button>
 				</Form>
 			</div>
 		</>

@@ -1,6 +1,6 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import APLabel from './FormLabel';
-import PHUTextArea from '@/ui/PHUTextArea';
+import TextArea from '@/ui/TextArea';
 
 type APTextAreaProps = {
 	name: string;
@@ -17,7 +17,7 @@ export default function APTextArea({ name, label, rows, value }: APTextAreaProps
 			<Controller
 				name={name}
 				control={control}
-				render={({ field }) => <PHUTextArea rows={rows} field={field} value={value as string} />}
+				render={({ field }) => <TextArea rows={rows} field={field} value={value as string} />}
 			/>
 		</div>
 	);

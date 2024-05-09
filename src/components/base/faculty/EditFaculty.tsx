@@ -7,7 +7,7 @@ import { useFacultyQuery, useUpdateFacultyMutation } from '@/redux/apis/base-adm
 import { parsedFacultyUpdateRequestPayload } from '@/transformer/faculty';
 import { Col, Row } from 'antd';
 import FormDatePicker from '@/components/forms/FormDatePicker';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import AcademicFacultyField from '../common-form-field/AcademicFacultyField';
 import AcademicDepartmentField from '../common-form-field/AcademicDepartmentField';
 import { FacultyPayload, IError } from '@/types';
@@ -135,7 +135,7 @@ const EditFaculty = ({ id, base }: EditStudentProps) => {
 					</Row>
 				</div>
 
-				<PHUButton htmlType="submit">update</PHUButton>
+				<Button htmlType="submit">update</Button>
 			</Form>
 		</>
 	);

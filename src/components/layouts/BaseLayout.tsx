@@ -52,7 +52,7 @@ const BaseLayout = ({ sidebarData, children }: BaseLayoutProps) => {
 						fontSize: '28px',
 					}}
 				>
-					PH
+					AAS
 				</div>
 				<Menu
 					theme="dark"

@@ -25,12 +25,12 @@ export default function PHUTable({
 }: PHUTableProps) {
 	const paginationConfig = showPagination
 		? {
-				pageSize: pageSize,
-				total: totalPages,
-				showSizeChanger: showSizeChanger,
-				onChange: onPaginationChange,
-				pageSizeOptions: defaultTablePageSize,
-		  }
+			pageSize: pageSize,
+			total: totalPages,
+			showSizeChanger: showSizeChanger,
+			onChange: onPaginationChange,
+			pageSizeOptions: defaultTablePageSize,
+		}
 		: false;
 	return (
 		<>

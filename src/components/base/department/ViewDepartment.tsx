@@ -7,11 +7,11 @@ import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tooltip } from 'antd';
-import PHUModal from '@/ui/PHUModal';
-import PHUTable from '@/ui/PHUTable';
-import PHULinkButton from '@/ui/LinkButton';
+import Modal from '@/ui/Modal';
+import Table from '@/ui/Table';
+import LinkButton from '@/ui/LinkButton';
 import { DeleteOutlined, EditOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { useDeleteDepartmentMutation, useDepartmentsQuery } from '@/redux/apis/departmentApi';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { SorterResult } from 'antd/es/table/interface';
@@ -81,18 +81,18 @@ const ViewDepartment = ({ base }: { base: string }) => {
 			render: function (data: string) {
 				return (
 					<>
-						<PHULinkButton
+						<LinkButton
 							link={`/${base}/department/details/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EyeOutlined />
-						</PHULinkButton>
-						<PHULinkButton
+						</LinkButton>
+						<LinkButton
 							link={`/${base}/department/edit/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EditOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
 						<Button
 							type="primary"
@@ -142,7 +142,7 @@ const ViewDepartment = ({ base }: { base: string }) => {
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
 					value={searchTerm}
 				/>
-				<PHULinkButton
+				<LinkButton
 					link="/super-admin/department/create"
 					customStyle={{
 						marginLeft: 'auto',
@@ -150,18 +150,18 @@ const ViewDepartment = ({ base }: { base: string }) => {
 					}}
 				>
 					<span>create department</span>
-				</PHULinkButton>
+				</LinkButton>
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable
+			<Table
 				loading={isLoading}
 				columns={columns}
 				dataSource={departments}
@@ -172,14 +172,14 @@ const ViewDepartment = ({ base }: { base: string }) => {
 				onChange={onChange}
 			/>
 
-			<PHUModal
+			<Modal
 				title="remove department"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteDepartmentHandler(departmentId)}
 			>
 				<p className="my-5">Do you want to remove this department?</p>
-			</PHUModal>
+			</Modal>
 		</>
 	);
 };

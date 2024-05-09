@@ -1,11 +1,11 @@
 import { IFacultyCourseStudent, QueryParamsType } from '@/types';
 import { ActionBar, BreadCrumbsComp, SearchInput } from '@/ui';
-import PHUTable from '@/ui/PHUTable';
+import Table from '@/ui/Table';
 import { Tooltip } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import React, { useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { ReloadOutlined } from '@ant-design/icons';
 import { useFacultyCourseStudentsQuery } from '@/redux/apis/base-admin/faculty/coreFacultyApi';
 import { setDefault } from '@/redux/slices/facultySlice';
@@ -77,7 +77,7 @@ export default function FacultyCourseStudents() {
 			render: function (data: IFacultyCourseStudent) {
 				return (
 					<>
-						<PHUButton
+						<Button
 							onClick={() => {
 								router.push(
 									`/faculty/student-result?studentId=${data?.id}&academicSemesterId=${academicSemesterId}&courseId=${courseId}&offeredCourseSectionId=${offeredCourseSectionId}`
@@ -85,7 +85,7 @@ export default function FacultyCourseStudents() {
 							}}
 						>
 							view marks
-						</PHUButton>
+						</Button>
 					</>
 				);
 			},
@@ -122,14 +122,14 @@ export default function FacultyCourseStudents() {
 				/>
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '10px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '10px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable
+			<Table
 				loading={isLoading}
 				columns={columns}
 				dataSource={data?.myCourseStudents}

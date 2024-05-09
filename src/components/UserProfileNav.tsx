@@ -54,11 +54,11 @@ function UserProfileNav() {
 						<div style={{ display: 'block', marginTop: '2px' }}>
 							<p style={{ padding: 0, lineHeight: 1, marginLeft: '5px' }}>
 								<span>
-									{data?.name?.firstName} {data?.name?.lastName}
+									{data?.firstName} {data?.lastName}
 									{!data && 'super admin'}
 								</span>
 								<br></br>
-								<small style={{ marginBottom: '-10px' }}>{data ? data?.id : '-'}</small>
+								<small style={{ marginBottom: '-10px' }}>{data ? data?.userId : '-'}</small>
 							</p>
 						</div>
 					</span>

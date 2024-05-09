@@ -13,7 +13,7 @@ import { USER_ROLE } from './global';
 
 export const sidebarItems = (role: string) => {
 	const tempRole = role;
-	const base = tempRole.replace('_', '-');
+	const base = tempRole.replace('_', '-').toLowerCase();
 	const defaultSidebarItems: MenuProps['items'] = [
 		{
 			label: 'Profile',
@@ -21,11 +21,11 @@ export const sidebarItems = (role: string) => {
 			icon: <ProfileOutlined />,
 			children: [
 				{
-					label: <Link href={`/${base}`}>Account profile</Link>,
+					label: <Link href={`/${base}`}>Account Profile</Link>,
 					key: `/${base}`,
 				},
 				{
-					label: <Link href={`/${base}/change-password`}>Change password</Link>,
+					label: <Link href={`/${base}/change-password`}>Change Password</Link>,
 					key: `/${base}/change-password`,
 				},
 			],
@@ -72,10 +72,10 @@ export const sidebarItems = (role: string) => {
 			key: 'management',
 			icon: <AppstoreOutlined />,
 			children: [
-				{
-					label: <Link href={`/${base}/department`}>Department</Link>,
-					key: `/${base}/department`,
-				},
+				// {
+				// 	label: <Link href={`/${base}/department`}>Department</Link>,
+				// 	key: `/${base}/department`,
+				// },
 				{
 					label: <Link href={`/${base}/building`}>Building</Link>,
 					key: `/${base}/building`,

@@ -4,7 +4,7 @@ import { useAcademicFacultiesQuery } from '@/redux/apis/academic/facultyApi';
 import { logger } from '@/services';
 import { IError, SelectOption } from '@/types';
 import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/PHUButton';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { Col, Row } from 'antd';
 import React from 'react';
@@ -65,9 +65,9 @@ function CreateDepartment() {
 					</Col>
 				</Row>
 				<div>
-					<PHUButton htmlType="submit" style={{ margin: '5px 0px' }}>
+					<Button htmlType="submit" style={{ margin: '5px 0px' }}>
 						add
-					</PHUButton>
+					</Button>
 				</div>
 			</Form>
 		</>

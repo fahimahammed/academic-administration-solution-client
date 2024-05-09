@@ -1,4 +1,4 @@
-import { ActionBar, BreadCrumbsComp, PHUDrawer, SearchInput } from '@/ui';
+import { ActionBar, BreadCrumbsComp, Drawer, SearchInput } from '@/ui';
 import { IAdmin, IDepartment, IError, QueryParamsType } from '@/types';
 import { useMemo, useState } from 'react';
 import { useDebounce } from '@/hooks';
@@ -8,11 +8,11 @@ import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { useAdminsQuery, useDeleteAdminMutation } from '@/redux/apis/base-admin/admin/adminApi';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tooltip } from 'antd';
-import PHUModal from '@/ui/PHUModal';
-import PHUTable from '@/ui/PHUTable';
-import PHULinkButton from '@/ui/LinkButton';
+import Modal from '@/ui/Modal';
+import Table from '@/ui/Table';
+import LinkButton from '@/ui/LinkButton';
 import { DeleteOutlined, EditOutlined, FilterOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/redux';
 import FilterOptions from './fitler-options/FilterOptions';
@@ -131,19 +131,19 @@ const ViewAdmins = () => {
 			render: function (data: string) {
 				return (
 					<>
-						<PHULinkButton
+						<LinkButton
 							link={`/super-admin/admin/details/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EyeOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
-						<PHULinkButton
+						<LinkButton
 							link={`/super-admin/admin/edit/${data}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EditOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
 						<Button
 							type="primary"
@@ -191,7 +191,7 @@ const ViewAdmins = () => {
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
 					value={searchTerm}
 				/>
-				<PHULinkButton
+				<LinkButton
 					link="/super-admin/admin/create"
 					customStyle={{
 						marginLeft: 'auto',
@@ -199,24 +199,24 @@ const ViewAdmins = () => {
 					}}
 				>
 					<span>create admin</span>
-				</PHULinkButton>
+				</LinkButton>
 
 				<Tooltip title="filter" placement="bottom">
-					<PHUButton onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
+					<Button onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
 						<FilterOutlined />
-					</PHUButton>
+					</Button>
 				</Tooltip>
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable
+			<Table
 				loading={isLoading}
 				columns={columns}
 				dataSource={admins}
@@ -227,15 +227,15 @@ const ViewAdmins = () => {
 				onChange={onChange}
 			/>
 
-			<PHUModal
+			<Modal
 				title="remove admin"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteAdminHandler(adminId)}
 			>
 				<p className="my-5">Do you want to remove this admin?</p>
-			</PHUModal>
-			<PHUDrawer
+			</Modal>
+			<Drawer
 				open={openFilterDrawer}
 				title="Filtering options"
 				width={450}
@@ -244,7 +244,7 @@ const ViewAdmins = () => {
 				}}
 			>
 				<FilterOptions />
-			</PHUDrawer>
+			</Drawer>
 		</>
 	);
 };

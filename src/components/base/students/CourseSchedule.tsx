@@ -1,14 +1,14 @@
 import { useMyCourseSchedulesQuery } from '@/redux/apis/base-admin/student/coreStudentApi';
 import { IMyCourseSchedule, IOfferedCourse, IOfferedCourseSchedule, IOfferedCourseSection, QueryParamsType } from '@/types';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
-import PHUTable from '@/ui/PHUTable';
+import Table from '@/ui/Table';
 import { Tooltip } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import React, { useMemo } from 'react';
 import AcademicSemesterFilter from './filter-options/AcademicSemesterFilter';
 import { RootState } from '@/redux';
 import { useDispatch, useSelector } from 'react-redux';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { setDefault } from '@/redux/slices/academic/coreSemesterSlice';
 import { ReloadOutlined } from '@ant-design/icons';
 import ClassSchedule from './ClassSchedule';
@@ -90,14 +90,14 @@ export default function CourseSchedule() {
 				<CourseFilter />
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '10px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '10px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable loading={isLoading} dataSource={data?.myCourseSchedules} columns={columns} showPagination={false} />
+			<Table loading={isLoading} dataSource={data?.myCourseSchedules} columns={columns} showPagination={false} />
 		</>
 	);
 }

@@ -7,10 +7,10 @@ import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tooltip } from 'antd';
-import PHUModal from '@/ui/PHUModal';
-import PHUTable from '@/ui/PHUTable';
+import Modal from '@/ui/Modal';
+import Table from '@/ui/Table';
 import { DeleteOutlined, EditOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { IAcademicFaculty } from '@/types/academic/faculty';
@@ -18,7 +18,7 @@ import { useAcademicDepartmentsQuery, useDeleteAcademicDepartmentMutation } from
 import FacultyFilter from './filter-options/FacultyFilter';
 import { RootState } from '@/redux';
 import { setDefault, setSort } from '@/redux/slices/academic/departmentSlice';
-import PHULinkButton from '@/ui/LinkButton';
+import LinkButton from '@/ui/LinkButton';
 import { SorterResult } from 'antd/es/table/interface';
 import { IAcademicDepartment } from '@/types/academic/department';
 
@@ -99,19 +99,19 @@ const ViewDepartments = () => {
 			render: function (data: IAcademicDepartment) {
 				return (
 					<>
-						<PHULinkButton
+						<LinkButton
 							link={`/admin/academic/department/details/${data.id}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EyeOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
-						<PHULinkButton
+						<LinkButton
 							link={`/admin/academic/department/edit/${data.id}`}
 							customStyle={{ margin: '0px 3px', padding: '7.5px 16px' }}
 						>
 							<EditOutlined />
-						</PHULinkButton>
+						</LinkButton>
 
 						<Button
 							type="primary"
@@ -163,7 +163,7 @@ const ViewDepartments = () => {
 
 				<FacultyFilter />
 
-				<PHULinkButton
+				<LinkButton
 					link="/admin/academic/department/create"
 					customStyle={{
 						margin: '0px 5px',
@@ -171,18 +171,18 @@ const ViewDepartments = () => {
 					}}
 				>
 					<span>create department</span>
-				</PHULinkButton>
+				</LinkButton>
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</PHUButton>
+						</Button>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<PHUTable
+			<Table
 				loading={isLoading}
 				columns={columns}
 				dataSource={academicDepartments}
@@ -193,14 +193,14 @@ const ViewDepartments = () => {
 				onChange={onChange}
 			/>
 
-			<PHUModal
+			<Modal
 				title="remove academic department"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteAcademicDepartmentHandler(academicDepartmentId)}
 			>
 				<p className="my-5">Do you want to remove this academic faculty?</p>
-			</PHUModal>
+			</Modal>
 		</>
 	);
 };

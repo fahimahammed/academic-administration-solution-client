@@ -4,7 +4,7 @@ import React from 'react';
 import AcademicSemester from '../AcademicSemester';
 import AcademicDepartmentField from '../../common-form-field/AcademicDepartmentField';
 import AcademicFacultyField from '../../common-form-field/AcademicFacultyField';
-import PHUUploadImage from '@/ui/PHUUploadImage';
+import UploadImage from '@/ui/UploadImage';
 import { genderOptions } from '@/constants';
 
 export default function StudentInfo() {
@@ -45,7 +45,7 @@ export default function StudentInfo() {
 					</Col>
 
 					<Col span={8} style={{ margin: '10px 0' }}>
-						<PHUUploadImage name="file" />
+						<UploadImage name="file" />
 					</Col>
 				</Row>
 			</div>

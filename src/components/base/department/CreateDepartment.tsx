@@ -1,7 +1,7 @@
 import { Form, FormInput } from '@/components/forms';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
 import { Col, Row } from 'antd';
-import PHUButton from '@/ui/PHUButton';
+import Button from '@/ui/Button';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { logger } from '@/services';
 import { useAddDepertmentMutation } from '@/redux/apis/departmentApi';
@@ -35,7 +35,7 @@ const CreateDepartment = ({ base }: { base: string }) => {
 						<FormInput name="title" label="title" />
 					</Col>
 				</Row>
-				<PHUButton htmlType="submit">add</PHUButton>
+				<Button htmlType="submit">add</Button>
 			</Form>
 		</>
 	);

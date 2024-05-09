@@ -1,7 +1,7 @@
 import { useMyAcademicInfosQuery } from '@/redux/apis/base-admin/student/coreStudentApi';
 import { CompletedCoursesEntity, IMyCourseSchedule, QueryParamsType } from '@/types';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
-import PHUTable from '@/ui/PHUTable';
+import Table from '@/ui/Table';
 import { Card, Col, Row, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
@@ -93,7 +93,7 @@ export default function AcademicReport() {
 			</Row>
 
 			<div style={{ margin: '10px 0' }}>
-				<PHUTable loading={isLoading} dataSource={data?.courses} columns={columns} showPagination={false} />
+				<Table loading={isLoading} dataSource={data?.courses} columns={columns} showPagination={false} />
 			</div>
 		</>
 	);

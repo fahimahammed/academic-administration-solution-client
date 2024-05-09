@@ -1,4 +1,4 @@
-import PHUDatePicker from '@/ui/DatePicker';
+import DatePicker from '@/ui/DatePicker';
 import React from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { FormLabel } from '.';
@@ -22,7 +22,7 @@ function FormDatePicker({ name, label }: { name: string; label?: string }) {
 				control={control}
 				render={({ field }) => {
 					return (
-						<PHUDatePicker
+						<DatePicker
 							value={dayjs(field.value) || ''}
 							onChange={(valOne: Dayjs | null, valTwo: string) => {
 								setValue(name, valTwo);
