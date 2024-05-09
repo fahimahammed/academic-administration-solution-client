@@ -10,12 +10,13 @@ import { getFromLocalStorage } from '@/utils/local-storage';
 import { COMMON_ROUTES, START_BASE_ROUTES, USER_ROLE, authKey } from '@/constants';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import Link from 'next/link';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { Col, Row } from 'antd';
 import { Form, FormInput, FormPasswordField } from '@/components/forms';
 import { useAdminLoginMutation } from '@/redux/apis/authApi';
 import { setAuth } from '@/redux/slices/authSlice';
 import { IError } from '@/types';
+import Styles from './Login.module.css'
 
 type FormValues = {
 	id: string;
@@ -83,38 +84,42 @@ export default function StudentLoginPage() {
 		<>
 			<Helmet>Login</Helmet>
 
-			<Row
-				justify="center"
-				align="middle"
-				style={{ minHeight: '100vh', display: 'flex', margin: '0px 50px' }}
-				gutter={{ xs: 24, xl: 12 }}
-			>
-				<Col span={8}>
-					<Form onSubmit={onSubmit}>
-						<h1 style={{ marginBottom: '15px' }}>Login first to your account</h1>
-						<div style={{ margin: '10px 0px' }}>
-							<label htmlFor="id" className="font-semibold">
-								User Id
-							</label>
-							<FormInput size="large" type="text" name="id" />
-						</div>
-						<div style={{ margin: '10px 0px' }}>
-							<label htmlFor="password" className="font-semibold">
-								Password
-							</label>
-							<FormPasswordField size="large" id="password" name="password" />
-						</div>
-
-						<div style={{ display: 'flex', alignItems: 'center', margin: '10px 0px' }}>
-							<div style={{ marginLeft: 'auto' }}>
-								<Link href="/forgot-password">forgot password?</Link>
+			<div className={Styles.login_box}>
+				<Row
+					justify="center"
+					align="middle"
+					style={{ minHeight: '100vh', display: 'flex', margin: '0px 50px' }}
+					gutter={{ xs: 24, xl: 12 }}
+				>
+					<Col span={8}>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikimedia_Commons_logo_white.png/1200px-Wikimedia_Commons_logo_white.png" alt="Your Logo" style={{ marginBottom: '20px', height: '70px' }} /> {/* Add your logo here */}
+						<Form onSubmit={onSubmit}>
+							<h1 style={{ marginBottom: '10px', color: 'white' }}>Login first to your account</h1>
+							<p style={{ marginBottom: '20px', color: 'white' }}>Enter your userId and password to log in.</p>
+							<div style={{ margin: '10px 0px', color: "white" }}>
+								<label htmlFor="id" className="font-semibold">
+									User Id
+								</label>
+								<FormInput placeholder='User ID' size="large" type="text" name="id" />
 							</div>
-						</div>
+							<div style={{ margin: '10px 0px', color: 'white' }}>
+								<label htmlFor="password" className="font-semibold">
+									Password
+								</label>
+								<FormPasswordField placeholder='Password' size="large" id="password" name="password" />
+							</div>
 
-						<Button htmlType="submit">Login</Button>
-					</Form>
-				</Col>
-			</Row>
+							<div style={{ display: 'flex', alignItems: 'center', margin: '10px 0px' }}>
+								<div style={{ marginLeft: 'auto' }}>
+									<Link href="/forgot-password">Forgot password?</Link>
+								</div>
+							</div>
+
+							<PHUButton htmlType="submit">Login</PHUButton>
+						</Form>
+					</Col>
+				</Row>
+			</div>
 		</>
 	);
 }
