@@ -1,4 +1,4 @@
-## advising-pro-client
+# Academic Administration Solution
 
 First, run the development server:
 
