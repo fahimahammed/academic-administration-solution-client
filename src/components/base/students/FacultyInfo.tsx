@@ -2,8 +2,8 @@ import { useCoreFacultyQuery } from '@/redux/apis/base-admin/faculty/coreFaculty
 import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
 import React from 'react';
 
-export default function FacultyInfo({ id }: { id: string }) {
-	const { data, isLoading } = useCoreFacultyQuery(id);
+export default function FacultyInfo({ userId }: { userId: string }) {
+	const { data, isLoading } = useCoreFacultyQuery(userId);
 	if (isLoading) return <Spinner />;
 	return (
 		<>
@@ -11,7 +11,7 @@ export default function FacultyInfo({ id }: { id: string }) {
 				items={[
 					{ label: `student`, link: `/student` },
 					{ label: `faculty`, link: '' },
-					{ label: `view`, link: `/student/faculty/${id}` },
+					{ label: `view`, link: `/student/faculty/${userId}` },
 				]}
 			/>
 			<ActionBar title="Faculty info" />

@@ -100,7 +100,7 @@ const ViewMyPayment = () => {
 								Student id
 							</td>
 							<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-								<span style={{ marginLeft: '10px', textAlign: 'right' }}>{data?.studentId}</span>
+								<span style={{ marginLeft: '10px', textAlign: 'right' }}>{data?.userId}</span>
 							</td>
 						</tr>
 					</table>
@@ -108,7 +108,7 @@ const ViewMyPayment = () => {
 			},
 		},
 		{
-			title: 'semeter',
+			title: 'Semeter',
 			dataIndex: 'academicSemester',
 			render: function (data: IAcademicCoreSemester) {
 				return (
@@ -119,7 +119,7 @@ const ViewMyPayment = () => {
 			},
 		},
 		{
-			title: 'Full payment amount',
+			title: 'Full Payment Amount',
 			render: function (data: IMyPayment) {
 				return (
 					<table style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '10px' }}>
@@ -148,7 +148,7 @@ const ViewMyPayment = () => {
 									textAlign: 'left',
 								}}
 							>
-								partial payment amount
+								Partial payment amount
 							</td>
 							<td style={{ textAlign: 'left', padding: '5px 15px' }}>
 								<span style={{ marginLeft: '10px' }}>{data.partialPaymentAmount} Tk</span>
@@ -191,7 +191,7 @@ const ViewMyPayment = () => {
 			},
 		},
 		{
-			title: 'payment status',
+			title: 'Payment Status',
 			dataIndex: 'paymentStatus',
 			render: function (data: string) {
 				return (
@@ -229,7 +229,7 @@ const ViewMyPayment = () => {
 									}}
 									style={{ marginLeft: '3px' }}
 								>
-									pay partial
+									Pay Partial
 								</Button>
 								<Button
 									type="primary"
@@ -240,7 +240,7 @@ const ViewMyPayment = () => {
 									}}
 									style={{ marginLeft: '3px' }}
 								>
-									pay full
+									Pay Full
 								</Button>
 							</>
 						)}
@@ -256,7 +256,7 @@ const ViewMyPayment = () => {
 									}}
 									style={{ marginLeft: '3px' }}
 								>
-									full payment
+									Full Payment
 								</Button>
 							</>
 						)}

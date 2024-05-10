@@ -1,11 +1,11 @@
 import { IFacultyCourseStudent, QueryParamsType } from '@/types';
 import { ActionBar, BreadCrumbsComp, SearchInput } from '@/ui';
-import Table from '@/ui/Table';
+import PHUTable from '@/ui/PHUTable';
 import { Tooltip } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import React, { useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { ReloadOutlined } from '@ant-design/icons';
 import { useFacultyCourseStudentsQuery } from '@/redux/apis/base-admin/faculty/coreFacultyApi';
 import { setDefault } from '@/redux/slices/facultySlice';
@@ -62,7 +62,7 @@ export default function FacultyCourseStudents() {
 		},
 		{
 			title: 'Student ID',
-			dataIndex: 'studentId',
+			dataIndex: 'userId',
 		},
 		{
 			title: 'email',
@@ -77,15 +77,15 @@ export default function FacultyCourseStudents() {
 			render: function (data: IFacultyCourseStudent) {
 				return (
 					<>
-						<Button
+						<PHUButton
 							onClick={() => {
 								router.push(
 									`/faculty/student-result?studentId=${data?.id}&academicSemesterId=${academicSemesterId}&courseId=${courseId}&offeredCourseSectionId=${offeredCourseSectionId}`
 								);
 							}}
 						>
-							view marks
-						</Button>
+							View Marks
+						</PHUButton>
 					</>
 				);
 			},
@@ -122,14 +122,14 @@ export default function FacultyCourseStudents() {
 				/>
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '10px' }}>
+						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '10px' }}>
 							<ReloadOutlined />
-						</Button>
+						</PHUButton>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<Table
+			<PHUTable
 				loading={isLoading}
 				columns={columns}
 				dataSource={data?.myCourseStudents}

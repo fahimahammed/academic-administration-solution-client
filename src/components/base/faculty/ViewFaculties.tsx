@@ -99,7 +99,7 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 		},
 		{
 			title: 'Department',
-			dataIndex: 'academicDepartmentId',
+			dataIndex: 'academicDepartment',
 			render: function (data: IAcademicDepartment) {
 				return <>{data.title}</>;
 			},

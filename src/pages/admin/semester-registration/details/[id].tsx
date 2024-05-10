@@ -9,7 +9,7 @@ const BuildingDetailsPage: NextPage = () => {
 	const { id } = router.query;
 	return (
 		<>
-			<Helmet>view semester registration</Helmet>
+			<Helmet>View Semester Registration</Helmet>
 			<SemesterRegistrationDetails id={id as string} />
 		</>
 	);

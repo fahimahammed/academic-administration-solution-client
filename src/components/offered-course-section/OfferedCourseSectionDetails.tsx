@@ -51,7 +51,7 @@ const OfferedCourseSectonDetails = ({ id }: { id: string }) => {
 					</div>
 
 					<div style={{ margin: '10px 0px' }}>
-						<h3 style={{ marginBottom: '10px' }}>class schedules</h3>
+						<h1 style={{ marginBottom: '10px', marginTop: '30px' }}>Class Schedules</h1>
 						{data?.offeredCourseClassSchedules.map(
 							(schedule: OfferedCourseClassSchedulesEntity, index: number) => {
 								return (
@@ -96,7 +96,7 @@ const OfferedCourseSectonDetails = ({ id }: { id: string }) => {
 											>
 												room
 											</span>
-											<span style={{ marginLeft: 'auto' }}>{schedule?.room?.roomNumber}</span>
+											<span style={{ marginLeft: 'auto' }}>{schedule?.room?.roomNumber} ({schedule.room.building.title})</span>
 										</div>
 
 										<div style={{ display: 'flex', margin: '10px 0px', width: '66%' }}>

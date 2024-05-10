@@ -10,6 +10,7 @@ export interface IAcademicFaculty {
 
 export interface IAcademicCoreFaculty {
 	id: string;
+	userId: string;
 	facultyId: string;
 	firstName: string;
 	lastName: string;

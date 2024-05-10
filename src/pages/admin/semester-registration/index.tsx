@@ -6,7 +6,7 @@ import ViewSemesterRegistration from '@/components/semester-registration/ViewSem
 const ViewBuildingPage: NextPage = () => {
 	return (
 		<>
-			<Helmet>view semester registrations</Helmet>
+			<Helmet>View Semester Registrations</Helmet>
 			<ViewSemesterRegistration />
 		</>
 	);

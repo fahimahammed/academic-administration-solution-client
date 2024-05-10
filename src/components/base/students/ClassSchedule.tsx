@@ -17,7 +17,7 @@ export default function ClassSchedule({ data }: ClassScheduleProps) {
 					>
 						<div>
 							<b style={{ textTransform: 'capitalize' }}>faculty name</b>
-							<Link href={`/student/faculty/${schedule.faculty.id}`} style={{ marginLeft: '20px' }}>
+							<Link href={`/student/faculty/${schedule.faculty.userId}`} style={{ marginLeft: '20px' }}>
 								{schedule.faculty.firstName} {schedule.faculty.lastName} {schedule.faculty.middleName}
 							</Link>
 						</div>

@@ -1,5 +1,4 @@
 import { RcFile } from 'antd/es/upload';
-import { Name } from './common';
 import { ICourse } from './course';
 import { IOfferedCourse } from './offered-course';
 import { IOfferedCourseSection } from './offered-course-section';
@@ -9,7 +8,6 @@ import { IAcademicCoreDepartment } from './academic/department';
 
 export interface IStudent {
 	id: string;
-	name: Name & { id: string };
 	dateOfBirth: string;
 	gender: string;
 	bloodGroup: string;
@@ -48,7 +46,6 @@ export interface IStudentRequestPayload {
 }
 
 export interface StudentPayload {
-	name: Name;
 	dateOfBirth: string;
 	gender: string;
 	bloodGroup: string;
@@ -96,7 +93,7 @@ export interface IMyCourseSchedule {
 
 export interface ICoreStudent {
 	id: string;
-	studentId: string;
+	userId: string;
 	firstName: string;
 	lastName: string;
 	middleName: string;

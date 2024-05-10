@@ -93,7 +93,7 @@ export default function FacultyCourses() {
 												);
 											}}
 										>
-											view all students
+											View all Students
 										</PHUButton>
 									) : null}
 								</div>

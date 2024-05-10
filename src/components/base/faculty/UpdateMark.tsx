@@ -4,7 +4,7 @@ import { logger } from '@/services';
 import { updateStudentMarkRequestPayload } from '@/transformer/faculty';
 import { IError, UpdateMarkPayload } from '@/types';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -24,7 +24,7 @@ export default function UpdateMark() {
 	const onSubmit = async (values: UpdateMarkPayload) => {
 		try {
 			await updateMarks(updateStudentMarkRequestPayload(values)).unwrap();
-			notifySuccess('mark updated successfully');
+			notifySuccess('Mark updated successfully');
 		} catch (error) {
 			logger.error(error);
 			const er = error as IError;
@@ -47,11 +47,14 @@ export default function UpdateMark() {
 					},
 				]}
 			/>
-			<ActionBar title="update mark"></ActionBar>
+			<ActionBar title="Update mark"></ActionBar>
 			<Form defaultValues={defaultValues} onSubmit={onSubmit}>
-				<div style={{ margin: '10px 0px' }}>Exam type: {examType}</div>
-				<FormInput name="marks" label="marks" />
-				<Button htmlType="submit">update</Button>
+				<div style={{ margin: '10px 0px' }}>
+					<h2>Exam type: <span style={{ color: 'green' }}>{examType}</span></h2>
+					{/* <h2>Exam type: <span style={{ color: 'red' }}>{studentId}</span></h2> */}
+				</div>
+				<FormInput name="marks" label="marks" type='number' size='large' />
+				<PHUButton htmlType="submit">Update</PHUButton>
 			</Form>
 		</>
 	);

@@ -1,7 +1,7 @@
 import { useMyMarksQuery } from '@/redux/apis/base-admin/student/studentEnrollCourseMarkApi';
 import { IMyCourse, QueryParamsType } from '@/types';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
-import Table from '@/ui/Table';
+import PHUTable from '@/ui/PHUTable';
 import type { ColumnsType } from 'antd/es/table';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -59,7 +59,7 @@ export default function EnrolledCourseMark() {
 
 			<ActionBar title="my courses marks" />
 
-			<Table loading={isLoading} dataSource={data?.myMarks} columns={columns} showPagination={false} />
+			<PHUTable loading={isLoading} dataSource={data?.myMarks} columns={columns} showPagination={false} />
 		</>
 	);
 }

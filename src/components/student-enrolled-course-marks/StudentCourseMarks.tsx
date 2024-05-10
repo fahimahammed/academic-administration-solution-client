@@ -5,9 +5,9 @@ import { useDebounce } from '@/hooks';
 import { DEBOUNCE_DELAY, ExamType } from '@/constants';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tag, Tooltip } from 'antd';
-import Table from '@/ui/Table';
+import PHUTable from '@/ui/PHUTable';
 import { ReloadOutlined } from '@ant-design/icons';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { SorterResult } from 'antd/es/table/interface';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,7 +19,7 @@ import {
 import BaseRow from '../base/BaseRow';
 import { setDefault, setSort } from '@/redux/slices/StudentEnrolledCourseMarkSlice';
 import { useRouter } from 'next/router';
-import Modal from '@/ui/Modal';
+import PHUModal from '@/ui/PHUModal';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { logger } from '@/services';
 
@@ -98,7 +98,7 @@ const StudentCourseMarks = () => {
 
 	const columns: ColumnsType<IOfferedCourse> = [
 		{
-			title: 'Student id',
+			title: 'Student Info',
 			dataIndex: 'student',
 			render: function (data: ICoreStudent) {
 				return (
@@ -107,7 +107,7 @@ const StudentCourseMarks = () => {
 							<BaseRow title="name">
 								{data?.firstName} {data?.middleName} {data?.lastName}
 							</BaseRow>
-							<BaseRow title="student ID">{data?.studentId}</BaseRow>
+							<BaseRow title="student ID">{data?.userId}</BaseRow>
 						</table>
 					</>
 				);
@@ -238,9 +238,9 @@ const StudentCourseMarks = () => {
 							if (el.marks > 0) {
 								return (
 									<Fragment key={index}>
-										<Button size="large" onClick={() => setOpen(true)}>
+										<PHUButton size="large" onClick={() => setOpen(true)}>
 											update final marks
-										</Button>
+										</PHUButton>
 									</Fragment>
 								);
 							}
@@ -248,7 +248,7 @@ const StudentCourseMarks = () => {
 				</div>
 			</ActionBar>
 
-			<Table
+			<PHUTable
 				loading={isLoading}
 				columns={columns}
 				dataSource={studentEnrolledCourseMarks}
@@ -259,7 +259,7 @@ const StudentCourseMarks = () => {
 				onChange={onChange}
 			/>
 
-			<Modal
+			<PHUModal
 				title="final marks"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
@@ -272,7 +272,7 @@ const StudentCourseMarks = () => {
 				}}
 			>
 				<p className="my-5">Do you want to update final marks?</p>
-			</Modal>
+			</PHUModal>
 		</>
 	);
 };

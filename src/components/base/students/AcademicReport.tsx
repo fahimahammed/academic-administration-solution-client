@@ -22,7 +22,7 @@ export default function AcademicReport() {
 								</b>{' '}
 								-{' '}
 								<Tag color="blue">
-									<b>{data?.academicSemester?.isCurrent === true ? 'ongoing' : ''}</b>
+									<b>{data?.academicSemester?.isCurrent === true ? 'ONGOING' : ''}</b>
 								</Tag>
 							</div>
 							<ul style={{ listStyle: 'none', marginTop: '20px' }}>
@@ -43,10 +43,10 @@ export default function AcademicReport() {
 														Grade: <b>{el?.grade}</b>
 													</span>
 													<span style={{ marginLeft: '20px' }}>
-														Gpa: <b>{el?.point}</b>
+														GPA: <b>{el?.point}</b>
 													</span>
 													<span style={{ marginLeft: '20px' }}>
-														Status: <b>{el?.status}</b>
+														Status: <Tag color={`${el?.status === "COMPLETED" ? "green" : "red"}`}><b>{el?.status}</b></Tag>
 													</span>
 													<span style={{ marginLeft: '20px' }}>
 														Marks: <b>{el?.totalMarks}</b>
@@ -83,7 +83,7 @@ export default function AcademicReport() {
 					</Card>
 				</Col>
 				<Col span={12}>
-					<Card title="Total completed credit">
+					<Card title="Total Completed Credit">
 						<b>
 							{data?.academicInfo?.totalCompletedCredit}{' '}
 							{data?.academicInfo?.totalCompletedCredit <= 1 ? 'credit' : 'credits'}

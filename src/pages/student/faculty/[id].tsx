@@ -10,7 +10,7 @@ function FacultyInfoPage() {
 	return (
 		<>
 			<Helmet>faculty info</Helmet>
-			<FacultyInfo id={id as string} />
+			<FacultyInfo userId={id as string} />
 		</>
 	);
 }

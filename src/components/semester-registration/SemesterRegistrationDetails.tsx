@@ -16,7 +16,7 @@ const SemesterRegistrationDetails = ({ id }: { id: string }) => {
 					{ label: 'details', link: `/admin/semester-registration/details/${id}` },
 				]}
 			/>
-			<ActionBar title={`view semester registration`}></ActionBar>
+			<ActionBar title={`View Semester Registration`}></ActionBar>
 
 			<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 				<Col span={8} style={{ margin: '10px 0' }}>
@@ -37,8 +37,24 @@ const SemesterRegistrationDetails = ({ id }: { id: string }) => {
 					</div>
 
 					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>max Credit</span>
+						<span style={{ marginLeft: 'auto' }}>{data?.maxCredit}</span>
+					</div>
+					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>Min Credit</span>
+						<span style={{ marginLeft: 'auto' }}>{data?.minCredit}</span>
+					</div>
+					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>created at</span>
 						<span style={{ marginLeft: 'auto' }}>{formatDateTime(data?.createdAt)}</span>
+					</div>
+					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>Updated at</span>
+						<span style={{ marginLeft: 'auto' }}>{formatDateTime(data?.updatedAt)}</span>
+					</div>
+					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>status</span>
+						<span style={{ marginLeft: 'auto' }}>{data?.status}</span>
 					</div>
 				</Col>
 			</Row>
