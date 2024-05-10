@@ -261,7 +261,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 											father name
 										</td>
 										<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-											{data?.guardian?.fatherName}
+											{data?.fatherName}
 										</td>
 									</tr>
 
@@ -277,7 +277,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 											father occupation
 										</td>
 										<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-											{data?.guardian?.fatherOccupation}
+											{data?.fatherOccupation}
 										</td>
 									</tr>
 
@@ -293,7 +293,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 											father contact no.
 										</td>
 										<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-											{data?.guardian?.fatherContactNo}
+											{data?.fatherContactNo}
 										</td>
 									</tr>
 
@@ -309,7 +309,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 											mother name
 										</td>
 										<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-											{data?.guardian?.motherName}
+											{data?.motherName}
 										</td>
 									</tr>
 
@@ -325,7 +325,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 											mother occupation
 										</td>
 										<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-											{data?.guardian?.motherOccupation}
+											{data?.motherOccupation}
 										</td>
 									</tr>
 
@@ -341,22 +341,8 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 											mother contact no.
 										</td>
 										<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-											{data?.guardian?.motherContactNo}
+											{data?.motherContactNo}
 										</td>
-									</tr>
-
-									<tr style={{ margin: '0px 0px' }}>
-										<td
-											style={{
-												fontWeight: 700,
-												marginRight: '10px',
-												textTransform: 'capitalize',
-												textAlign: 'right',
-											}}
-										>
-											guardian address
-										</td>
-										<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.guardian?.address}</td>
 									</tr>
 
 									<tr style={{ margin: '0px 0px' }}>
@@ -371,7 +357,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 											local guardian name
 										</td>
 										<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-											{data?.localGuardian?.name}
+											{data?.localGuardianName}
 										</td>
 									</tr>
 
@@ -387,7 +373,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 											local guardian occupation
 										</td>
 										<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-											{data?.localGuardian?.occupation}
+											{data?.localGuardianOccupation}
 										</td>
 									</tr>
 
@@ -403,7 +389,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 											local guardian address
 										</td>
 										<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-											{data?.localGuardian?.address}
+											{data?.localGuardianAddress}
 										</td>
 									</tr>
 
@@ -419,7 +405,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 											local contact no
 										</td>
 										<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-											{data?.localGuardian?.contactNo}
+											{data?.localGuardianContactNo}
 										</td>
 									</tr>
 								</>

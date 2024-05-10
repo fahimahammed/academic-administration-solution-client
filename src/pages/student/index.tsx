@@ -8,7 +8,7 @@ const StudentDashboardPage: NextPage = () => {
 	return (
 		<>
 			<Helmet>account profile</Helmet>
-			<AccountProfile title="student information" role={USER_ROLE.STUDENT} />
+			<AccountProfile title="Student Information" role={USER_ROLE.STUDENT} />
 		</>
 	);
 };

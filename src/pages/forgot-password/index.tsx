@@ -6,11 +6,10 @@ import { IError } from '@/types';
 import PHUButton from '@/ui/PHUButton';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import Link from 'next/link';
-import styles from './Forgot-password.module.css'
 
 function ForgotPasswordPage() {
 	const [forgotPassword] = useForgotPasswordMutation();
-	const onSubmit = async (values: { id: string }) => {
+	const onSubmit = async (values: { userId: string }) => {
 		try {
 			await forgotPassword(values).unwrap();
 			notifySuccess('Reset link has been sent to your email');
@@ -23,12 +22,12 @@ function ForgotPasswordPage() {
 	return (
 		<>
 			<Helmet>Forgot Password</Helmet>
-			<div style={{ margin: '0', display: 'flex', justifyContent: 'center', alignItems: 'center' }} className={styles.forgot_pass_box}>
+			<div style={{ margin: '0', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 				<Form onSubmit={onSubmit}>
-					<h1 style={{ margin: '5px 0', color: 'white' }}>Forgot Password?</h1>
+					<h1 style={{ margin: '5px 0' }}>Forgot Password?</h1>
 					<p style={{ marginBottom: '25px', color: 'gray' }}>Enter your user id to reset password.</p>
 					<div style={{ margin: '5px 0 15px 0' }}>
-						<FormInput name="id" size="large" placeholder="Enter your id" type="text " />
+						<FormInput name="userId" size="large" placeholder="Enter your id" type="text " />
 						{/* <FormInput placeholder='User ID' size="large" type="text" name="id" /> */}
 					</div>
 					<PHUButton htmlType="submit" size='large'>Reset Password</PHUButton>

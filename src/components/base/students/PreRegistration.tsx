@@ -27,14 +27,14 @@ export default function PreRegistration() {
 		<>
 			<div style={{ margin: '10px 0px' }}>
 				{data?.semesterRegistration &&
-				data?.semesterRegistration?.status === 'ONGOING' &&
-				!data?.studentSemesterRegistration?.isConfirmed ? (
+					data?.semesterRegistration?.status === 'ONGOING' &&
+					!data?.studentSemesterRegistration?.isConfirmed ? (
 					<Button type="primary" danger onClick={goToRegistrtionHandler}>
-						go to registration
+						Go to Registration
 					</Button>
 				) : (
 					<>
-						<div>you are not allowed to do your registration. stay tuned.</div>
+						<div>You are not allowed to do your registration. Stay tuned....</div>
 					</>
 				)}
 			</div>
@@ -47,7 +47,7 @@ export default function PreRegistration() {
 								<>
 									<span>Your registration has been completed successfully</span>
 									<Link href="/student/registered-courses" style={{ marginLeft: '10px' }}>
-										view your courses
+										View your courses
 									</Link>
 								</>
 							}

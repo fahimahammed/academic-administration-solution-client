@@ -19,8 +19,8 @@ function ResetPassword({ id, token }: FormData) {
 
 	if (!id && !token) return null; // this logic is temporary will be removed very soon
 
-	const defaultValues: { id: string | string[] | undefined; newPassword: string } = {
-		id,
+	const defaultValues: { userId: string | string[] | undefined; newPassword: string } = {
+		userId: id,
 		newPassword: '',
 	};
 
@@ -42,7 +42,7 @@ function ResetPassword({ id, token }: FormData) {
 				<h1>Reset Password</h1>
 				<p style={{ marginBottom: '20px', color: 'gray' }}>Enter your new password.</p>
 				<div style={{ margin: '5px 0' }}>
-					<FormInput type="text" size='large' name="id" label="User Id" />
+					<FormInput type="text" size='large' name="userId" label="User Id" />
 				</div>
 				<div style={{ margin: '5px 0' }}>
 					<FormPasswordField size='large' name="newPassword" label="New password" />

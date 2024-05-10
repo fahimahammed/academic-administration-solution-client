@@ -16,7 +16,6 @@ import { Form, FormInput, FormPasswordField } from '@/components/forms';
 import { useAdminLoginMutation } from '@/redux/apis/authApi';
 import { setAuth } from '@/redux/slices/authSlice';
 import { IError } from '@/types';
-import Styles from './Login.module.css'
 
 type FormValues = {
 	id: string;
@@ -84,7 +83,7 @@ export default function StudentLoginPage() {
 		<>
 			<Helmet>Login</Helmet>
 
-			<div className={Styles.login_box}>
+			<div style={{ backgroundColor: 'white' }}>
 				<Row
 					justify="center"
 					align="middle"
@@ -92,17 +91,17 @@ export default function StudentLoginPage() {
 					gutter={{ xs: 24, xl: 12 }}
 				>
 					<Col span={8}>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikimedia_Commons_logo_white.png/1200px-Wikimedia_Commons_logo_white.png" alt="Your Logo" style={{ marginBottom: '20px', height: '70px' }} /> {/* Add your logo here */}
+						{/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikimedia_Commons_logo_white.png/1200px-Wikimedia_Commons_logo_white.png" alt="Your Logo" style={{ marginBottom: '20px', height: '70px' }} /> Add your logo here */}
 						<Form onSubmit={onSubmit}>
-							<h1 style={{ marginBottom: '10px', color: 'white' }}>Login first to your account</h1>
-							<p style={{ marginBottom: '20px', color: 'white' }}>Enter your userId and password to log in.</p>
-							<div style={{ margin: '10px 0px', color: "white" }}>
+							<h1 style={{ marginBottom: '10px' }}>Login first to your account</h1>
+							<p style={{ marginBottom: '20px', color: 'gray' }}>Enter your userId and password to log in.</p>
+							<div style={{ margin: '10px 0px' }}>
 								<label htmlFor="id" className="font-semibold">
 									User Id
 								</label>
 								<FormInput placeholder='User ID' size="large" type="text" name="id" />
 							</div>
-							<div style={{ margin: '10px 0px', color: 'white' }}>
+							<div style={{ margin: '10px 0px' }}>
 								<label htmlFor="password" className="font-semibold">
 									Password
 								</label>
@@ -115,7 +114,7 @@ export default function StudentLoginPage() {
 								</div>
 							</div>
 
-							<PHUButton htmlType="submit">Login</PHUButton>
+							<PHUButton htmlType="submit" size='large'>Login</PHUButton>
 						</Form>
 					</Col>
 				</Row>

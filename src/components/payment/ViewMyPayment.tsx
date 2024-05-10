@@ -7,10 +7,10 @@ import { logger } from '@/services';
 import { notifyError } from '@/ui/ToastNotification';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Tag, Tooltip } from 'antd';
-import Modal from '@/ui/Modal';
-import Table from '@/ui/Table';
+import PHUModal from '@/ui/PHUModal';
+import PHUTable from '@/ui/PHUTable';
 import { ReloadOutlined } from '@ant-design/icons';
-import Button from '@/ui/Button';
+import PHUButton from '@/ui/PHUButton';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { SorterResult } from 'antd/es/table/interface';
 import { useDispatch } from 'react-redux';
@@ -298,14 +298,14 @@ const ViewMyPayment = () => {
 
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">
-						<Button onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
+						<PHUButton onClick={resetAllFilter} size="large" style={{ marginLeft: '5px' }}>
 							<ReloadOutlined />
-						</Button>
+						</PHUButton>
 					</Tooltip>
 				) : null}
 			</ActionBar>
 
-			<Table
+			<PHUTable
 				loading={isLoading}
 				columns={columns}
 				dataSource={myPayments}
@@ -316,7 +316,7 @@ const ViewMyPayment = () => {
 				onChange={onChange}
 			/>
 
-			<Modal
+			<PHUModal
 				title="Online Payment"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
@@ -338,7 +338,7 @@ const ViewMyPayment = () => {
 					<p>Payment: {paymentType} </p>
 					<p className="my-5">Click ok button to proceed payment</p>
 				</>
-			</Modal>
+			</PHUModal>
 		</>
 	);
 };
