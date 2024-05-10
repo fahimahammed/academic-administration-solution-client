@@ -11,7 +11,7 @@ export interface IUserProfile extends IBaseUser {
 }
 
 export interface IUser {
-	id: string;
+	userId: string;
 	role: string;
 	needsPasswordChange: boolean;
 	admin: IAdmin;

@@ -54,7 +54,7 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 	query['page'] = page;
 	query['gender'] = facultyState.filterOptions.gender;
 	query['bloodGroup'] = facultyState.filterOptions.bloodGroup;
-	query['academicDepartment'] = facultyState.filterOptions.academicDepartment;
+	query['academicDepartmentId'] = facultyState.filterOptions.academicDepartment;
 	query['sortBy'] = facultyState.sortBy;
 	query['sortOrder'] = facultyState.sortOrder;
 
@@ -86,6 +86,10 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 	};
 
 	const columns: ColumnsType<IFaculty> = [
+		{
+			title: 'ID',
+			dataIndex: 'userId'
+		},
 		{
 			title: 'Name',
 			render: function (data: Record<string, string>) {

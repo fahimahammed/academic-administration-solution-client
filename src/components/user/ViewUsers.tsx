@@ -59,7 +59,7 @@ const ViewUsers = () => {
 	const deleteUserHandler = async (id: string) => {
 		try {
 			await deleteUser(id).unwrap();
-			notifySuccess('user deleted successfully');
+			notifySuccess('User deleted successfully');
 			setOpen(false);
 		} catch (error) {
 			logger.error(error);
@@ -118,7 +118,7 @@ const ViewUsers = () => {
 									style={{ marginLeft: '5px' }}
 									onClick={() => {
 										setOpenPermissionDrawer(true);
-										dispatch(setUserId(data.id));
+										dispatch(setUserId(data.userId));
 									}}
 								>
 									<SafetyCertificateOutlined />
@@ -136,8 +136,8 @@ const ViewUsers = () => {
 									type="primary"
 									onClick={() => {
 										setOpen(true);
-										setUserId(data.id);
-										dispatch(setUserId(data.id));
+										setUserId(data.userId);
+										dispatch(setUserId(data.userId));
 									}}
 									danger
 									style={{ marginLeft: '5px' }}

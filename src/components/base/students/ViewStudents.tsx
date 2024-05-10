@@ -57,9 +57,9 @@ const ViewStudents = ({ base }: { base?: string }) => {
 	query['page'] = page;
 	query['gender'] = studentState.filterOptions.gender;
 	query['bloodGroup'] = studentState.filterOptions.bloodGroup;
-	query['academicDepartment'] = studentState.filterOptions.academicDepartment;
-	query['academicSemester'] = studentState.filterOptions.academicSemester;
-	query['academicFaculty'] = studentState.filterOptions.academicFaculty;
+	query['academicDepartmentId'] = studentState.filterOptions.academicDepartment;
+	query['academicSemesterId'] = studentState.filterOptions.academicSemester;
+	query['academicFacultyId'] = studentState.filterOptions.academicFaculty;
 	query['sortBy'] = studentState.sortBy;
 	query['sortOrder'] = studentState.sortOrder;
 
