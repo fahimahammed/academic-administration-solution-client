@@ -1,4 +1,4 @@
-import { ActionBar, BreadCrumbsComp, PHUDrawer, SearchInput } from '@/ui';
+import { ActionBar, BreadCrumbsComp, SearchInput } from '@/ui';
 import { IError, QueryParamsType } from '@/types';
 import { useMemo, useState } from 'react';
 import { useDebounce } from '@/hooks';
@@ -10,11 +10,10 @@ import PHUModal from '@/ui/PHUModal';
 import { Button, Tag, Tooltip } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useDeleteUserMutation, useUsersQuery } from '@/redux/apis/userApi';
-import ViewAllPermissions from './ViewAllPermissions';
 import { useDispatch, useSelector } from 'react-redux';
-import { setDefault, setFilter, setSort, setUserId } from '@/redux/slices/userSlice';
+import { setFilter, setSort, setUserId } from '@/redux/slices/userSlice';
 import { RootState } from '@/redux';
-import { DeleteOutlined, SafetyCertificateOutlined, ReloadOutlined } from '@ant-design/icons';
+import { DeleteOutlined, ReloadOutlined } from '@ant-design/icons';
 import PHUButton from '@/ui/PHUButton';
 import { IUser } from '@/types/user';
 import { SorterResult } from 'antd/es/table/interface';
@@ -27,7 +26,6 @@ const ViewUsers = () => {
 	const [page, setPage] = useState<number>(1);
 	const [size, setSize] = useState<number>(10);
 	const [open, setOpen] = useState<boolean>(false);
-	const [openPermissionDrawer, setOpenPermissionDrawer] = useState<boolean>(false);
 	const [searchTerm, setSearchTerm] = useState<string>('');
 	const query: Record<string, QueryParamsType> = {};
 
@@ -80,19 +78,19 @@ const ViewUsers = () => {
 			render: function (data: string) {
 				return (
 					<>
-						{data === USER_ROLE.ADMIN ? <Tag color="green">{data}</Tag> : null}
+						{data === USER_ROLE.ADMIN ? <Tag color="blue">{data}</Tag> : null}
 
-						{data === USER_ROLE.SUPER_ADMIN ? <Tag color="cyan">{data}</Tag> : null}
+						{data === USER_ROLE.SUPER_ADMIN ? <Tag color="gray">{data}</Tag> : null}
 
-						{data === USER_ROLE.STUDENT ? <Tag color="gray">{data}</Tag> : null}
+						{data === USER_ROLE.STUDENT ? <Tag color="purple">{data}</Tag> : null}
 
-						{data === USER_ROLE.FACULTY ? <Tag color="magenta">{data}</Tag> : null}
+						{data === USER_ROLE.FACULTY ? <Tag color="orange">{data}</Tag> : null}
 					</>
 				);
 			},
 		},
 		{
-			title: 'Password change needed',
+			title: 'Password Change Needed',
 			dataIndex: 'needsPasswordChange',
 			render: function (data: boolean) {
 				return <>{data ? <Tag color="red">Required</Tag> : <Tag color="green">Not required</Tag>}</>;
@@ -111,7 +109,7 @@ const ViewUsers = () => {
 			render: function (data: IUser) {
 				return (
 					<>
-						{data.role === 'admin' ? (
+						{/* {data.role === 'admin' ? (
 							<Tooltip title="view permissions" placement="bottom">
 								<Button
 									type="primary"
@@ -126,7 +124,7 @@ const ViewUsers = () => {
 							</Tooltip>
 						) : (
 							<Button style={{ visibility: 'hidden' }}>adf</Button>
-						)}
+						)} */}
 
 						{data.role === 'super_admin' ? (
 							''
@@ -212,18 +210,6 @@ const ViewUsers = () => {
 			>
 				<p className="my-5">Do you want to remove this user?</p>
 			</PHUModal>
-
-			<PHUDrawer
-				open={openPermissionDrawer}
-				title="View all permissions"
-				width={650}
-				onClose={() => {
-					setOpenPermissionDrawer(false);
-					dispatch(setDefault());
-				}}
-			>
-				<ViewAllPermissions />
-			</PHUDrawer>
 		</>
 	);
 };

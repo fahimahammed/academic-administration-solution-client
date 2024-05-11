@@ -2,6 +2,7 @@ import { useMyMarksQuery } from '@/redux/apis/base-admin/student/studentEnrollCo
 import { IMyCourse, QueryParamsType } from '@/types';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
 import PHUTable from '@/ui/PHUTable';
+import { Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -30,6 +31,9 @@ export default function EnrolledCourseMark() {
 		{
 			title: 'Exam type',
 			dataIndex: 'examType',
+			render: function (data: string) {
+				return <>{data === 'FINAL' ? <Tag color="purple">{data}</Tag> : <Tag color="orange">{data}</Tag>}</>;
+			},
 		},
 		{
 			title: 'Grade',
@@ -57,7 +61,7 @@ export default function EnrolledCourseMark() {
 				]}
 			/>
 
-			<ActionBar title="my courses marks" />
+			<ActionBar title="My Courses Marks" />
 
 			<PHUTable loading={isLoading} dataSource={data?.myMarks} columns={columns} showPagination={false} />
 		</>

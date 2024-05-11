@@ -198,7 +198,7 @@ const ViewStudents = ({ base }: { base?: string }) => {
 						padding: '10px 20px',
 					}}
 				>
-					<span>create student</span>
+					<span>Create Student</span>
 				</LinkButton>
 
 				<Tooltip title="filter" placement="bottom">

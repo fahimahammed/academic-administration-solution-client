@@ -6,7 +6,7 @@ import CreateFaculty from '@/components/base/faculty/CreateFaculty';
 const CreateFacultyPage: NextPage = () => {
 	return (
 		<>
-			<Helmet>create faculty</Helmet>
+			<Helmet>Create Faculty</Helmet>
 			<CreateFaculty base="admin" />
 		</>
 	);

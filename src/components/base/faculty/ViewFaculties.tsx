@@ -194,7 +194,7 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 						padding: '10px 20px',
 					}}
 				>
-					<span>create faculty</span>
+					<span>Create Faculty</span>
 				</LinkButton>
 				<Tooltip title="filter" placement="bottom">
 					<PHUButton onClick={() => setOpenFilterDrawer(true)} size="large" style={{ marginLeft: '5px' }}>
@@ -223,12 +223,12 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 			/>
 
 			<PHUModal
-				title="remove permission"
+				title="Delete Faculty"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteFacultyHandler(facultyId)}
 			>
-				<p className="my-5">Do you want to remove this permission?</p>
+				<p className="my-5">Do you want to remove this faculty?</p>
 			</PHUModal>
 
 			<PHUDrawer

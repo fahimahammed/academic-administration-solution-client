@@ -6,7 +6,7 @@ import { CreateStudent } from '@/components/base/students';
 const CreateStudentPage: NextPage = () => {
 	return (
 		<>
-			<Helmet>create student</Helmet>
+			<Helmet>Create Student</Helmet>
 			<CreateStudent base="admin" />
 		</>
 	);

@@ -38,7 +38,7 @@ const CreateAdmin = () => {
 					{ label: 'admin', link: '/super-admin/admin' },
 				]}
 			/>
-			<ActionBar title="create admin"></ActionBar>
+			<ActionBar title="Create Admin"></ActionBar>
 			<Form onSubmit={adminOnSubmit} resolver={yupResolver(AdminSchema)}>
 				{/* admin information */}
 				<div style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '15px', marginBottom: '10px' }}>

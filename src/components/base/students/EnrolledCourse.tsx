@@ -99,7 +99,7 @@ export default function EnrolledCourses() {
 				]}
 			/>
 
-			<ActionBar title="my courses">
+			<ActionBar title="My Courses">
 				<AcademicSemesterFilter />
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">

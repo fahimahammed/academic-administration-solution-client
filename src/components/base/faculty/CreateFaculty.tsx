@@ -40,7 +40,7 @@ const CreateFaculty = ({ base }: { base?: string }) => {
 					{ label: 'faculty', link: `/${base}/faculty` },
 				]}
 			/>
-			<ActionBar title="create faculty"></ActionBar>
+			<ActionBar title="Create Faculty"></ActionBar>
 			<Form onSubmit={facultyOnSubmit} resolver={yupResolver(FacultySchema)}>
 				{/* faculty information */}
 				<div style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '15px', marginBottom: '10px' }}>

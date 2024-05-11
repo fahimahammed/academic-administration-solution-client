@@ -165,7 +165,7 @@ const StudentCourseMarks = () => {
 							}}
 							style={{ marginLeft: '3px' }}
 						>
-							update marks
+							Update marks
 						</Button>
 					</>
 				);
@@ -239,7 +239,7 @@ const StudentCourseMarks = () => {
 								return (
 									<Fragment key={index}>
 										<PHUButton size="large" onClick={() => setOpen(true)}>
-											update final marks
+											Update final marks
 										</PHUButton>
 									</Fragment>
 								);

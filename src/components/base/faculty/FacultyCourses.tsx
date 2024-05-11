@@ -118,7 +118,7 @@ export default function FacultyCourses() {
 				]}
 			/>
 
-			<ActionBar title="my courses">
+			<ActionBar title="My courses">
 				<AcademicSemesterFilter />
 				{showResetFilterOption ? (
 					<Tooltip title="reset" placement="bottom">

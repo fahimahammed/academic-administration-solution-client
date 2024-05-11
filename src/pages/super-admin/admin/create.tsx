@@ -6,7 +6,7 @@ import CreateAdmin from '@/components/base/admin/CreateAdmin';
 const CreateAdminPage: NextPage = () => {
 	return (
 		<>
-			<Helmet>create admin</Helmet>
+			<Helmet>Create Admin</Helmet>
 			<CreateAdmin />
 		</>
 	);

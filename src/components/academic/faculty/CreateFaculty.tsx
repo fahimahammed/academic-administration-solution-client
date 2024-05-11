@@ -36,7 +36,7 @@ function CreateFaculty() {
 					{ label: 'create', link: `/admin/academic/faculty/create}` },
 				]}
 			/>
-			<ActionBar title={`create faculty`}></ActionBar>
+			<ActionBar title={`Create Faculty`}></ActionBar>
 			<Form onSubmit={handleSubmit}>
 				<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 					<Col span={8}>

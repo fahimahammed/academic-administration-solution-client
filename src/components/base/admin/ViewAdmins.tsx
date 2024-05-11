@@ -189,7 +189,7 @@ const ViewAdmins = () => {
 						padding: '10px 20px',
 					}}
 				>
-					<span>create admin</span>
+					<span>Create Admin</span>
 				</LinkButton>
 
 				<Tooltip title="filter" placement="bottom">

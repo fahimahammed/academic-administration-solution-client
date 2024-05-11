@@ -196,11 +196,11 @@ const ViewMyPayment = () => {
 			render: function (data: string) {
 				return (
 					<div style={{ textAlign: 'center' }}>
-						{data === PaymentStatus.PENDING.toString() && <Tag color="yellow">pending</Tag>}
+						{data === PaymentStatus.PENDING.toString() && <Tag color="yellow">Pending</Tag>}
 
-						{data === PaymentStatus.FULL_PAID.toString() && <Tag color="green">paid</Tag>}
+						{data === PaymentStatus.FULL_PAID.toString() && <Tag color="green">Paid</Tag>}
 
-						{data === PaymentStatus.PARTIAL_PAID.toString() && <Tag color="orange">partial paid</Tag>}
+						{data === PaymentStatus.PARTIAL_PAID.toString() && <Tag color="orange">Partial Paid</Tag>}
 					</div>
 				);
 			},
@@ -289,7 +289,7 @@ const ViewMyPayment = () => {
 					{ label: 'payment', link: '/admin/payment' },
 				]}
 			/>
-			<ActionBar title="my payment list">
+			<ActionBar title="My Payment List">
 				<SearchInput
 					placeholder="search"
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}

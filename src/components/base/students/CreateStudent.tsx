@@ -58,7 +58,7 @@ const CreateStudent = ({ base }: { base?: string }) => {
 					{ label: 'student', link: `/${base}/student` },
 				]}
 			/>
-			<ActionBar title="create student"></ActionBar>
+			<ActionBar title="Create Student"></ActionBar>
 
 			<StepperComponent
 				steps={formSteps}
