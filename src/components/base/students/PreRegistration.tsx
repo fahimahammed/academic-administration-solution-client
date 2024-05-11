@@ -1,6 +1,6 @@
 import { useMyRegistrationQuery, useStartRegistrationMutation } from '@/redux/apis/semesterRegistrationApi';
 import { logger } from '@/services';
-import { Alert, Button, Spin } from 'antd';
+import { Alert, Button, Spin, Tag } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -34,7 +34,11 @@ export default function PreRegistration() {
 					</Button>
 				) : (
 					<>
-						<div>You are not allowed to do your registration. Stay tuned....</div>
+						<div>
+							<Tag color='red'>
+								You are not allowed to do your registration. Stay tuned....
+							</Tag>
+						</div>
 					</>
 				)}
 			</div>
