@@ -1,4 +1,13 @@
-# Academic Administration Solution
+<p align="center">
+  <img src="https://i.ibb.co/VSMGVXd/logo-secondary.png" width="200" alt="AAS Logo">
+</p>
+
+<div align="center">
+  <h1>Academic Administration Solution</h1>
+</div>
+
+[![Client](https://img.shields.io/badge/Client-Yes-brightgreen)](https://github.com/fahimahammed/academic-administration-solution-client) [![Version](https://img.shields.io/badge/Version-1.0-blue)](https://github.com/fahimahammed/academic-administration-solution-server) [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)](https://github.com/fahimahammed/academic-administration-solution-server) [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+
 
 ## Introduction
 
