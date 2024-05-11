@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
 const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
-	<svg width="1em" height="1em" viewBox="0 0 666 600" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+	<svg width="35em" height="35em" viewBox="0 0 666 600" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
 		<path
 			d="m385.386 167.78-5.006-8.418-27.304 15.927 5.006 8.646-15.7 27.304-9.784.227.228 31.627 9.784-.227 16.154 27.303-5.005 8.647 27.531 15.472 4.778-8.419 31.627-.227 5.006 8.418 27.304-15.927-5.006-8.646 15.7-27.304 9.783-.227-.227-31.627-9.784.227-16.155-27.303 5.006-8.647-27.531-15.472-5.006 8.419-31.399.227Z"
 			fill="#fff"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -14,7 +14,7 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		<path
 			d="M401.313 201.455c13.879 0 25.256 11.149 25.483 25.028 0 13.88-11.149 25.256-25.028 25.484-13.88 0-25.256-11.149-25.484-25.028-.227-14.107 11.149-25.484 25.029-25.484Z"
 			fill="#fff"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -22,7 +22,7 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="M74.35 69.032S12.462 122.957 80.95 191.67"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -38,7 +38,7 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="m35.67 408.281 74.858 190.444M38.855 474.265l29.58 17.52M96.42 563.23l16.156-26.166M58.65 466.529l7.737-23.891"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -46,12 +46,12 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="M85.272 365.505H235.67v-89.42L85.272 298.611v66.894ZM82.997 599.635l23.435-24.119h20.023v24.119H82.997ZM212.234 599.635l-15.244-24.119h-19.795v24.119h35.039Z"
-			fill="#2953E8"
+			fill="#7134eb"
 		/>
 		<path
 			d="M223.838 365.05v216.837h-60.75V408.964h-7.964l-11.149 172.923H82.997l11.149-172.923 2.957-43.914h126.735Z"
 			fill="#fff"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.616}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -59,11 +59,11 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="M252.962 257.655c0-50.057-38.452-72.582-88.509-73.72h-3.186c-75.54 0-99.203 54.835-102.844 64.392-7.963 21.16-30.262 87.144 41.866 117.633 21.615 9.101 37.315-13.197 48.919-19.112 20.25-10.467 27.531-12.97 27.531-12.97l76.223-76.223Z"
-			fill="#2953E8"
+			fill="#7134eb"
 		/>
 		<path
 			d="M219.515 282.684s7.964 36.632 53.015 28.669c45.051-7.964 31.854-77.133 31.854-77.133h-34.812l-1.365 31.854s-18.43-47.782-41.638-64.164c-13.88-10.011-7.054 80.774-7.054 80.774Z"
-			fill="#2953E8"
+			fill="#7134eb"
 		/>
 		<path
 			d="M235.215 268.349v37.998"
@@ -76,7 +76,7 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		<path
 			d="m131.006 357.769 12.514 12.742 10.239 12.059-4.323 4.323 3.868 5.006-21.161 16.382-27.531-32.992 26.394-17.52Z"
 			fill="#fff"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -84,7 +84,7 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="m148.981 395.084-9.102-10.466M142.837 399.18l-8.873-10.467M137.377 403.503l-9.102-10.239M149.663 387.121l-6.826-7.736"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -92,12 +92,12 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="M97.103 270.17c-19.112 40.728 39.363 85.551 39.363 85.551l-35.039 26.166s-47.1-39.818-49.375-66.666M156.944 161.637s-22.298 5.688-23.663-21.388c-1.365-27.076 42.093-36.86 52.332-25.483 10.467 11.376-28.669 46.871-28.669 46.871Z"
-			fill="#2953E8"
+			fill="#7134eb"
 		/>
 		<path
 			d="M159.219 198.725c7.509 0 13.652-6.144 13.652-13.652v-44.824H145.34v44.596c0 7.736 6.143 13.88 13.879 13.88Z"
 			fill="#fff"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -106,7 +106,7 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		<path
 			d="M135.784 142.524c-.228 4.096 2.73 7.964 7.053 8.192h1.82c.228 2.73 1.138 5.46 2.503 7.736 3.186 5.688 9.102 9.783 16.155 10.239 11.149.91 20.933-7.509 21.843-18.658.91-11.149-7.508-20.933-18.658-21.843-7.508-.683-14.562 2.958-18.43 8.874-1.137-.91-2.502-1.365-4.095-1.593-4.323-.228-7.964 2.73-8.191 7.053Z"
 			fill="#fff"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -114,7 +114,7 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="M147.16 146.392s0-3.868-3.868-3.64"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -124,7 +124,7 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		<path
 			d="m275.033 219.43.227 21.388 26.849-.228.455-20.932-27.531-.228Z"
 			fill="#fff"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -132,7 +132,7 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="m280.721 240.363.455-13.652M288.002 239.68l.228-13.652M295.056 239.68l.455-13.879"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -150,11 +150,11 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 			d="M529.413 302.479H250.232v43.003h279.181v-43.003ZM529.413 363.457H250.232v43.004h279.181v-43.004ZM529.413 426.256H250.232v43.003h279.181v-43.003Z"
 			fill="#fff"
 		/>
-		<path d="M473.895 499.749H305.75v43.003h168.145v-43.003Z" fill="#2953E8" />
+		<path d="M473.895 499.749H305.75v43.003h168.145v-43.003Z" fill="#7134eb" />
 		<path
 			d="M522.815 206.006c29.656 0 53.697-24.041 53.697-53.698 0-29.656-24.041-53.697-53.697-53.697-29.657 0-53.698 24.041-53.698 53.697 0 29.657 24.041 53.698 53.698 53.698Z"
 			fill="#fff"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -163,17 +163,17 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="M32.94 599.635h632.537"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
 			strokeLinejoin="round"
 		/>
-		<path d="M609.731 599.635h-93.742l-12.742-104.437h119.226l-12.742 104.437Z" fill="#2953E8" />
+		<path d="M609.731 599.635h-93.742l-12.742-104.437h119.226l-12.742 104.437Z" fill="#7134eb" />
 		<path
 			d="M630.209 495.198H495.283v23.663h134.926v-23.663Z"
 			fill="#fff"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -181,7 +181,7 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="M562.86 495.198V388.941"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -190,7 +190,7 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		<path
 			d="M562.86 439.225c32.798 0 59.386-26.588 59.386-59.385 0-32.798-26.588-59.386-59.386-59.386s-59.386 26.588-59.386 59.386c0 32.797 26.588 59.385 59.386 59.385Z"
 			fill="#fff"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -199,13 +199,13 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		<path
 			d="M596.457 413.471c18.571-18.57 18.571-48.68 0-67.251-18.571-18.57-48.68-18.57-67.251 0-18.571 18.571-18.571 48.681 0 67.251 18.571 18.571 48.68 18.571 67.251 0Z"
 			fill="#fff"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.616}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
 			strokeLinejoin="round"
 		/>
-		<path d="M562.86 494.97s0-45.278-45.961-50.739c-3.641 37.77 45.961 50.739 45.961 50.739Z" fill="#2953E8" />
+		<path d="M562.86 494.97s0-45.278-45.961-50.739c-3.641 37.77 45.961 50.739 45.961 50.739Z" fill="#7134eb" />
 		<path
 			d="m526.683 456.745 25.256 24.801"
 			stroke="#fff"
@@ -214,7 +214,7 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 			strokeLinecap="round"
 			strokeLinejoin="round"
 		/>
-		<path d="M563.088 495.653s0-45.279 45.961-50.739c3.64 37.542-45.961 50.739-45.961 50.739Z" fill="#2953E8" />
+		<path d="M563.088 495.653s0-45.279 45.961-50.739c3.64 37.542-45.961 50.739-45.961 50.739Z" fill="#7134eb" />
 		<path
 			d="m599.265 457.2-25.256 24.801"
 			stroke="#fff"
@@ -225,17 +225,17 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="M543.747 373.014v13.196c0 10.922 8.646 19.568 19.568 19.568 10.921 0 19.568-8.874 19.568-19.568v-13.196h-39.136Zm21.843 20.25h-4.778v-10.011h4.778v10.011Z"
-			fill="#2953E8"
+			fill="#7134eb"
 		/>
 		<path
 			d="M575.374 369.373v-2.503a12.235 12.235 0 0 0-12.287-12.286 12.235 12.235 0 0 0-12.286 12.286v2.503"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={2}
 			strokeMiterlimit={10}
 		/>
 		<path
 			d="M603.588 310.67s39.363-70.99-30.944-110.808"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -244,12 +244,12 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="m356.489 164.367-2.275-17.064-5.233.682-10.467-13.652 2.048-5.005-15.7-6.599-2.048 5.006-17.064 2.275-3.186-4.323-13.652 10.467 3.186 4.323-6.599 15.699-5.233.683 2.275 17.065 5.234-.683 10.466 13.652-2.048 5.006 15.7 6.598 2.048-5.006 17.065-2.275 3.185 4.323 13.652-10.466-3.186-4.323 6.599-15.7 5.233-.683Zm-36.177 10.012c-7.509.91-14.335-4.323-15.245-11.832-.91-7.508 4.323-14.334 11.832-15.244 7.508-.911 14.334 4.323 15.244 11.831.91 7.281-4.55 14.107-11.831 15.245Z"
-			fill="#2953E8"
+			fill="#7134eb"
 		/>
 		<path
 			d="M333.964 1H96.421v67.804h237.543V1Z"
 			fill="#fff"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={0.622}
 			strokeMiterlimit={10}
 			strokeLinecap="round"
@@ -262,11 +262,11 @@ const SvgLoginBanner = (props: SVGProps<SVGSVGElement>) => (
 		/>
 		<path
 			d="M539.425 153.218c-5.234 5.234-13.652 5.234-18.658 0-5.233-5.233-5.233-13.651 0-18.657 5.233-5.233 13.652-5.233 18.658 0 5.233 5.006 5.233 13.424 0 18.657Z"
-			fill="#2953E8"
+			fill="#7134eb"
 		/>
 		<path
 			d="m530.096 143.662-23.209 23.208 7.281 7.281M518.719 165.733l-5.233-5.461"
-			stroke="#2953E8"
+			stroke="#7134eb"
 			strokeWidth={3}
 			strokeMiterlimit={10}
 		/>

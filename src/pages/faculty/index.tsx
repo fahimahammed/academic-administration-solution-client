@@ -7,7 +7,7 @@ import { NextPage } from 'next';
 const FacultyDashboardPage: NextPage = () => {
 	return (
 		<>
-			<Helmet>account profile</Helmet>
+			<Helmet>Profile</Helmet>
 			<AccountProfile title="faculty information" role={USER_ROLE.FACULTY} />
 		</>
 	);

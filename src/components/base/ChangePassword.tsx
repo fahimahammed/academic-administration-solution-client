@@ -27,14 +27,14 @@ function ChangePassword() {
 		<>
 			<div style={{ margin: '20px 0px', display: 'flex', justifyContent: 'center' }}>
 				<Form onSubmit={onSubmit}>
-					<h3 style={{ margin: '15px 0px' }}>reset password</h3>
+					<h1 style={{ margin: '15px 0px' }}>Change Password</h1>
 					<div style={{ margin: '10px 0px' }}>
 						<FormPasswordField size="large" name="oldPassword" label="Old password" />
 					</div>
 					<div style={{ margin: '10px 0px' }}>
 						<FormPasswordField size="large" name="newPassword" label="New password" />
 					</div>
-					<Button htmlType="submit">submit</Button>
+					<Button htmlType="submit">Submit</Button>
 				</Form>
 			</div>
 		</>

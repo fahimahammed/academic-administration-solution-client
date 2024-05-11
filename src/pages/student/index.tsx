@@ -7,7 +7,7 @@ import { USER_ROLE } from '@/constants';
 const StudentDashboardPage: NextPage = () => {
 	return (
 		<>
-			<Helmet>account profile</Helmet>
+			<Helmet>Profile</Helmet>
 			<AccountProfile title="Student Information" role={USER_ROLE.STUDENT} />
 		</>
 	);

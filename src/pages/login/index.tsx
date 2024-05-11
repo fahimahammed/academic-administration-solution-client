@@ -16,6 +16,9 @@ import { Form, FormInput, FormPasswordField } from '@/components/forms';
 import { useAdminLoginMutation } from '@/redux/apis/authApi';
 import { setAuth } from '@/redux/slices/authSlice';
 import { IError } from '@/types';
+import SvgLoginBanner from '@/assets/others/custom/LoginBanner';
+import Image from 'next/image';
+import logoPrimary from '../../assets/images/logo-primary 2.png'
 
 type FormValues = {
 	id: string;
@@ -83,42 +86,55 @@ export default function StudentLoginPage() {
 		<>
 			<Helmet>Login</Helmet>
 
-			<div style={{ backgroundColor: 'white' }}>
+			<div style={{ backgroundColor: "#F2F5FF" }}>
 				<Row
-					justify="center"
+					justify="space-between"
 					align="middle"
-					style={{ minHeight: '100vh', display: 'flex', margin: '0px 50px' }}
+					style={{ minHeight: '100vh', display: 'flex', flexWrap: 'wrap', margin: '0px auto', maxWidth: '1124px' }}
 					gutter={{ xs: 24, xl: 12 }}
 				>
-					<Col span={8}>
-						{/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikimedia_Commons_logo_white.png/1200px-Wikimedia_Commons_logo_white.png" alt="Your Logo" style={{ marginBottom: '20px', height: '70px' }} /> Add your logo here */}
-						<Form onSubmit={onSubmit}>
-							<h1 style={{ marginBottom: '10px' }}>Login first to your account</h1>
-							<p style={{ marginBottom: '20px', color: 'gray' }}>Enter your userId and password to log in.</p>
-							<div style={{ margin: '10px 0px' }}>
-								<label htmlFor="id" className="font-semibold">
-									User Id
-								</label>
-								<FormInput placeholder='User ID' size="large" type="text" name="id" />
-							</div>
-							<div style={{ margin: '10px 0px' }}>
-								<label htmlFor="password" className="font-semibold">
-									Password
-								</label>
-								<FormPasswordField placeholder='Password' size="large" id="password" name="password" />
-							</div>
-
-							<div style={{ display: 'flex', alignItems: 'center', margin: '10px 0px' }}>
-								<div style={{ marginLeft: 'auto' }}>
-									<Link href="/forgot-password">Forgot password?</Link>
+					<Col xs={24} xl={12}>
+						<SvgLoginBanner />
+					</Col>
+					<Col xs={24} xl={12} style={{ backgroundColor: "white", padding: "5rem 3.5rem", borderRadius: "10px", margin: "0 auto" }}>
+						<div style={{ margin: '0 20px' }}>
+							<Image
+								src={logoPrimary}
+								alt="Logo"
+								height={44}
+								width={100}
+								style={{ marginBottom: '20px' }}
+							/>
+							<Form onSubmit={onSubmit}>
+								<h1 style={{ marginBottom: '10px' }}>Login first to your account</h1>
+								<p style={{ marginBottom: '20px', color: 'gray' }}>Enter your userId and password to log in.</p>
+								<div style={{ margin: '10px 0px' }}>
+									<label htmlFor="id" className="font-semibold">
+										User Id
+									</label>
+									<FormInput placeholder='User ID' size="large" type="text" name="id" />
 								</div>
-							</div>
+								<div style={{ margin: '10px 0px' }}>
+									<label htmlFor="password" className="font-semibold">
+										Password
+									</label>
+									<FormPasswordField placeholder='Password' size="large" id="password" name="password" />
+								</div>
 
-							<PHUButton htmlType="submit" size='large'>Login</PHUButton>
-						</Form>
+								<div style={{ display: 'flex', alignItems: 'center', margin: '10px 0px' }}>
+									<div style={{ marginLeft: 'auto' }}>
+										<Link href="/forgot-password">Forgot password?</Link>
+									</div>
+								</div>
+
+								<PHUButton htmlType="submit" size='large'>Login</PHUButton>
+							</Form>
+						</div>
 					</Col>
 				</Row>
 			</div>
 		</>
+
+
 	);
 }

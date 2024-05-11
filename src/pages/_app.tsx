@@ -4,7 +4,6 @@ import '@/styles/globals.css';
 import { AppPropsWithLayout } from '@/types';
 import { ToastNotification } from '@/ui';
 import { ConfigProvider } from 'antd';
-import { purple } from '@ant-design/colors';
 
 const sourceSerifPro = Source_Serif_Pro({
 	weight: '400',
@@ -18,7 +17,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 			<ConfigProvider
 				theme={{
 					token: {
-						colorPrimary: purple.primary,
+						colorPrimary: "#7134eb",
 					},
 				}}
 			>

@@ -55,7 +55,7 @@ function UserProfileNav() {
 							<p style={{ padding: 0, lineHeight: 1, marginLeft: '5px' }}>
 								<span>
 									{data?.firstName} {data?.lastName}
-									{!data && 'super admin'}
+									{!data && 'SUPER ADMIN'}
 								</span>
 								<br></br>
 								<small style={{ marginBottom: '-10px' }}>{data ? data?.userId : '-'}</small>

@@ -5,6 +5,8 @@ import { Layout, Menu, Button, theme } from 'antd';
 import type { MenuProps } from 'antd';
 import UserProfileNav from '../UserProfileNav';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import logoSecondary from '../../assets/images/logo-secondary 2.png'
 
 const { Header, Sider, Content } = Layout;
 
@@ -49,11 +51,18 @@ const BaseLayout = ({ sidebarData, children }: BaseLayoutProps) => {
 						justifyContent: 'center',
 						margin: '20px auto',
 						fontWeight: 'bold',
-						fontSize: '28px',
+						fontSize: '1.5rem',
 					}}
 				>
-					AAS
+					{/* AAS logo */}
+					<Image
+						src={logoSecondary}
+						alt="Logo"
+						height={34}
+						width={80}
+					/>
 				</div>
+
 				<Menu
 					theme="dark"
 					mode="inline"
