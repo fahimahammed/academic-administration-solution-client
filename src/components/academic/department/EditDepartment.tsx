@@ -22,7 +22,7 @@ function EditDepartment({ id }: { id: string }) {
 	const handleSubmit = async (values: FormData) => {
 		try {
 			await updateAcademicDepartment({ id, body: values }).unwrap();
-			notifySuccess('academic department updated successfully');
+			notifySuccess('Academic department updated successfully');
 		} catch (error) {
 			logger.error(error);
 			const er = error as IError;

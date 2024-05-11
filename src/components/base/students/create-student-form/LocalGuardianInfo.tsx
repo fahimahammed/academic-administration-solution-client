@@ -9,19 +9,19 @@ export default function LocalGuardianInfo() {
 				<p style={{ fontSize: '18px', fontWeight: '500', margin: '5px 0px' }}>Guardian information</p>
 				<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 					<Col span={6} style={{ margin: '10px 0' }}>
-						<FormInput name="student.localGuardian.name" label="Local gurdian name" />
+						<FormInput name="student.localGuardianName" label="Local gurdian name" />
 					</Col>
 
 					<Col span={6} style={{ margin: '10px 0' }}>
-						<FormInput name="student.localGuardian.occupation" label="Local gurdian occupation" />
+						<FormInput name="student.localGuardianOccupation" label="Local gurdian occupation" />
 					</Col>
 
 					<Col span={6} style={{ margin: '10px 0' }}>
-						<FormInput name="student.localGuardian.contactNo" label="Local gurdian contact no." />
+						<FormInput name="student.localGuardianContactNo" label="Local gurdian contact no." />
 					</Col>
 
 					<Col span={6} style={{ margin: '10px 0' }}>
-						<FormInput name="student.localGuardian.address" label="Local gurdian address" />
+						<FormInput name="student.localGuardianAddress" label="Local gurdian address" />
 					</Col>
 				</Row>
 			</div>

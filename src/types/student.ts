@@ -57,10 +57,16 @@ export interface StudentPayload {
 	academicFaculty: string;
 	academicDepartment: string;
 	academicSemester: string;
-	department: string;
-	subject: string;
-	guardian: Guardian;
-	localGuardian: LocalGuardian;
+	fatherName: string;
+	fatherOccupation: string;
+	fatherContactNo: string;
+	motherName: string;
+	motherOccupation: string;
+	motherContactNo: string;
+	localGuardianName: string;
+	localGuardianOccupation: string;
+	localGuardianContactNo: string;
+	localGuardianAddress: string;
 	file?: RcFile;
 }
 

@@ -13,15 +13,15 @@ export default function StudentInfo() {
 			<div style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '15px', marginBottom: '10px' }}>
 				<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 					<Col span={6} style={{ margin: '10px 0' }}>
-						<FormInput name="student.name.firstName" label="first name" />
+						<FormInput name="student.firstName" label="first name" />
 					</Col>
 
 					<Col span={6} style={{ margin: '10px 0' }}>
-						<FormInput name="student.name.middleName" label="middle name" />
+						<FormInput name="student.middleName" label="middle name" />
 					</Col>
 
 					<Col span={6} style={{ margin: '10px 0' }}>
-						<FormInput name="student.name.lastName" label="last name" />
+						<FormInput name="student.lastName" label="last name" />
 					</Col>
 
 					<Col span={6} style={{ margin: '10px 0' }}>
@@ -29,15 +29,15 @@ export default function StudentInfo() {
 					</Col>
 
 					<Col span={8} style={{ margin: '10px 0' }}>
-						<AcademicFacultyField name="student.academicFaculty" label="academic faculty" />
+						<AcademicFacultyField name="student.academicFacultyId" label="academic faculty" />
 					</Col>
 
 					<Col span={8} style={{ margin: '10px 0' }}>
-						<AcademicDepartmentField name="student.academicDepartment" label="academic department" />
+						<AcademicDepartmentField name="student.academicDepartmentId" label="academic department" />
 					</Col>
 
 					<Col span={8} style={{ margin: '10px 0' }}>
-						<AcademicSemester name="student.academicSemester" label="academic semester" />
+						<AcademicSemester name="student.academicSemesterId" label="academic semester" />
 					</Col>
 
 					<Col span={8} style={{ margin: '10px 0' }}>

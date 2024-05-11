@@ -30,7 +30,7 @@ function CreateDepartment() {
 	const handleSubmit = async (values: FormData) => {
 		try {
 			await addAcademicDepartment(values).unwrap();
-			notifySuccess('academic department added successfully');
+			notifySuccess('Academic department added successfully');
 		} catch (error) {
 			logger.error(error);
 			const er = error as IError;
