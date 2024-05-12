@@ -228,7 +228,7 @@ const ViewStudents = ({ base }: { base?: string }) => {
 			/>
 
 			<PHUModal
-				title="remove student"
+				title="Remove Student"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteStudentHandler(studentId)}

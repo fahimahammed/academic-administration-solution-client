@@ -8,7 +8,7 @@ const AdminDashboardPage: NextPage = () => {
 	return (
 		<>
 			<Helmet>Profile</Helmet>
-			<AccountProfile title="Admin information" role={USER_ROLE.ADMIN} />
+			<AccountProfile title="Admin Information" role={USER_ROLE.ADMIN} />
 		</>
 	);
 };
