@@ -203,7 +203,7 @@ const ViewUsers = () => {
 			/>
 
 			<PHUModal
-				title="remove user"
+				title="Remove User"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteUserHandler(userState.userId as string)}

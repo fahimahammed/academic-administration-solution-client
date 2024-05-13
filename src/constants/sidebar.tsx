@@ -34,12 +34,12 @@ export const sidebarItems = (role: string) => {
 
 	const commonAdminSidebarItems: MenuProps['items'] = [
 		{
-			label: <Link href={`/${base}/student`}>Manage students</Link>,
+			label: <Link href={`/${base}/student`}>Manage Students</Link>,
 			icon: <TableOutlined />,
 			key: `/${base}/student`,
 		},
 		{
-			label: <Link href={`/${base}/faculty`}>Manage faculty</Link>,
+			label: <Link href={`/${base}/faculty`}>Manage Faculty</Link>,
 			icon: <TableOutlined />,
 			key: `/${base}/faculty`,
 		},
@@ -89,19 +89,19 @@ export const sidebarItems = (role: string) => {
 					key: `/${base}/course`,
 				},
 				{
-					label: <Link href={`/${base}/semester-registration`}>Semester registration</Link>,
+					label: <Link href={`/${base}/semester-registration`}>Semester Registration</Link>,
 					key: `/${base}/semester-registration`,
 				},
 				{
-					label: <Link href={`/${base}/offered-course`}>Offered courses</Link>,
+					label: <Link href={`/${base}/offered-course`}>Offered Courses</Link>,
 					key: `/${base}/offered-course`,
 				},
 				{
-					label: <Link href={`/${base}/offered-course-section`}>Course sections</Link>,
+					label: <Link href={`/${base}/offered-course-section`}>Course Sections</Link>,
 					key: `/${base}/offered-course-section`,
 				},
 				{
-					label: <Link href={`/${base}/offered-course-schedule`}>Course schedules</Link>,
+					label: <Link href={`/${base}/offered-course-schedule`}>Course Schedules</Link>,
 					key: `/${base}/offered-course-schedule`,
 				},
 			],
@@ -153,7 +153,7 @@ export const sidebarItems = (role: string) => {
 			key: `/${base}/courses`,
 		},
 		{
-			label: <Link href={`/${base}/courses/schedule`}>Course schedules</Link>,
+			label: <Link href={`/${base}/courses/schedule`}>Course Schedules</Link>,
 			icon: <ScheduleOutlined />,
 			key: `/${base}/courses/schedule`,
 		},
@@ -168,7 +168,7 @@ export const sidebarItems = (role: string) => {
 			key: `/${base}/payment`,
 		},
 		{
-			label: <Link href={`/${base}/academic-report`}>Academic report</Link>,
+			label: <Link href={`/${base}/academic-report`}>Academic Report</Link>,
 			icon: <FileTextOutlined />,
 			key: `/${base}/academic-report`,
 		},

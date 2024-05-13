@@ -219,7 +219,7 @@ const ViewAdmins = () => {
 			/>
 
 			<PHUModal
-				title="remove admin"
+				title="Remove Admin"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteAdminHandler(adminId)}

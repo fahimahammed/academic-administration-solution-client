@@ -12,7 +12,7 @@ import PHUButton from '@/ui/PHUButton';
 import { FacultyPayload, IError } from '@/types';
 import AcademicDepartment from '../common-form-field/AcademicDepartmentField';
 import AcademicFacultyField from '../common-form-field/AcademicFacultyField';
-import UploadImage from '@/ui/PHUUploadImage';
+import PHUUploadImage from '@/ui/PHUUploadImage';
 import { parseFacultyRequestPayload } from '@/transformer/faculty';
 import { RcFile } from 'antd/es/upload';
 
@@ -74,7 +74,7 @@ const CreateFaculty = ({ base }: { base?: string }) => {
 						</Col>
 
 						<Col span={8} style={{ margin: '10px 0' }}>
-							<UploadImage name="file" />
+							<PHUUploadImage name="file" />
 						</Col>
 					</Row>
 				</div>
@@ -118,7 +118,7 @@ const CreateFaculty = ({ base }: { base?: string }) => {
 					</Row>
 				</div>
 
-				<PHUButton htmlType="submit">submit</PHUButton>
+				<PHUButton htmlType="submit">Submit</PHUButton>
 			</Form>
 		</>
 	);

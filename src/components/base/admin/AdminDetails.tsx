@@ -197,7 +197,7 @@ const AdminDetails = ({ id }: EditStudentProps) => {
 						</table>
 					</Col>
 					<Col span={4}>
-						{!data?.profileImage.startsWith('https') || !data?.profileImage.startsWith('http') ? (
+						{!data?.profileImage?.startsWith('https') || !data?.profileImage.startsWith('http') ? (
 							<Image src="/default-profile.png" width="300" height="300" alt={''} />
 						) : (
 							<Image src={`${data?.profileImage}`} width="300" height="300" alt={''} />
