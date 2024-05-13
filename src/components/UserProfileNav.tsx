@@ -32,7 +32,7 @@ function UserProfileNav() {
 			key: '1',
 			label: (
 				<div onClick={signout} style={{ marginLeft: 'auto' }}>
-					logout
+					Logout
 				</div>
 			),
 		},

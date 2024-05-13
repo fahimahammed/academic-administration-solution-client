@@ -30,9 +30,17 @@ const paymentApi = baseApi.injectEndpoints({
 			}),
 			invalidatesTags: [tagTypes.payment],
 		}),
+		completePayment: build.query({
+			query: (transactionId: string) => ({
+				url: `${BASE_STUDENT_SEMETER_PAYMENT}/complete-payment`,
+				method: 'GET',
+				params: { transactionId },
+			}),
+			providesTags: [tagTypes.payment],
+		}),
 	}),
 });
 
-export const { useMyPaymentsQuery, useInitialPaymentMutation } = paymentApi;
+export const { useMyPaymentsQuery, useInitialPaymentMutation, useCompletePaymentQuery } = paymentApi;
 
 export default paymentApi;
