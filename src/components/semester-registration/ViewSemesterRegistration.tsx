@@ -63,14 +63,14 @@ const ViewSemesterRegistration = () => {
 	}
 
 	const { data, isLoading } = useSemesterRegistrationsQuery({ ...query });
-	const [deleteSemesterRegistration] = useDeleteSemesterRegistrationsMutation();
+	const [deleteSemesterRegistrations] = useDeleteSemesterRegistrationsMutation();
 
 	const semesterRegistrations = data?.semesterRegistrations;
 	const meta = data?.meta;
 
 	const deleteSemesterRegistrationHandler = async (id: string) => {
 		try {
-			await deleteSemesterRegistration(id).unwrap();
+			await deleteSemesterRegistrations(id).unwrap();
 			notifySuccess('Semester Registration deleted successfully');
 			setOpen(false);
 		} catch (error) {
