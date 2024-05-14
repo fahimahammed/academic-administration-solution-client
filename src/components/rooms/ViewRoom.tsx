@@ -59,7 +59,7 @@ const ViewRoom = () => {
 	const deleteRoomHandler = async (id: string) => {
 		try {
 			await deleteRoom(id).unwrap();
-			notifySuccess('room deleted successfully');
+			notifySuccess('Room deleted successfully');
 			setOpen(false);
 		} catch (error) {
 			logger.error(error);
@@ -192,7 +192,7 @@ const ViewRoom = () => {
 			/>
 
 			<PHUModal
-				title="remove room"
+				title="Remove Room"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteRoomHandler(roomId)}

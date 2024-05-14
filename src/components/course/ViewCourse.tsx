@@ -184,7 +184,7 @@ const ViewCourse = () => {
 			/>
 
 			<PHUModal
-				title="remove course"
+				title="Remove Course"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteCourseHandler(courseId)}

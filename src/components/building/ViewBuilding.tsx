@@ -53,7 +53,7 @@ const ViewBuilding = () => {
 	const deleteBuildingHandler = async (id: string) => {
 		try {
 			await deleteBuilding(id).unwrap();
-			notifySuccess('building deleted successfully');
+			notifySuccess('Building deleted successfully');
 			setOpen(false);
 		} catch (error) {
 			logger.error(error);
@@ -174,7 +174,7 @@ const ViewBuilding = () => {
 			/>
 
 			<PHUModal
-				title="remove building"
+				title="Remove Building"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteBuildingHandler(buildingId)}

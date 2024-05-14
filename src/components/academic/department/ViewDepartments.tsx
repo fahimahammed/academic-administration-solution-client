@@ -64,7 +64,7 @@ const ViewDepartments = () => {
 
 	const deleteAcademicDepartmentHandler = async (id: string) => {
 		try {
-			await deleteAcademicDepartment(id);
+			await deleteAcademicDepartment(id).unwrap();
 			notifySuccess('Academic department deleted successfully');
 			setOpen(false);
 		} catch (error) {

@@ -53,7 +53,7 @@ const ViewSemesters = () => {
 
 	const deleteAcademicSemesterHandler = async (id: string) => {
 		try {
-			await deleteAcademicSemester(id);
+			await deleteAcademicSemester(id).unwrap();
 			notifySuccess('Academic semester deleted successfully');
 			setOpen(false);
 		} catch (error) {
@@ -195,7 +195,7 @@ const ViewSemesters = () => {
 			/>
 
 			<PHUModal
-				title="remove academic semester"
+				title="Remove Academic Semester"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteAcademicSemesterHandler(academicSemesterId)}
