@@ -194,12 +194,12 @@ const ViewDepartments = () => {
 			/>
 
 			<PHUModal
-				title="remove academic department"
+				title="Remove Academic Department"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteAcademicDepartmentHandler(academicDepartmentId)}
 			>
-				<p className="my-5">Do you want to remove this academic faculty?</p>
+				<p className="my-5">Do you want to remove this academic department?</p>
 			</PHUModal>
 		</>
 	);

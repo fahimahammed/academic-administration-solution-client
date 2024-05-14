@@ -80,7 +80,8 @@ const ViewStudents = ({ base }: { base?: string }) => {
 
 	const deleteStudentHandler = async (id: string) => {
 		try {
-			await deleteStudent(id);
+			await deleteStudent(id).unwrap();
+			//console.log(res);
 			notifySuccess('Student deleted successfully');
 			setOpen(false);
 		} catch (error) {

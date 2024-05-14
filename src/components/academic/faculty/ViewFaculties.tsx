@@ -53,8 +53,9 @@ const ViewFaculties = () => {
 
 	const deleteAcademicFacultyHandler = async (id: string) => {
 		try {
-			await deleteAcademicFaculty(id);
-			notifySuccess('Academic faculty deleted successfully');
+			await deleteAcademicFaculty(id).unwrap();
+			notifySuccess('Academic faculty deleted successfully!');
+
 			setOpen(false);
 		} catch (error) {
 			logger.error(error);
@@ -175,7 +176,7 @@ const ViewFaculties = () => {
 			/>
 
 			<PHUModal
-				title="remove academic faculty"
+				title="Remove Academic Faculty"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteAcademicFacultyHandler(academicFacultyId)}

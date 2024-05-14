@@ -223,7 +223,7 @@ const ViewOfferedCourseSection = () => {
 			/>
 
 			<PHUModal
-				title="remove course section"
+				title="Remove Course Section"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteOfferedCourseSectionHandler(offeredCourseSectionId)}
