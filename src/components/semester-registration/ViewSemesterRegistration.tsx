@@ -14,8 +14,7 @@ import { DeleteOutlined, EditOutlined, ReloadOutlined, EyeOutlined, PlayCircleOu
 import PHUButton from '@/ui/PHUButton';
 import { formatDateTime } from '@/utils/datetime-converter';
 import { SorterResult } from 'antd/es/table/interface';
-import { useDeleteCourseMutation } from '@/redux/apis/courseApi';
-import { useSemesterRegistrationsQuery, useStartNewSemesterMutation } from '@/redux/apis/semesterRegistrationApi';
+import { useDeleteSemesterRegistrationsMutation, useSemesterRegistrationsQuery, useStartNewSemesterMutation } from '@/redux/apis/semesterRegistrationApi';
 import AcademicSemesterFilter from './filter-options/AcademicSemesterFilter';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/redux';
@@ -64,15 +63,15 @@ const ViewSemesterRegistration = () => {
 	}
 
 	const { data, isLoading } = useSemesterRegistrationsQuery({ ...query });
-	const [deleteCourse] = useDeleteCourseMutation();
+	const [deleteSemesterRegistration] = useDeleteSemesterRegistrationsMutation();
 
 	const semesterRegistrations = data?.semesterRegistrations;
 	const meta = data?.meta;
 
 	const deleteSemesterRegistrationHandler = async (id: string) => {
 		try {
-			await deleteCourse(id).unwrap();
-			notifySuccess('course deleted successfully');
+			await deleteSemesterRegistration(id).unwrap();
+			notifySuccess('Semester Registration deleted successfully');
 			setOpen(false);
 		} catch (error) {
 			logger.error(error);
@@ -242,7 +241,7 @@ const ViewSemesterRegistration = () => {
 			/>
 
 			<PHUModal
-				title="remove semester registration"
+				title="Remove Semester Registration"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteSemesterRegistrationHandler(semesterRegistrationId)}

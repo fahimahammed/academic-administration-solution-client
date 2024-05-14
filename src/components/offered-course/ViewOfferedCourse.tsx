@@ -78,7 +78,7 @@ const ViewOfferedCourse = () => {
 	const deleteOfferedCourseHandler = async (id: string) => {
 		try {
 			await deleteOfferedCourse(id).unwrap();
-			notifySuccess('offered course deleted successfully');
+			notifySuccess('Offered course deleted successfully');
 			setOpen(false);
 		} catch (error) {
 			logger.error(error);
@@ -214,7 +214,7 @@ const ViewOfferedCourse = () => {
 			/>
 
 			<PHUModal
-				title="remove offered course"
+				title="Remove Offered Course"
 				isOpen={open}
 				closeModal={() => setOpen(false)}
 				handleOk={() => deleteOfferedCourseHandler(offeredCourseId)}
