@@ -15,7 +15,7 @@ const CreateCourse = () => {
 		// console.log(values)
 		try {
 			await addCourse(parseCourseCreatePayload(values)).unwrap();
-			notifySuccess('course created successfully');
+			notifySuccess('Course created successfully!');
 		} catch (error) {
 			logger.error(error);
 			const er = error as IError;

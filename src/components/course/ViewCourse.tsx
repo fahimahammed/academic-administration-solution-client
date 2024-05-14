@@ -160,7 +160,7 @@ const ViewCourse = () => {
 						padding: '10px 20px',
 					}}
 				>
-					<span>create course</span>
+					<span>Create Course</span>
 				</LinkButton>
 
 				{showResetFilterOption ? (
