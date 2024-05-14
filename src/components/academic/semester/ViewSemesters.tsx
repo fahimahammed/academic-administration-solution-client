@@ -171,7 +171,7 @@ const ViewSemesters = () => {
 						padding: '10px 20px',
 					}}
 				>
-					<span>create semester</span>
+					<span>Create Academic Semester</span>
 				</LinkButton>
 
 				{showResetFilterOption ? (

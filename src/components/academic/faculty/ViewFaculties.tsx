@@ -152,7 +152,7 @@ const ViewFaculties = () => {
 						padding: '10px 20px',
 					}}
 				>
-					<span>Create Faculty</span>
+					<span>Create Academic Faculty</span>
 				</LinkButton>
 
 				{showResetFilterOption ? (

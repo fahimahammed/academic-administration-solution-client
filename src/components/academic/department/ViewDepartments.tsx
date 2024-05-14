@@ -170,7 +170,7 @@ const ViewDepartments = () => {
 						padding: '10px 20px',
 					}}
 				>
-					<span>create department</span>
+					<span>Create Academic Department</span>
 				</LinkButton>
 
 				{showResetFilterOption ? (

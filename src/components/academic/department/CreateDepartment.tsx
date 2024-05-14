@@ -30,7 +30,7 @@ function CreateDepartment() {
 	const handleSubmit = async (values: FormData) => {
 		try {
 			await addAcademicDepartment(values).unwrap();
-			notifySuccess('Academic department added successfully');
+			notifySuccess('Academic department added successfully!');
 		} catch (error) {
 			logger.error(error);
 			const er = error as IError;
@@ -53,20 +53,20 @@ function CreateDepartment() {
 				<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 					<Col span={8} style={{ margin: '10px 0' }}>
 						<div style={{ margin: '10px 0' }}>
-							<FormInput name="title" label="Academic department title" />
+							<FormInput name="title" label="Academic Department Title" />
 						</div>
 						<div style={{ margin: '10px 0' }}>
 							<FormSelectField
 								options={academicFacultyOptions as SelectOption[]}
 								name="academicFacultyId"
-								label="Academic faculty"
+								label="Academic Faculty"
 							/>
 						</div>
 					</Col>
 				</Row>
 				<div>
 					<Button htmlType="submit" style={{ margin: '5px 0px' }}>
-						add
+						Add
 					</Button>
 				</div>
 			</Form>
