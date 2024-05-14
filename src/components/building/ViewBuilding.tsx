@@ -150,7 +150,7 @@ const ViewBuilding = () => {
 						padding: '10px 20px',
 					}}
 				>
-					<span>create building</span>
+					<span>Create Building</span>
 				</LinkButton>
 
 				{showResetFilterOption ? (

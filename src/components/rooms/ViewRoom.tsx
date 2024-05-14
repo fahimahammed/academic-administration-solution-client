@@ -168,7 +168,7 @@ const ViewRoom = () => {
 						marginLeft: '5px',
 					}}
 				>
-					<span>create room</span>
+					<span>Create Room</span>
 				</LinkButton>
 
 				{showResetFilterOption ? (
