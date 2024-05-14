@@ -51,6 +51,7 @@ instance.interceptors.response.use(
 			const accessToken = response?.data?.accessToken;
 			config.headers["Authorization"] = accessToken;
 			setFromLocalStorage(authKey, accessToken);
+			//console.log(config)
 			return instance(config);
 		} else {
 			const responseObject: ResponseErrorType = {
