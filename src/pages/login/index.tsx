@@ -47,14 +47,16 @@ export default function StudentLoginPage() {
 	const onSubmit: SubmitHandler<FormValues> = async data => {
 		try {
 			const res = await adminLogin({ ...data }).unwrap();
-			dispatch(setAuth({ accessToken: res?.accessToken }));
-			storeUserInfo({
-				accessToken: res?.accessToken,
-			});
+			if (res) {
+				dispatch(setAuth({ accessToken: res?.accessToken }));
+				storeUserInfo({
+					accessToken: res?.accessToken,
+				});
 
-			notifySuccess('Logged in successfully');
+				notifySuccess('Logged in successfully');
+			}
 
-			const userInfo = decodeToken(res?.accessToken) as Record<string, string>;
+			const userInfo = await decodeToken(res?.accessToken) as Record<string, string>;
 
 			if (userInfo.role === USER_ROLE.SUPER_ADMIN) router.push(START_BASE_ROUTES.SUPER_ADMIN);
 			else if (userInfo.role === USER_ROLE.ADMIN)

@@ -3,9 +3,10 @@ import { authKey } from '@/constants';
 import { getNewAccessToken } from '@/services';
 import { ResponseErrorType, ResponseSccessType } from '@/types';
 import { getFromLocalStorage, setFromLocalStorage } from '@/utils/local-storage';
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 const instance = axios.create();
+
 instance.defaults.headers.post['Content-Type'] = 'application/json';
 instance.defaults.headers['Accept'] = 'application/json';
 
@@ -26,12 +27,13 @@ instance.interceptors.request.use(
 );
 
 // Add a response interceptor
+
 instance.interceptors.response.use(
 	//@ts-ignore
 	function (response) {
 		// Any status code that lie within the range of 2xx cause this function to trigger
 		// Do something with response data
-		const responseObject = {
+		const responseObject: ResponseSccessType = {
 			data: response?.data?.data,
 			meta: response?.data?.meta,
 		};
@@ -42,7 +44,7 @@ instance.interceptors.response.use(
 		// Do something with response error
 		// console.log(error);
 		const config = error.config;
-		// console.log(config);
+		//console.log("Config:  :  : ========== >>>>>> ", config);
 		if (error?.response?.status === 401 && !config.sent) {
 			config.sent = true;
 			const response = await getNewAccessToken();
@@ -51,13 +53,13 @@ instance.interceptors.response.use(
 			setFromLocalStorage(authKey, accessToken);
 			return instance(config);
 		} else {
-			const responseObject = {
+			const responseObject: ResponseErrorType = {
 				statusCode: error?.response?.data?.statusCode || 500,
 				message: error?.response?.data?.message || "Something went wrong!!!",
 				errorMessages: error?.response?.data?.message,
 			};
-			// return Promise.reject(error);
-			return responseObject;
+			return Promise.reject(responseObject);
+			// return responseObject;
 		}
 	}
 );

@@ -19,7 +19,7 @@ export interface Logger {
 export type LogLevel = 'log' | 'warn' | 'error';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const NO_OP: LogFn = (message?: any, ...optionalParams: any[]) => {};
+const NO_OP: LogFn = (message?: any, ...optionalParams: any[]) => { };
 
 /** Logger which outputs to the browser console */
 export class ConsoleLogger implements Logger {
@@ -31,7 +31,7 @@ export class ConsoleLogger implements Logger {
 	constructor(options?: { environment?: string }) {
 		const { environment } = options || {};
 
-		if (environment === 'production') {
+		if (environment === 'development') {
 			this.warn = NO_OP;
 			this.log = NO_OP;
 			this.error = NO_OP;
