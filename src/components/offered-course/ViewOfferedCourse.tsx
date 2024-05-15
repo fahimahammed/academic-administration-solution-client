@@ -184,7 +184,7 @@ const ViewOfferedCourse = () => {
 						padding: '10px 20px',
 					}}
 				>
-					<span>create offered course</span>
+					<span>Create Offered Course</span>
 				</LinkButton>
 
 				<Tooltip title="filter" placement="bottom">

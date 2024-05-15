@@ -19,16 +19,24 @@ const OfferedCourseDetails = ({ id }: { id: string }) => {
 			<ActionBar title={`view offered course`}></ActionBar>
 
 			<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
-				<Col span={8} style={{ margin: '10px 0' }}>
-					<div style={{ display: 'flex', margin: '10px 0px', width: '66%' }}>
+				<Col span={12} style={{ margin: '10px 0' }}>
+					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>course</span>
 						<span style={{ marginLeft: 'auto' }}>{data?.course?.title}</span>
 					</div>
-					<div style={{ display: 'flex', margin: '10px 0px', width: '90%' }}>
+
+					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>
-							Academic department
+							Academic Department
 						</span>
 						<span style={{ marginLeft: 'auto' }}>{data?.academicDepartment?.title}</span>
+					</div>
+
+					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>
+							Academic Semester
+						</span>
+						<span style={{ marginLeft: 'auto' }}>{data?.semesterRegistration?.academicSemester?.title} ({data?.semesterRegistration?.academicSemester?.year})</span>
 					</div>
 
 					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
