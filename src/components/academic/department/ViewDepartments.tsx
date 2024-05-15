@@ -43,7 +43,7 @@ const ViewDepartments = () => {
 
 	query['limit'] = size;
 	query['page'] = page;
-	query['academicFaculty'] = departmentState?.filterOptions?.academicFaculty;
+	query['academicFacultyId'] = departmentState?.filterOptions?.academicFaculty;
 	query['sortBy'] = departmentState?.sortBy;
 	query['sortOrder'] = departmentState?.sortOrder;
 
