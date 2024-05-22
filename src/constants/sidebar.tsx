@@ -34,11 +34,6 @@ export const sidebarItems = (role: string) => {
 
 	const commonAdminSidebarItems: MenuProps['items'] = [
 		{
-			label: <Link href={`/${base}/payment`}>Payment</Link>,
-			icon: <TableOutlined />,
-			key: `/${base}/payment`,
-		},
-		{
 			label: <Link href={`/${base}/student`}>Manage Students</Link>,
 			icon: <TableOutlined />,
 			key: `/${base}/student`,
@@ -50,6 +45,13 @@ export const sidebarItems = (role: string) => {
 		},
 	];
 
+	const paymentItem: MenuProps['items'] = [
+		{
+			label: <Link href={`/${base}/payment`}>Payment</Link>,
+			icon: <TableOutlined />,
+			key: `/${base}/payment`,
+		}
+	];
 	const adminSidebarItems: MenuProps['items'] = [
 		...defaultSidebarItems,
 		...commonAdminSidebarItems,
@@ -111,6 +113,7 @@ export const sidebarItems = (role: string) => {
 				},
 			],
 		},
+		...paymentItem
 	];
 
 	const superAdminSidebarItems: MenuProps['items'] = [
@@ -126,28 +129,7 @@ export const sidebarItems = (role: string) => {
 			icon: <TableOutlined />,
 			key: `/${base}/user`,
 		},
-		// {
-		// 	label: 'Manage permission',
-		// 	key: 'manage-permission',
-		// 	icon: <AppstoreOutlined />,
-		// 	children: [
-		// 		{
-		// 			label: <Link href={`/${base}/permission`}>View permissions</Link>,
-		// 			key: `/${base}/permission`,
-		// 		},
-		// 	],
-		// },
-		// {
-		// 	label: 'Management',
-		// 	key: 'management',
-		// 	icon: <AppstoreOutlined />,
-		// 	children: [
-		// 		{
-		// 			label: <Link href={`/${base}/department`}>Department</Link>,
-		// 			key: `/${base}/department`,
-		// 		},
-		// 	],
-		// },
+		...paymentItem
 	];
 
 	const studentSidebarItems: MenuProps['items'] = [
