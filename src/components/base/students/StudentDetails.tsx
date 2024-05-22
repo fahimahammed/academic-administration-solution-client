@@ -1,5 +1,6 @@
 import { useStudentQuery } from '@/redux/apis/base-admin/student/studentApi';
 import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
+import { formatDateTime } from '@/utils/datetime-converter';
 import { Col, Row } from 'antd';
 import Image from 'next/image';
 
@@ -24,63 +25,52 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 			/>
 			<ActionBar title={`view student - ${data?.userId}`}></ActionBar>
 			<div style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '15px', marginBottom: '10px' }}>
-				<Row gutter={14}>
-					<Col span={10}>
+				<Row gutter={24}>
+					<Col span={8}>
+						<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+
+							{!data?.profileImage?.startsWith('http') ? (
+								<Image src="/default-profile.png" width={200} height={200} alt={''} style={{ borderRadius: '50%' }} /> // Circular image
+							) : (
+								<Image src={`${data?.profileImage}`} width={200} height={200} alt={''} style={{ borderRadius: '50%' }} />
+							)}
+
+							<h3
+								style={{
+									margin: '10px 0px 0px 0px',
+									fontWeight: '700',
+									textTransform: 'capitalize'
+								}}
+							>
+								{data?.firstName} {data?.middleName} {data?.lastName}
+							</h3>
+							<p style={{ margin: '5px 0' }}>ID: {data?.userId}</p>
+
+							<small style={{ color: 'green', margin: '5px 0' }}>Joined {formatDateTime(data?.createdAt)}</small>
+						</div>
+					</Col>
+
+					<Col span={16}>
 						<table style={{ width: '100%' }}>
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									First Name
+							<tr>
+								<td colSpan={2}>
+									<h2 style={{ marginBottom: '5px', color: '#000000A6' }}>Academic Information</h2> <hr style={{ background: 'gray', marginBottom: '10px' }} />
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.firstName}</td>
 							</tr>
-
 							<tr style={{ margin: '0px 0px' }}>
 								<td
 									style={{
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									Middle Name
-								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.middleName}</td>
-							</tr>
-
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									Last Name
-								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.lastName}</td>
-							</tr>
-
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									Academic faculty
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.academicFaculty?.title}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+									{data?.academicFaculty?.title}
+								</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -89,13 +79,17 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									Academic department
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.academicDepartment?.title}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+									{data?.academicDepartment?.title}
+								</td>
 							</tr>
+
+
 
 							<tr style={{ margin: '0px 0px' }}>
 								<td
@@ -103,12 +97,21 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									Academic semester
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.academicSemester?.title}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+									{data?.academicSemester?.title} ({data?.academicSemester?.year})
+								</td>
+							</tr>
+
+
+							<tr>
+								<td colSpan={2}>
+									<h2 style={{ marginBottom: '5px', marginTop: '20px', color: '#000000A6' }}>Personal Information</h2> <hr style={{ background: 'gray', marginBottom: '10px' }} />
+								</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -117,7 +120,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									gender
@@ -131,7 +134,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									blood group
@@ -145,7 +148,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									DOB(date of birth)
@@ -159,7 +162,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									email
@@ -173,7 +176,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									Contact no.
@@ -187,7 +190,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									Emergency contact no.
@@ -201,7 +204,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									present address
@@ -215,7 +218,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									permanent address
@@ -223,18 +226,26 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.permanentAddress}</td>
 							</tr>
 
+
+							<tr>
+								<td colSpan={2}>
+									<h2 style={{ marginBottom: '5px', marginTop: '20px', color: '#000000A6' }}>Guardian Information</h2> <hr style={{ background: 'gray', marginBottom: '10px' }} />
+								</td>
+							</tr>
 							<tr style={{ margin: '0px 0px' }}>
 								<td
 									style={{
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									father name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.fatherName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+									{data?.fatherName}
+								</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -243,7 +254,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									father occupation
@@ -259,12 +270,14 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									father contact no.
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.fatherContactNo}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+									{data?.fatherContactNo}
+								</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -273,12 +286,14 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									mother name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.motherName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+									{data?.motherName}
+								</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -287,7 +302,7 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									mother occupation
@@ -303,26 +318,36 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									mother contact no.
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.motherContactNo}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+									{data?.motherContactNo}
+								</td>
 							</tr>
 
+
+							<tr>
+								<td colSpan={2}>
+									<h2 style={{ marginBottom: '5px', marginTop: '20px', color: '#000000A6' }}>Local Guardian Information</h2> <hr style={{ background: 'gray', marginBottom: '10px' }} />
+								</td>
+							</tr>
 							<tr style={{ margin: '0px 0px' }}>
 								<td
 									style={{
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									local guardian name
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.localGuardianName}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+									{data?.localGuardianName}
+								</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -331,12 +356,14 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									local guardian occupation
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.localGuardianOccupation}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+									{data?.localGuardianOccupation}
+								</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -345,12 +372,14 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									local guardian address
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.localGuardianAddress}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+									{data?.localGuardianAddress}
+								</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -359,23 +388,20 @@ const StudentDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									local contact no
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.localGuardianContactNo}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+									{data?.localGuardianContactNo}
+								</td>
 							</tr>
+
 						</table>
 					</Col>
-					<Col span={4}>
-						{!data?.profileImage.startsWith('https') || !data?.profileImage.startsWith('http') ? (
-							<Image src="/default-profile.png" width="300" height="300" alt={''} />
-						) : (
-							<Image src={`${data?.profileImage}`} width="300" height="300" alt={''} />
-						)}
-					</Col>
 				</Row>
+
 			</div>
 		</>
 	);
