@@ -34,6 +34,11 @@ export const sidebarItems = (role: string) => {
 
 	const commonAdminSidebarItems: MenuProps['items'] = [
 		{
+			label: <Link href={`/${base}/payment`}>Payment</Link>,
+			icon: <TableOutlined />,
+			key: `/${base}/payment`,
+		},
+		{
 			label: <Link href={`/${base}/student`}>Manage Students</Link>,
 			icon: <TableOutlined />,
 			key: `/${base}/student`,

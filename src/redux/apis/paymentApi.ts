@@ -22,6 +22,29 @@ const paymentApi = baseApi.injectEndpoints({
 			},
 			providesTags: [tagTypes.payment],
 		}),
+		allPayments: build.query({
+			query: (arg: Record<string, QueryParamsType>) => {
+				return {
+					url: `${BASE_STUDENT_SEMETER_PAYMENT}/`,
+					method: 'GET',
+					params: arg,
+				};
+			},
+			transformResponse: (response: IRoom[], meta: IMeta) => {
+				return {
+					payments: response,
+					meta,
+				};
+			},
+			providesTags: [tagTypes.payment],
+		}),
+		payment: build.query({
+			query: (id: string) => ({
+				url: `${BASE_STUDENT_SEMETER_PAYMENT}/${id}`,
+				method: 'GET',
+			}),
+			providesTags: [tagTypes.course],
+		}),
 		initialPayment: build.mutation({
 			query: data => ({
 				url: `${BASE_STUDENT_SEMETER_PAYMENT}/initiate-payment`,
@@ -41,6 +64,6 @@ const paymentApi = baseApi.injectEndpoints({
 	}),
 });
 
-export const { useMyPaymentsQuery, useInitialPaymentMutation, useCompletePaymentQuery } = paymentApi;
+export const { useMyPaymentsQuery, useAllPaymentsQuery, usePaymentQuery, useInitialPaymentMutation, useCompletePaymentQuery } = paymentApi;
 
 export default paymentApi;

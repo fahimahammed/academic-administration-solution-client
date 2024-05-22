@@ -71,7 +71,7 @@ export default function StudentPreRegistration() {
 		}
 	};
 
-	const availableCourses: ItemProps[] = data.map((availableCourse: IGetMyCourseRegistration, index: number) => {
+	const availableCourses: ItemProps[] = data?.map((availableCourse: IGetMyCourseRegistration, index: number) => {
 		const obj = {
 			key: index,
 			label: availableCourse.course.title,
