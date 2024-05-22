@@ -1,8 +1,9 @@
 import { useUserProfileQuery } from '@/redux/apis/userProfileApi';
 import { Spinner } from '@/ui';
 import { USER_ROLE } from '@/constants';
-import { Col, Row } from 'antd';
+import { Col, Row, Tag } from 'antd';
 import Image from 'next/image';
+import { formatDateTime } from '@/utils/datetime-converter';
 
 type AccountProfileType = {
 	title?: string;
@@ -13,6 +14,8 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 	const { data, isLoading } = useUserProfileQuery({});
 
 	if (isLoading) return <Spinner />;
+
+
 	return (
 		<>
 			<div className="px-4 sm:px-0">
@@ -20,60 +23,58 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 			</div>
 
 			<div style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '15px', marginBottom: '10px' }}>
-				<Row gutter={14}>
-					<Col span={10}>
+				<Row gutter={24}>
+					<Col span={8}>
+						<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+
+							{!data?.profileImage?.startsWith('http') ? (
+								<Image src="/default-profile.png" width={200} height={200} alt={''} style={{ borderRadius: '50%' }} /> // Circular image
+							) : (
+								<Image src={`${data?.profileImage}`} width={200} height={200} alt={''} style={{ borderRadius: '50%' }} />
+							)}
+
+							<h3
+								style={{
+									margin: '10px 0px 0px 0px',
+									fontWeight: '700',
+									textTransform: 'capitalize'
+								}}
+							>
+								{data?.firstName} {data?.middleName} {data?.lastName}
+							</h3>
+
+							{role === USER_ROLE.ADMIN || role === USER_ROLE.FACULTY ? (
+								<p>{data?.designation}</p>
+							) : null}
+
+							{role === USER_ROLE.STUDENT ? (
+								<p style={{ margin: '5px 0' }}>ID: {data?.userId}</p>
+							) : null}
+
+							<small style={{ color: 'green', margin: '5px 0' }}>Joined {formatDateTime(data?.createdAt)}</small>
+
+							<Tag color='#87d068'>{role}</Tag>
+						</div>
+
+
+					</Col>
+					<Col span={16}>
 						<table style={{ width: '100%' }}>
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									First Name
-								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.firstName}</td>
-							</tr>
-
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									Middle Name
-								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.middleName}</td>
-							</tr>
-
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									Last Name
-								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.lastName}</td>
-							</tr>
 
 							{role === USER_ROLE.STUDENT || role === USER_ROLE.FACULTY ? (
 								<>
+									<tr>
+										<td colSpan={2}>
+											<h2 style={{ marginBottom: '5px', color: '#000000A6' }}>Academic Information</h2> <hr style={{ background: 'gray', marginBottom: '10px' }} />
+										</td>
+									</tr>
 									<tr style={{ margin: '0px 0px' }}>
 										<td
 											style={{
 												fontWeight: 700,
 												marginRight: '10px',
 												textTransform: 'capitalize',
-												textAlign: 'right',
+												// textAlign: 'right',
 											}}
 										>
 											Academic faculty
@@ -89,7 +90,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 												fontWeight: 700,
 												marginRight: '10px',
 												textTransform: 'capitalize',
-												textAlign: 'right',
+												// textAlign: 'right',
 											}}
 										>
 											Academic department
@@ -108,7 +109,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 											fontWeight: 700,
 											marginRight: '10px',
 											textTransform: 'capitalize',
-											textAlign: 'right',
+											// textAlign: 'right',
 										}}
 									>
 										Academic semester
@@ -119,21 +120,11 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 								</tr>
 							) : null}
 
-							{role === USER_ROLE.ADMIN || role === USER_ROLE.FACULTY ? (
-								<tr style={{ margin: '0px 0px' }}>
-									<td
-										style={{
-											fontWeight: 700,
-											marginRight: '10px',
-											textTransform: 'capitalize',
-											textAlign: 'right',
-										}}
-									>
-										designation
-									</td>
-									<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.designation}</td>
-								</tr>
-							) : null}
+							<tr>
+								<td colSpan={2}>
+									<h2 style={{ marginBottom: '5px', marginTop: '20px', color: '#000000A6' }}>Personal Information</h2> <hr style={{ background: 'gray', marginBottom: '10px' }} />
+								</td>
+							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
 								<td
@@ -141,7 +132,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									gender
@@ -155,7 +146,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									blood group
@@ -169,7 +160,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									DOB(date of birth)
@@ -183,7 +174,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									email
@@ -197,7 +188,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									Contact no.
@@ -211,7 +202,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									Emergency contact no.
@@ -225,7 +216,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									present address
@@ -239,7 +230,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									permanent address
@@ -249,13 +240,18 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 
 							{role === USER_ROLE.STUDENT ? (
 								<>
+									<tr>
+										<td colSpan={2}>
+											<h2 style={{ marginBottom: '5px', marginTop: '20px', color: '#000000A6' }}>Guardian Information</h2> <hr style={{ background: 'gray', marginBottom: '10px' }} />
+										</td>
+									</tr>
 									<tr style={{ margin: '0px 0px' }}>
 										<td
 											style={{
 												fontWeight: 700,
 												marginRight: '10px',
 												textTransform: 'capitalize',
-												textAlign: 'right',
+												// textAlign: 'right',
 											}}
 										>
 											father name
@@ -271,7 +267,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 												fontWeight: 700,
 												marginRight: '10px',
 												textTransform: 'capitalize',
-												textAlign: 'right',
+												// textAlign: 'right',
 											}}
 										>
 											father occupation
@@ -287,7 +283,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 												fontWeight: 700,
 												marginRight: '10px',
 												textTransform: 'capitalize',
-												textAlign: 'right',
+												// textAlign: 'right',
 											}}
 										>
 											father contact no.
@@ -303,7 +299,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 												fontWeight: 700,
 												marginRight: '10px',
 												textTransform: 'capitalize',
-												textAlign: 'right',
+												// textAlign: 'right',
 											}}
 										>
 											mother name
@@ -319,7 +315,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 												fontWeight: 700,
 												marginRight: '10px',
 												textTransform: 'capitalize',
-												textAlign: 'right',
+												// textAlign: 'right',
 											}}
 										>
 											mother occupation
@@ -335,7 +331,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 												fontWeight: 700,
 												marginRight: '10px',
 												textTransform: 'capitalize',
-												textAlign: 'right',
+												// textAlign: 'right',
 											}}
 										>
 											mother contact no.
@@ -345,13 +341,19 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 										</td>
 									</tr>
 
+
+									<tr>
+										<td colSpan={2}>
+											<h2 style={{ marginBottom: '5px', marginTop: '20px', color: '#000000A6' }}>Local Guardian Information</h2> <hr style={{ background: 'gray', marginBottom: '10px' }} />
+										</td>
+									</tr>
 									<tr style={{ margin: '0px 0px' }}>
 										<td
 											style={{
 												fontWeight: 700,
 												marginRight: '10px',
 												textTransform: 'capitalize',
-												textAlign: 'right',
+												// textAlign: 'right',
 											}}
 										>
 											local guardian name
@@ -367,7 +369,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 												fontWeight: 700,
 												marginRight: '10px',
 												textTransform: 'capitalize',
-												textAlign: 'right',
+												// textAlign: 'right',
 											}}
 										>
 											local guardian occupation
@@ -383,7 +385,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 												fontWeight: 700,
 												marginRight: '10px',
 												textTransform: 'capitalize',
-												textAlign: 'right',
+												// textAlign: 'right',
 											}}
 										>
 											local guardian address
@@ -399,7 +401,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 												fontWeight: 700,
 												marginRight: '10px',
 												textTransform: 'capitalize',
-												textAlign: 'right',
+												// textAlign: 'right',
 											}}
 										>
 											local contact no
@@ -412,13 +414,7 @@ export default function AccountProfile({ title, role }: AccountProfileType) {
 							) : null}
 						</table>
 					</Col>
-					<Col span={4}>
-						{!data?.profileImage?.startsWith('https') || !data?.profileImage?.startsWith('http') ? (
-							<Image src="/default-profile.png" width="300" height="300" alt={''} />
-						) : (
-							<Image src={`${data?.profileImage}`} width="300" height="300" alt={''} />
-						)}
-					</Col>
+
 				</Row>
 			</div>
 		</>
