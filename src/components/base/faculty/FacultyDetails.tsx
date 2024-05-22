@@ -1,5 +1,6 @@
 import { useFacultyQuery } from '@/redux/apis/base-admin/faculty/facultyApi';
 import { ActionBar, BreadCrumbsComp, Spinner } from '@/ui';
+import { formatDateTime } from '@/utils/datetime-converter';
 import { Col, Row } from 'antd';
 import Image from 'next/image';
 
@@ -24,63 +25,52 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 			/>
 			<ActionBar title={`view faculty - ${data?.userId}`}></ActionBar>
 			<div style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '15px', marginBottom: '10px' }}>
-				<Row gutter={14}>
-					<Col span={10}>
+				<Row gutter={24}>
+					<Col span={8}>
+						<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+
+							{!data?.profileImage?.startsWith('http') ? (
+								<Image src="/default-profile.png" width={200} height={200} alt={''} style={{ borderRadius: '50%' }} /> // Circular image
+							) : (
+								<Image src={`${data?.profileImage}`} width={200} height={200} alt={''} style={{ borderRadius: '50%' }} />
+							)}
+
+							<h3
+								style={{
+									margin: '10px 0px 0px 0px',
+									fontWeight: '700',
+									textTransform: 'capitalize'
+								}}
+							>
+								{data?.firstName} {data?.middleName} {data?.lastName}
+							</h3>
+							<p>{data?.designation}</p>
+							<small style={{ color: 'green', margin: '5px 0' }}>Joined {formatDateTime(data?.createdAt)}</small>
+						</div>
+					</Col>
+					<Col span={16}>
 						<table style={{ width: '100%' }}>
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									First Name
-								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.firstName}</td>
-							</tr>
 
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									Middle Name
-								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.middleName}</td>
-							</tr>
 
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									Last Name
+							<tr>
+								<td colSpan={2}>
+									<h2 style={{ marginBottom: '5px', color: '#000000A6' }}>Academic Information</h2> <hr style={{ background: 'gray', marginBottom: '10px' }} />
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.lastName}</td>
 							</tr>
-
 							<tr style={{ margin: '0px 0px' }}>
 								<td
 									style={{
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									Academic faculty
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.academicFaculty?.title}</td>
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+									{data?.academicFaculty?.title}
+								</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -89,26 +79,20 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									Academic department
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.academicDepartment?.title}</td>
-							</tr>
-
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									designation
+								<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+									{data?.academicDepartment?.title}
 								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.designation}</td>
+							</tr>
+
+							<tr>
+								<td colSpan={2}>
+									<h2 style={{ marginBottom: '5px', marginTop: '20px', color: '#000000A6' }}>Personal Information</h2> <hr style={{ background: 'gray', marginBottom: '10px' }} />
+								</td>
 							</tr>
 
 							<tr style={{ margin: '0px 0px' }}>
@@ -117,7 +101,7 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									gender
@@ -131,7 +115,7 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									blood group
@@ -145,7 +129,7 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									DOB(date of birth)
@@ -159,7 +143,7 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									email
@@ -173,7 +157,7 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									Contact no.
@@ -187,7 +171,7 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									Emergency contact no.
@@ -201,21 +185,7 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
-									}}
-								>
-									Emergency contact no.
-								</td>
-								<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.emergencyContactNo}</td>
-							</tr>
-
-							<tr style={{ margin: '0px 0px' }}>
-								<td
-									style={{
-										fontWeight: 700,
-										marginRight: '10px',
-										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									present address
@@ -229,7 +199,7 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 										fontWeight: 700,
 										marginRight: '10px',
 										textTransform: 'capitalize',
-										textAlign: 'right',
+										// textAlign: 'right',
 									}}
 								>
 									permanent address
@@ -238,13 +208,7 @@ const FacultyDetails = ({ id, base }: EditStudentProps) => {
 							</tr>
 						</table>
 					</Col>
-					<Col span={4}>
-						{!data?.profileImage?.startsWith('https') || !data?.profileImage?.startsWith('http') ? (
-							<Image src="/default-profile.png" width="300" height="300" alt={''} />
-						) : (
-							<Image src={`${data?.profileImage}`} width="300" height="300" alt={''} />
-						)}
-					</Col>
+
 				</Row>
 			</div>
 		</>
