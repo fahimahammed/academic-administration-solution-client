@@ -7,6 +7,7 @@ import {
 	ThunderboltOutlined,
 	CreditCardOutlined,
 	FileTextOutlined,
+	BarChartOutlined
 } from '@ant-design/icons';
 import Link from 'next/link';
 import { USER_ROLE } from './global';
@@ -45,11 +46,16 @@ export const sidebarItems = (role: string) => {
 		},
 	];
 
-	const paymentItem: MenuProps['items'] = [
+	const otherItems: MenuProps['items'] = [
 		{
 			label: <Link href={`/${base}/payment`}>Payment</Link>,
 			icon: <TableOutlined />,
 			key: `/${base}/payment`,
+		},
+		{
+			label: <Link href={`/${base}/stat`}>Stat</Link>,
+			icon: <BarChartOutlined />,
+			key: `/${base}/stat`,
 		}
 	];
 	const adminSidebarItems: MenuProps['items'] = [
@@ -113,7 +119,7 @@ export const sidebarItems = (role: string) => {
 				},
 			],
 		},
-		...paymentItem
+		...otherItems
 	];
 
 	const superAdminSidebarItems: MenuProps['items'] = [
@@ -129,7 +135,7 @@ export const sidebarItems = (role: string) => {
 			icon: <TableOutlined />,
 			key: `/${base}/user`,
 		},
-		...paymentItem
+		...otherItems
 	];
 
 	const studentSidebarItems: MenuProps['items'] = [
