@@ -18,3 +18,4 @@ export const BASE_OFFERED_COURSES_SCHEDULE = '/offered-course-class-schedules';
 export const BASE_STUDENT_ENROLLED_COURSE = '/student-enrolled-courses';
 export const BASE_STUDENT_SEMETER_PAYMENT = '/student-semester-payments';
 export const BASE_STUDENT_COURSE_MARKS = '/student-enrolled-course-marks';
+export const DASHBOARD_META_DATA = '/meta';

@@ -18,6 +18,7 @@ export enum tagTypes {
 	courseRegisration = 'course-registration',
 	studentEnrolledCourse = 'student-enrolled-course',
 	payment = 'payment',
+	meta = 'meta',
 }
 export const tagTypelist = [
 	tagTypes.student,
@@ -39,4 +40,5 @@ export const tagTypelist = [
 	tagTypes.courseRegisration,
 	tagTypes.studentEnrolledCourse,
 	tagTypes.payment,
+	tagTypes.meta
 ];
