@@ -82,6 +82,15 @@ const ViewStat = ({ base }: { base?: string }) => {
         },
     };
 
+    const circleChartOptions = {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false,
+            }
+        }
+    };
+
     const paymentChart = {
         labels: paymentLabels,
         datasets: [
@@ -112,31 +121,29 @@ const ViewStat = ({ base }: { base?: string }) => {
                 label: 'Amount',
                 data: [data?.metaData?.totalFees, data?.metaData?.totalDue],
                 backgroundColor: [
-                    'purple',
-                    'red',
+                    '#7134eb',
+                    '#f95d6a',
                 ],
                 borderColor: [
-                    'purple',
-                    'red',
+                    '#7134eb',
+                    '#f95d6a',
                 ],
                 borderWidth: 1,
             },
         ],
     };
 
-    const studentPie = {
-        labels: ["Male Student", "Female Student"],
+    const usersPie = {
+        labels: ["Student", "Teacher", "Admin"],
         datasets: [
             {
                 label: 'Count',
-                data: [data?.metaData?.maleStudentCount, data?.metaData?.femaleStudentCount],
+                data: [data?.metaData?.studentCount, data?.metaData?.facultyCount, data?.metaData?.adminCount],
                 backgroundColor: [
-                    'green',
-                    'red',
+                    '#FF6384', '#36A2EB', '#7134eb'
                 ],
                 borderColor: [
-                    'green',
-                    'red',
+                    '#FF6384', '#36A2EB', '#7134eb'
                 ],
                 borderWidth: 1,
             },
@@ -279,7 +286,7 @@ const ViewStat = ({ base }: { base?: string }) => {
                             <div style={{
                                 backgroundColor: 'white',
                                 padding: '20px',
-                                margin: '0 0 20px 13px',
+                                margin: '0 0 20px 0px',
                                 borderRadius: '8px',
                                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
                             }}>
@@ -290,7 +297,7 @@ const ViewStat = ({ base }: { base?: string }) => {
                             <div style={{
                                 backgroundColor: 'white',
                                 padding: '20px',
-                                margin: '0 0 20px 13px',
+                                margin: '0 0 20px 0px',
                                 borderRadius: '8px',
                                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
                             }}>
@@ -302,7 +309,7 @@ const ViewStat = ({ base }: { base?: string }) => {
                         <Col span={9}>
                             <div style={{
                                 backgroundColor: 'white',
-                                padding: '18px 35px',
+                                padding: '22px 35px',
                                 margin: '0 0 20px 13px',
                                 borderRadius: '8px',
                                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
@@ -318,9 +325,9 @@ const ViewStat = ({ base }: { base?: string }) => {
                                 borderRadius: '8px',
                                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
                             }}>
-                                <p style={{ fontSize: '22px', marginBottom: '5px', fontWeight: '500' }}>Students</p>
-                                <p style={{ marginBottom: '3px', color: 'gray' }}>Total active users {data?.metaData?.activeUserCount} of {data?.metaData?.totalUserCount} users.</p>
-                                <Pie data={studentPie} />
+                                <p style={{ fontSize: '22px', marginBottom: '5px', fontWeight: '500' }}>Users</p>
+                                <p style={{ marginBottom: '10px', color: 'gray' }}>Total active users {data?.metaData?.activeUserCount} of {data?.metaData?.totalUserCount} users.</p>
+                                <Pie data={usersPie} options={circleChartOptions} />
                             </div>
                         </Col>
                     </Row>
