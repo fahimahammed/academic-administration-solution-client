@@ -2,19 +2,21 @@ import React from 'react';
 import {
     TeamOutlined,
     SolutionOutlined,
-    TransactionOutlined,
+    NumberOutlined,
     ReadOutlined
 } from '@ant-design/icons';
-import { Bar, Chart, Doughnut, Line, Pie } from 'react-chartjs-2';
+import { Bar, Doughnut, Line, Pie } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
+    BarElement,
     PointElement,
     LineElement,
     Title,
     ArcElement,
     Tooltip,
+    Filler,
     Legend,
 } from 'chart.js';
 import { Col, Row, Spin } from 'antd';
@@ -26,39 +28,13 @@ ChartJS.register(
     LinearScale,
     PointElement,
     LineElement,
+    BarElement,
     Title,
     Tooltip,
     Legend,
+    Filler,
     ArcElement
 );
-
-
-export const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [
-        {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-            ],
-            borderWidth: 1,
-        },
-    ],
-};
 
 const ViewStat = ({ base }: { base?: string }) => {
     const { data, isLoading } = useMetaDataQuery({});
@@ -73,49 +49,100 @@ const ViewStat = ({ base }: { base?: string }) => {
             </div>
         );
 
-    const isBrowser = typeof window !== 'undefined';
-
-    const labels = data && data?.paymentHistory?.map((history: any) => history.month);
+    const paymentLabels = data && data?.paymentHistory?.map((history: any) => history.month);
     const paymentHistoryData = data && data?.paymentHistory?.map((history: any) => history.totalPaidAmount);
+
+    const lectureLabels = data && data?.averageLecturesPerMonth?.map((lecture: any) => lecture.month);
     const lectureCountData = data && data?.averageLecturesPerMonth?.map((lecture: any) => lecture.lectureCount);
 
     const options = {
         responsive: true,
         plugins: {
             legend: {
+                display: false,
                 position: 'top' as const,
             },
             title: {
+                display: false
+            },
+        },
+        scales: {
+            x: {
                 display: true,
-                text: 'Chart.js Line Chart',
+                grid: {
+                    display: false, // Hide x-axis grid lines
+                },
+            },
+            y: {
+                display: true,
+                grid: {
+                    display: false, // Hide y-axis grid lines
+                },
             },
         },
     };
 
-    const lineData = {
-        labels,
+    const paymentChart = {
+        labels: paymentLabels,
         datasets: [
             {
                 fill: true,
-                label: 'Dataset 2',
                 data: paymentHistoryData,
-                borderColor: 'rgb(53, 162, 235)',
-                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                borderColor: '#7134eb',
+                backgroundColor: '#d4c4f5',
+            },
+        ],
+    };
+    const lectureChart = {
+        labels: lectureLabels,
+        datasets: [
+            {
+                fill: true,
+                data: lectureCountData,
+                borderColor: '#7134eb',
+                backgroundColor: '#7134eb',
             },
         ],
     };
 
-    const barData = {
-        labels: labels,
+    const paymentDoghnut = {
+        labels: ["Total Paid Amount", "Total Due Amount"],
         datasets: [
             {
-                label: 'Lecture',
-                data: lectureCountData,
-                borderColor: '#7134eb',
-                backgroundColor: '#7134eb',
-            }
+                label: 'Amount',
+                data: [data?.metaData?.totalFees, data?.metaData?.totalDue],
+                backgroundColor: [
+                    'purple',
+                    'red',
+                ],
+                borderColor: [
+                    'purple',
+                    'red',
+                ],
+                borderWidth: 1,
+            },
         ],
     };
+
+    const studentPie = {
+        labels: ["Male Student", "Female Student"],
+        datasets: [
+            {
+                label: 'Count',
+                data: [data?.metaData?.maleStudentCount, data?.metaData?.femaleStudentCount],
+                backgroundColor: [
+                    'green',
+                    'red',
+                ],
+                borderColor: [
+                    'green',
+                    'red',
+                ],
+                borderWidth: 1,
+            },
+        ],
+    };
+
 
     return (
         <div>
@@ -224,8 +251,8 @@ const ViewStat = ({ base }: { base?: string }) => {
                             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
                         }}>
                             <div>
-                                <p style={{ fontSize: '15px', color: 'gray', marginBottom: '8px' }}>Fees Collection</p>
-                                <p style={{ fontSize: '28px' }}>{data?.metaData?.totalFees}</p>
+                                <p style={{ fontSize: '15px', color: 'gray', marginBottom: '8px' }}>Administration</p>
+                                <p style={{ fontSize: '28px' }}>{data?.metaData?.adminCount}</p>
                             </div>
                             <div style={{
                                 display: 'flex',
@@ -237,7 +264,7 @@ const ViewStat = ({ base }: { base?: string }) => {
                                 backgroundColor: '#ffe5d1',
                                 marginRight: '16px'
                             }}>
-                                <TransactionOutlined style={{ fontSize: '32px', color: '#fd7e14' }} />
+                                <NumberOutlined style={{ fontSize: '32px', color: '#fd7e14' }} />
                             </div>
                         </div>
                     </Col>
@@ -246,31 +273,60 @@ const ViewStat = ({ base }: { base?: string }) => {
 
                 </Row>
 
-                <div style={{ marginTop: '25px' }}>
+                <div style={{ marginTop: '20px' }}>
                     <Row gutter={24}>
-                        <Col span={12}>
-                            <p style={{ fontSize: '20px' }}>Fees Collection</p>
-                            <Line options={options} data={lineData} />
+                        <Col span={15} >
+                            <div style={{
+                                backgroundColor: 'white',
+                                padding: '20px',
+                                margin: '0 0 20px 13px',
+                                borderRadius: '8px',
+                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+                            }}>
+                                <p style={{ fontSize: '22px', marginBottom: '22px', fontWeight: '500' }}>Fees Collection</p>
+                                <Line options={options} data={paymentChart} />
+                            </div>
+
+                            <div style={{
+                                backgroundColor: 'white',
+                                padding: '20px',
+                                margin: '0 0 20px 13px',
+                                borderRadius: '8px',
+                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+                            }}>
+                                <p style={{ fontSize: '22px', marginBottom: '22px', fontWeight: '500' }}>Average Lecture Per Month</p>
+                                <Bar options={options} data={lectureChart} />
+                            </div>
 
                         </Col>
-                        <Col span={12}>
-                            <p style={{ fontSize: '20px' }}>Average Lecture Per Month</p>
+                        <Col span={9}>
+                            <div style={{
+                                backgroundColor: 'white',
+                                padding: '18px 35px',
+                                margin: '0 0 20px 13px',
+                                borderRadius: '8px',
+                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+                            }}>
+                                <p style={{ fontSize: '22px', marginBottom: '22px', fontWeight: '500' }}>Total Paid vs Total Due</p>
+                                <Doughnut data={paymentDoghnut} />
+                            </div>
 
+                            <div style={{
+                                backgroundColor: 'white',
+                                padding: '18px 35px',
+                                margin: '0 0 20px 13px',
+                                borderRadius: '8px',
+                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+                            }}>
+                                <p style={{ fontSize: '22px', marginBottom: '5px', fontWeight: '500' }}>Students</p>
+                                <p style={{ marginBottom: '3px', color: 'gray' }}>Total active users {data?.metaData?.activeUserCount} of {data?.metaData?.totalUserCount} users.</p>
+                                <Pie data={studentPie} />
+                            </div>
                         </Col>
                     </Row>
                 </div>
             </div>
-            {/* <Row gutter={24}>
-                <Col span={8}>
-                    <Doughnut data={data} />
-                </Col>
-                <Col span={8}>
-                    <Pie data={data} />
-                </Col>
-                <Col span={8}>
-                    <Line options={options} data={data} />
-                </Col>
-            </Row> */}
+
         </div>
     );
 };
