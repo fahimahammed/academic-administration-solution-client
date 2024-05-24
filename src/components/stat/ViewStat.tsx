@@ -52,8 +52,11 @@ const ViewStat = ({ base }: { base?: string }) => {
     const paymentLabels = data && data?.paymentHistory?.map((history: any) => history.month);
     const paymentHistoryData = data && data?.paymentHistory?.map((history: any) => history.totalPaidAmount);
 
-    const lectureLabels = data && data?.averageLecturesPerMonth?.map((lecture: any) => lecture.month);
-    const lectureCountData = data && data?.averageLecturesPerMonth?.map((lecture: any) => lecture.lectureCount);
+    const userLabels = data && data?.averageLecturesPerMonth?.map((lecture: any) => lecture.month);
+
+    const newStudentsCount = data && data?.newStudentsCount?.map((student: any) => student.count);
+    const newAdminsCount = data && data?.newAdminsCount?.map((admin: any) => admin.count);
+    const newFacultyCount = data && data?.newFacultyCount?.map((faculty: any) => faculty.count);
 
     const options = {
         responsive: true,
@@ -98,18 +101,34 @@ const ViewStat = ({ base }: { base?: string }) => {
                 fill: true,
                 data: paymentHistoryData,
                 borderColor: '#7134eb',
-                backgroundColor: '#d4c4f5',
+                backgroundColor: '#7134eb',
             },
         ],
     };
-    const lectureChart = {
-        labels: lectureLabels,
+
+    const usersChart = {
+        labels: userLabels,
         datasets: [
             {
-                fill: true,
-                data: lectureCountData,
+                fill: false,
+                label: "Student",
+                data: newStudentsCount,
                 borderColor: '#7134eb',
-                backgroundColor: '#7134eb',
+                backgroundColor: '#d4c4f5',
+            },
+            {
+                fill: false,
+                label: "Faculty",
+                data: newFacultyCount,
+                borderColor: '#FFA500',
+                backgroundColor: '#FFDAB9',
+            },
+            {
+                fill: false,
+                label: "Admin",
+                data: newAdminsCount,
+                borderColor: '#FF0000',
+                backgroundColor: '#FFA07A',
             },
         ],
     };
@@ -140,10 +159,10 @@ const ViewStat = ({ base }: { base?: string }) => {
                 label: 'Count',
                 data: [data?.metaData?.studentCount, data?.metaData?.facultyCount, data?.metaData?.adminCount],
                 backgroundColor: [
-                    '#FF6384', '#36A2EB', '#7134eb'
+                    '#7134eb', '#FFA500', '#FF0000'
                 ],
                 borderColor: [
-                    '#FF6384', '#36A2EB', '#7134eb'
+                    '#7134eb', '#FFA500', '#FF0000'
                 ],
                 borderWidth: 1,
             },
@@ -291,7 +310,7 @@ const ViewStat = ({ base }: { base?: string }) => {
                                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
                             }}>
                                 <p style={{ fontSize: '22px', marginBottom: '22px', fontWeight: '500' }}>Fees Collection</p>
-                                <Line options={options} data={paymentChart} />
+                                <Bar options={options} data={paymentChart} />
                             </div>
 
                             <div style={{
@@ -301,8 +320,8 @@ const ViewStat = ({ base }: { base?: string }) => {
                                 borderRadius: '8px',
                                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
                             }}>
-                                <p style={{ fontSize: '22px', marginBottom: '22px', fontWeight: '500' }}>Average Lecture Per Month</p>
-                                <Bar options={options} data={lectureChart} />
+                                <p style={{ fontSize: '22px', marginBottom: '22px', fontWeight: '500' }}>New Users Per Month</p>
+                                <Line options={options} data={usersChart} />
                             </div>
 
                         </Col>

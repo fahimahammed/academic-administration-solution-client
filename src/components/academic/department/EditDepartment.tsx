@@ -34,7 +34,7 @@ function EditDepartment({ id }: { id: string }) {
 
 	const defaultValues = {
 		title: department?.title || '',
-		academicFaculty: department?.academicFaculty?.title || '',
+		academicFacultyId: department?.academicFaculty?.title || '',
 	};
 
 	const academicFacultyOptions = faculties?.academicFaculties?.map(faculty => {
@@ -63,14 +63,14 @@ function EditDepartment({ id }: { id: string }) {
 					<div style={{ margin: '10px 0' }}>
 						<FormSelectField
 							options={academicFacultyOptions as SelectOption[]}
-							name="academicFaculty"
+							name="academicFacultyId"
 							label="Academic faculty"
 						/>
 					</div>
 				</Col>
 				<div>
 					<PHUButton htmlType="submit" style={{ margin: '5px 0px' }}>
-						update
+						Update
 					</PHUButton>
 				</div>
 			</Form>

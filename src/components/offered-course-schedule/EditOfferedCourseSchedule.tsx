@@ -49,7 +49,7 @@ const EditOfferedCourseSchedule = ({ id }: { id: string }) => {
 					{ label: 'edit', link: `/admin/offered-course-schedule/edit/${id}` },
 				]}
 			/>
-			<ActionBar title="edit offered course section"></ActionBar>
+			<ActionBar title="edit offered course schedule"></ActionBar>
 			<Form onSubmit={updateOfferedCourseScheduleOnSubmit} defaultValues={defaultValues}>
 				<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 					<Col span={8}>

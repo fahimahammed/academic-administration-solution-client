@@ -54,7 +54,7 @@ function UserProfileNav() {
 						<div style={{ display: 'block', marginTop: '2px' }}>
 							<p style={{ padding: 0, lineHeight: 1, marginLeft: '5px' }}>
 								<span>
-									{data?.firstName} {data?.lastName}
+									{data?.firstName} {data?.middleName} {data?.lastName}
 									{!data && 'SUPER ADMIN'}
 								</span>
 								<br></br>

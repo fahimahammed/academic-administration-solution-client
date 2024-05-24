@@ -51,18 +51,18 @@ export default function FacultyCourseStudents() {
 
 	const columns: ColumnsType<IFacultyCourseStudent> = [
 		{
+			title: 'Student ID',
+			dataIndex: 'userId',
+		},
+		{
 			title: 'Student name',
 			render: function (data: IFacultyCourseStudent) {
 				return (
 					<>
-						{data?.firstName} {data?.lastName} {data?.middleName}
+						{data?.firstName} {data?.middleName} {data?.lastName}
 					</>
 				);
 			},
-		},
-		{
-			title: 'Student ID',
-			dataIndex: 'userId',
 		},
 		{
 			title: 'email',

@@ -30,7 +30,7 @@ const CreateOfferedCourseSection = ({ id }: { id: string }) => {
 		title: data?.title,
 		offeredCourseId: data?.offeredCourseId,
 		maxCapacity: data?.maxCapacity,
-		classSchedules: data?.offeredCourseClassSchedules,
+		// classSchedules: data?.offeredCourseClassSchedules,
 	};
 
 	return (
