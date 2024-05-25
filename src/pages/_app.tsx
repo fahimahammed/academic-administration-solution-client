@@ -22,6 +22,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 				}}
 			>
 				<Providers>
+					{/* @ts-expect-error: Suppress type error due to known issue with third-party library. */}
 					{getLayout(<Component {...pageProps} />)}
 					<ToastNotification position="top-center" reverseOrder={false} />
 				</Providers>

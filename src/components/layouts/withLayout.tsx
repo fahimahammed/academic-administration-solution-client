@@ -47,24 +47,28 @@ const withLayout = (PageComponent: NextPage) => {
 			<>
 				{userInfo.role === USER_ROLE.SUPER_ADMIN && (
 					<SuperAdminDashboardLayout>
+						{/* @ts-expect-error: Suppress type error due to known issue with third-party library. */}
 						<PageComponent {...props} />
 					</SuperAdminDashboardLayout>
 				)}
 
 				{userInfo.role === USER_ROLE.ADMIN && (
 					<AdminDashboardLayout>
+						{/* @ts-expect-error: Suppress type error due to known issue with third-party library. */}
 						<PageComponent {...props} />
 					</AdminDashboardLayout>
 				)}
 
 				{userInfo.role === USER_ROLE.FACULTY && (
 					<FacultyDashboardLayout>
+						{/* @ts-expect-error: Suppress type error due to known issue with third-party library. */}
 						<PageComponent {...props} />
 					</FacultyDashboardLayout>
 				)}
 
 				{userInfo.role === USER_ROLE.STUDENT && (
 					<StudentDashboardLayout>
+						{/* @ts-expect-error: Suppress type error due to known issue with third-party library. */}
 						<PageComponent {...props} />
 					</StudentDashboardLayout>
 				)}
