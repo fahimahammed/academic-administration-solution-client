@@ -285,8 +285,8 @@ const ViewMyPayment = () => {
 		<>
 			<BreadCrumbsComp
 				items={[
-					{ label: 'admin', link: '/admin' },
-					{ label: 'payment', link: '/admin/payment' },
+					{ label: 'student', link: '/student' },
+					{ label: 'payment', link: '/student/payment' },
 				]}
 			/>
 			<ActionBar title="My Payment List">

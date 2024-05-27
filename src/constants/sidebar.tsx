@@ -49,7 +49,7 @@ export const sidebarItems = (role: string) => {
 	const otherItems: MenuProps['items'] = [
 		{
 			label: <Link href={`/${base}/payment`}>Payment</Link>,
-			icon: <TableOutlined />,
+			icon: <CreditCardOutlined />,
 			key: `/${base}/payment`,
 		},
 		{
