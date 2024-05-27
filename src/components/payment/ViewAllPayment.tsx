@@ -62,7 +62,8 @@ const ViewAllPayment = ({ base }: { base?: string }) => {
         {
             title: 'Id',
             dataIndex: ['student', 'userId'],
-            sorter: true,
+            sorter: true
+            //sorter: (a, b) => a.student.userId.localeCompare(b.student.userId),
         },
         {
             title: 'Name',
