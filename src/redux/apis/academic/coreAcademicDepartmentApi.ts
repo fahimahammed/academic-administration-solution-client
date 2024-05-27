@@ -11,7 +11,7 @@ const coreAcademicDepartmentApi = baseApi.injectEndpoints({
 				return {
 					url: BASE_ACADEMIC_DEPARTMENT,
 					method: 'GET',
-					params: arg,
+					params: { limit: 100, page: 1, ...arg },
 				};
 			},
 			transformResponse: (response: IAcademicCoreSemester[], meta: IMeta) => {

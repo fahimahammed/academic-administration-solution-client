@@ -33,7 +33,7 @@ function SectionFilter() {
 			<div style={{ marginLeft: 'auto' }}>
 				<SelectField
 					value={offeredCourseScheduleState?.filterOptions?.offeredCourseSectionId as string}
-					placeholder="select course"
+					placeholder="select course section"
 					options={courseOptions as SelectOption[]}
 					handleChange={(el: string) => {
 						dispatch(setFilter({ ...offeredCourseScheduleState.filterOptions, offeredCourseSectionId: el }));

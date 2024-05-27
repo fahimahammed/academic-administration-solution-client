@@ -78,6 +78,7 @@ const ViewDepartments = () => {
 		{
 			title: 'Title',
 			dataIndex: 'title',
+			sorter: true
 		},
 		{
 			title: 'Faculty',

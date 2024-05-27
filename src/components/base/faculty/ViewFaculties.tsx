@@ -88,7 +88,8 @@ const ViewFaculties = ({ base }: { base?: string }) => {
 	const columns: ColumnsType<IFaculty> = [
 		{
 			title: 'ID',
-			dataIndex: 'userId'
+			dataIndex: 'userId',
+			sorter: true
 		},
 		{
 			title: 'Name',

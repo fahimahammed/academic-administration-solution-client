@@ -9,8 +9,11 @@ type AcademicDepartmentProps = {
 	label: string;
 };
 
+
 export default function CoreAcademicDepartmentField({ name, label }: AcademicDepartmentProps) {
 	const { data, isLoading } = useCoreAcademicDepartmentsQuery({});
+
+
 
 	if (isLoading)
 		return (

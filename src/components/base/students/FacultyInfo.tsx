@@ -27,8 +27,8 @@ export default function FacultyInfo({ userId }: { userId: string }) {
 					>
 						Faculty name
 					</td>
-					<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-						{data?.firstName} {data?.lastName} {data?.middleName}
+					<td style={{ textAlign: 'right', padding: '5px 15px' }}>
+						<strong>{data?.firstName} {data?.lastName} {data?.middleName}</strong>
 					</td>
 				</tr>
 
@@ -43,7 +43,7 @@ export default function FacultyInfo({ userId }: { userId: string }) {
 					>
 						faculty
 					</td>
-					<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.academicFaculty?.title}</td>
+					<td style={{ textAlign: 'right', padding: '5px 15px' }}>{data?.academicFaculty?.title}</td>
 				</tr>
 
 				<tr style={{ margin: '0px 0px' }}>
@@ -57,7 +57,7 @@ export default function FacultyInfo({ userId }: { userId: string }) {
 					>
 						department
 					</td>
-					<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.academicDepartment?.title}</td>
+					<td style={{ textAlign: 'right', padding: '5px 15px' }}>{data?.academicDepartment?.title}</td>
 				</tr>
 
 				<tr style={{ margin: '0px 0px' }}>
@@ -71,7 +71,7 @@ export default function FacultyInfo({ userId }: { userId: string }) {
 					>
 						designation
 					</td>
-					<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.designation}</td>
+					<td style={{ textAlign: 'right', padding: '5px 15px' }}>{data?.designation}</td>
 				</tr>
 
 				<tr style={{ margin: '0px 0px' }}>
@@ -85,7 +85,7 @@ export default function FacultyInfo({ userId }: { userId: string }) {
 					>
 						contact no
 					</td>
-					<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.contactNo}</td>
+					<td style={{ textAlign: 'right', padding: '5px 15px' }}>{data?.contactNo}</td>
 				</tr>
 
 				<tr style={{ margin: '0px 0px' }}>
@@ -99,7 +99,21 @@ export default function FacultyInfo({ userId }: { userId: string }) {
 					>
 						email
 					</td>
-					<td style={{ textAlign: 'left', padding: '5px 15px' }}>{data?.email}</td>
+					<td style={{ textAlign: 'right', padding: '5px 15px' }}>{data?.email}</td>
+				</tr>
+
+				<tr style={{ margin: '0px 0px' }}>
+					<td
+						style={{
+							fontWeight: 700,
+							marginRight: '10px',
+							textTransform: 'capitalize',
+							textAlign: 'left',
+						}}
+					>
+						Gender
+					</td>
+					<td style={{ textAlign: 'right', padding: '5px 15px' }}>{data?.gender}</td>
 				</tr>
 			</table>
 		</>

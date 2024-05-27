@@ -91,7 +91,7 @@ const ViewOfferedCourseSection = () => {
 
 	const columns: ColumnsType<IOfferedCourseSection> = [
 		{
-			title: 'Offered courese',
+			title: 'Offered Courese',
 			dataIndex: 'offeredCourse',
 			sorter: true,
 			render: function (data) {
@@ -104,12 +104,12 @@ const ViewOfferedCourseSection = () => {
 			sorter: true,
 		},
 		{
-			title: 'max capacity',
+			title: 'Max Capacity',
 			dataIndex: 'maxCapacity',
 			sorter: true,
 		},
 		{
-			title: 'Currently enrolled Student',
+			title: 'Currently Enrolled Student',
 			dataIndex: 'currentlyEnrolledStudent',
 			sorter: true,
 		},

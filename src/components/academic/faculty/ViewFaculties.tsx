@@ -68,6 +68,7 @@ const ViewFaculties = () => {
 		{
 			title: 'Title',
 			dataIndex: 'title',
+			sorter: true
 		},
 		{
 			title: 'Created at',

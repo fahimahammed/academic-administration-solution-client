@@ -4,7 +4,7 @@ import { setFilter } from '@/redux/slices/adminSlice';
 import SelectField from '@/ui/SelectField';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import DepartmentFilter from './DepartmentFIlter';
+// import DepartmentFilter from './DepartmentFIlter';
 
 function FilterOptions() {
 	const dispatch = useDispatch();
@@ -33,9 +33,9 @@ function FilterOptions() {
 					}}
 				/>
 			</div>
-			<div style={{ margin: '5px 0' }}>
+			{/* <div style={{ margin: '5px 0' }}>
 				<DepartmentFilter />
-			</div>
+			</div> */}
 		</>
 	);
 }

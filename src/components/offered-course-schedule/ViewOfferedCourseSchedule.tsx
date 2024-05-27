@@ -117,7 +117,6 @@ const ViewOfferedCourseSchedule = () => {
 		{
 			title: 'Section',
 			dataIndex: 'offeredCourseSection',
-			sorter: true,
 			render: function (data: IOfferedCourseSection) {
 				return <>{data.title}</>;
 			},
@@ -128,7 +127,7 @@ const ViewOfferedCourseSchedule = () => {
 			render: function (data: IAcademicCoreFaculty) {
 				return (
 					<>
-						{data.firstName} {data.lastName}
+						{data.firstName} {data.middleName} {data.lastName}
 					</>
 				);
 			},
@@ -136,9 +135,8 @@ const ViewOfferedCourseSchedule = () => {
 		{
 			title: 'Room',
 			dataIndex: 'room',
-			sorter: true,
 			render: function (data: IRoom) {
-				return <>{data.roomNumber}</>;
+				return <>{data.roomNumber} ({data?.building?.title})</>;
 			},
 		},
 		{

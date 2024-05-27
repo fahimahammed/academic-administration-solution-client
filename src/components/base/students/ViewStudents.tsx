@@ -108,6 +108,7 @@ const ViewStudents = ({ base }: { base?: string }) => {
 		{
 			title: 'Email',
 			dataIndex: 'email',
+			sorter: true
 		},
 		{
 			title: 'Created at',

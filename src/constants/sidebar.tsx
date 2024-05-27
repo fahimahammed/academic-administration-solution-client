@@ -53,7 +53,7 @@ export const sidebarItems = (role: string) => {
 			key: `/${base}/payment`,
 		},
 		{
-			label: <Link href={`/${base}/stat`}>Stat</Link>,
+			label: <Link href={`/${base}/stat`}>Reports</Link>,
 			icon: <BarChartOutlined />,
 			key: `/${base}/stat`,
 		}

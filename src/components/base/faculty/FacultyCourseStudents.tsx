@@ -52,7 +52,7 @@ export default function FacultyCourseStudents() {
 	const columns: ColumnsType<IFacultyCourseStudent> = [
 		{
 			title: 'Student ID',
-			dataIndex: 'userId',
+			dataIndex: 'userId'
 		},
 		{
 			title: 'Student name',

@@ -178,7 +178,7 @@ const ViewStat = ({ base }: { base?: string }) => {
                     { label: 'dashboard', link: `/${base}/stat` },
                 ]}
             />
-            <h1 style={{ marginBottom: '20px' }}>Reports</h1>
+            <h1 style={{ marginBottom: '20px', marginTop: '10px' }}>Reports</h1>
             <div>
                 <Row gutter={24}>
                     <Col span={6}>
@@ -221,7 +221,7 @@ const ViewStat = ({ base }: { base?: string }) => {
                             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
                         }}>
                             <div>
-                                <p style={{ fontSize: '15px', color: 'gray', marginBottom: '8px' }}>Faculties</p>
+                                <p style={{ fontSize: '15px', color: 'gray', marginBottom: '8px' }}>Teachers</p>
                                 <p style={{ fontSize: '28px' }}>{data?.metaData?.facultyCount}</p>
                             </div>
                             <div style={{
