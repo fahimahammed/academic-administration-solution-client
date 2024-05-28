@@ -20,26 +20,26 @@ const OfferedCourseDetails = ({ id }: { id: string }) => {
 
 			<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 				<Col span={12} style={{ margin: '10px 0' }}>
-					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+					<div style={{ display: 'flex', margin: '10px 0px' }}>
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>course</span>
-						<span style={{ marginLeft: 'auto' }}>{data?.course?.title}</span>
+						<strong style={{ marginLeft: 'auto' }}>{data?.course?.title}</strong>
 					</div>
 
-					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+					<div style={{ display: 'flex', margin: '10px 0px' }}>
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>
 							Academic Department
 						</span>
 						<span style={{ marginLeft: 'auto' }}>{data?.academicDepartment?.title}</span>
 					</div>
 
-					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+					<div style={{ display: 'flex', margin: '10px 0px' }}>
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>
 							Academic Semester
 						</span>
 						<span style={{ marginLeft: 'auto' }}>{data?.semesterRegistration?.academicSemester?.title} ({data?.semesterRegistration?.academicSemester?.year})</span>
 					</div>
 
-					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+					<div style={{ display: 'flex', margin: '10px 0px' }}>
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>created at</span>
 						<span style={{ marginLeft: 'auto' }}>{formatDateTime(data?.createdAt)}</span>
 					</div>
