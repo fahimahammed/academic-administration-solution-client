@@ -20,22 +20,22 @@ const RoomDetails = ({ id }: { id: string }) => {
 
 			<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 				<Col span={8} style={{ margin: '10px 0' }}>
-					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+					<div style={{ display: 'flex', margin: '10px 0px' }}>
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>Room no</span>
-						<span style={{ marginLeft: 'auto' }}>{data?.roomNumber}</span>
+						<strong style={{ marginLeft: 'auto' }}>{data?.roomNumber}</strong>
 					</div>
 
-					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+					<div style={{ display: 'flex', margin: '10px 0px' }}>
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>floor</span>
 						<span style={{ marginLeft: 'auto' }}>{data?.floor}</span>
 					</div>
 
-					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+					<div style={{ display: 'flex', margin: '10px 0px' }}>
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>building</span>
 						<span style={{ marginLeft: 'auto' }}>{data?.building?.title}</span>
 					</div>
 
-					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+					<div style={{ display: 'flex', margin: '10px 0px' }}>
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>created at</span>
 						<span style={{ marginLeft: 'auto' }}>{formatDateTime(data?.createdAt)}</span>
 					</div>
