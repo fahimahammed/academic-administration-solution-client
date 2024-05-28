@@ -24,7 +24,7 @@ const OfferedCourseScheduleDetails = ({ id }: { id: string }) => {
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>
 							Day of week
 						</span>
-						<span style={{ marginLeft: 'auto' }}>{data?.dayOfWeek}</span>
+						<strong style={{ marginLeft: 'auto' }}>{data?.dayOfWeek}</strong>
 					</div>
 
 					<div style={{ display: 'flex', margin: '10px 0px' }}>
