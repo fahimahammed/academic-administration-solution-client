@@ -22,12 +22,12 @@ const FacultyDetails = ({ id }: { id: string }) => {
 
 			<Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
 				<Col span={8} style={{ margin: '10px 0' }}>
-					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+					<div style={{ display: 'flex', margin: '10px 0px' }}>
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>Title</span>
-						<span style={{ marginLeft: 'auto' }}>{data?.title}</span>
+						<strong style={{ marginLeft: 'auto' }}>{data?.title}</strong>
 					</div>
 
-					<div style={{ display: 'flex', margin: '10px 0px', width: '65%' }}>
+					<div style={{ display: 'flex', margin: '10px 0px' }}>
 						<span style={{ fontWeight: 700, marginRight: '10px', textTransform: 'capitalize' }}>created at</span>
 						<span style={{ marginLeft: 'auto' }}>{formatDateTime(data?.createdAt)}</span>
 					</div>
