@@ -52,7 +52,7 @@ export default function FacultyCourses() {
 			},
 		},
 		{
-			title: 'Section',
+			title: 'Class Schedules',
 			dataIndex: 'sections',
 			render: function (
 				data: {
@@ -65,9 +65,32 @@ export default function FacultyCourses() {
 					<>
 						{section.map((el, index) => {
 							return (
-								<div key={index} style={{ margin: '20px 0px' }}>
+								<div key={index} style={{
+									margin: '20px 0px',
+									border: '1px solid #ccc',
+									borderRadius: '5px',
+									padding: '15px',
+								}}>
 									<span>
-										Sec - {el.title} ({el.currentlyEnrolledStudent}/{el.maxCapacity})
+										<strong>Sec - {el.title} ({el.currentlyEnrolledStudent}/{el.maxCapacity})</strong> <hr />
+										{
+											el?.offeredCourseClassSchedules?.map(schedule => {
+												return (
+													<>
+														<div style={{
+															marginBottom: '5px',
+															marginTop: '5px',
+															backgroundColor: '#F5F5F5',
+															padding: '5px',
+															borderRadius: '5px'
+														}}>
+															<p><strong>{schedule.dayOfWeek}</strong> ({schedule.startTime} - {schedule.endTime})</p>
+															<p><small>{schedule.room.roomNumber}, {schedule.room.floor} Floor ({schedule.room.building.title})</small></p>
+														</div>
+													</>
+												)
+											})
+										}
 									</span>
 								</div>
 							);
@@ -93,7 +116,7 @@ export default function FacultyCourses() {
 												);
 											}}
 										>
-											View all Students
+											View Students
 										</PHUButton>
 									) : null}
 								</div>
