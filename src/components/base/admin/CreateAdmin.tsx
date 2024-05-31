@@ -8,23 +8,29 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useAddAdminWithFormDataMutation } from '@/redux/apis/base-admin/admin/adminApi';
 import { parseAdminRequestPayload } from '@/transformer/admin';
 import { AdminPayload, IError } from '@/types';
-import { Col, Row } from 'antd';
+import { Col, Row, Spin } from 'antd';
 import PHUButton from '@/ui/PHUButton';
 import FormDatePicker from '@/components/forms/FormDatePicker';
 import PHUUploadImage from '@/ui/PHUUploadImage';
 import { RcFile } from 'antd/es/upload';
+import { useState } from 'react';
 
 const CreateAdmin = () => {
 	const [addAdminWithFormData] = useAddAdminWithFormDataMutation();
+	const [isLoading, setIsLoading] = useState(false);
+
 	const adminOnSubmit = async (values: AdminPayload) => {
 		const value: { file: RcFile | string | Blob | undefined; data: string } = parseAdminRequestPayload(values);
 		const formData = new FormData();
 		formData.append('file', value?.file as Blob);
 		formData.append('data', value.data);
 		try {
+			setIsLoading(true);
 			await addAdminWithFormData(formData).unwrap();
+			setIsLoading(false);
 			notifySuccess('Admin created successfully');
 		} catch (error) {
+			setIsLoading(false);
 			logger.error(error);
 			const er = error as IError;
 			notifyError(er.data);
@@ -39,6 +45,13 @@ const CreateAdmin = () => {
 				]}
 			/>
 			<ActionBar title="Create Admin"></ActionBar>
+			{isLoading && <>
+				<div style={{ marginLeft: 'auto', marginRight: '20px' }}>
+					<div className="example">
+						<Spin />
+					</div>
+				</div>
+			</>}
 			<Form onSubmit={adminOnSubmit} resolver={yupResolver(AdminSchema)}>
 				{/* admin information */}
 				<div style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '15px', marginBottom: '10px' }}>

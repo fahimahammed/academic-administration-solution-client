@@ -6,7 +6,7 @@ import { FacultySchema } from '@/schemas';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAddFacultyWithFormDataMutation } from '@/redux/apis/base-admin/faculty/facultyApi';
-import { Col, Row } from 'antd';
+import { Col, Row, Spin } from 'antd';
 import FormDatePicker from '@/components/forms/FormDatePicker';
 import PHUButton from '@/ui/PHUButton';
 import { FacultyPayload, IError } from '@/types';
@@ -15,18 +15,23 @@ import AcademicFacultyField from '../common-form-field/AcademicFacultyField';
 import PHUUploadImage from '@/ui/PHUUploadImage';
 import { parseFacultyRequestPayload } from '@/transformer/faculty';
 import { RcFile } from 'antd/es/upload';
+import { useState } from 'react';
 
 const CreateFaculty = ({ base }: { base?: string }) => {
 	const [addFacultyWithFormData] = useAddFacultyWithFormDataMutation();
+	const [isLoading, setIsLoading] = useState(false);
 	const facultyOnSubmit = async (values: FacultyPayload) => {
 		const value: { file: RcFile | string | Blob | undefined; data: string } = parseFacultyRequestPayload(values);
 		const formData = new FormData();
 		formData.append('file', value?.file as Blob);
 		formData.append('data', value.data);
 		try {
+			setIsLoading(true);
 			await addFacultyWithFormData(formData).unwrap();
+			setIsLoading(false);
 			notifySuccess('Faculty created successfully');
 		} catch (error) {
+			setIsLoading(false);
 			logger.error(error);
 			const er = error as IError;
 			notifyError(er.data);
@@ -41,6 +46,15 @@ const CreateFaculty = ({ base }: { base?: string }) => {
 				]}
 			/>
 			<ActionBar title="Create Faculty"></ActionBar>
+
+			{isLoading && <>
+				<div style={{ marginLeft: 'auto', marginRight: '20px' }}>
+					<div className="example">
+						<Spin />
+					</div>
+				</div>
+			</>}
+
 			<Form onSubmit={facultyOnSubmit} resolver={yupResolver(FacultySchema)}>
 				{/* faculty information */}
 				<div style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '15px', marginBottom: '10px' }}>

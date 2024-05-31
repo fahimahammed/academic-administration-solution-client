@@ -239,7 +239,7 @@ const StudentCourseMarks = () => {
 								return (
 									<Fragment key={index}>
 										<PHUButton size="large" onClick={() => setOpen(true)}>
-											Update final marks
+											{(el.studentEnrolledCourse.status === "COMPLETED" || el.studentEnrolledCourse.status === "FAILED") ? "Updated" : "Update Final Marks"}
 										</PHUButton>
 									</Fragment>
 								);

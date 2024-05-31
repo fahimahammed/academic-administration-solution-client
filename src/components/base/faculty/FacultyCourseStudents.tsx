@@ -40,6 +40,7 @@ export default function FacultyCourseStudents() {
 	if (!!offeredCourseSectionId) {
 		query['offeredCourseSectionId'] = offeredCourseSectionId;
 	}
+	//console.log(offeredCourseSectionId, "hello")
 
 	const { data, isLoading } = useFacultyCourseStudentsQuery({ ...query });
 	const dispatch = useDispatch();

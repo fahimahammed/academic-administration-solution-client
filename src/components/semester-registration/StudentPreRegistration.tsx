@@ -74,7 +74,7 @@ export default function StudentPreRegistration() {
 	const availableCourses: ItemProps[] = data?.map((availableCourse: IGetMyCourseRegistration, index: number) => {
 		const obj = {
 			key: index,
-			label: availableCourse.course.title,
+			label: `${availableCourse.course.title} (${availableCourse.course.credits} credits)`,
 			isTaken: availableCourse.isTaken,
 			children: (
 				<table style={{ padding: '0px 10px', borderSpacing: '10px 15px' }}>
