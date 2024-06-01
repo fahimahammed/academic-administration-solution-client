@@ -16,14 +16,17 @@ export default function AcademicReport() {
 				return (
 					<>
 						<div style={{ marginBottom: '15px' }}>
-							<div>
-								<b>
+							<div style={{ textAlign: 'center', backgroundColor: '#f0f8ff', padding: '20px', borderRadius: '10px' }}>
+								<h3>
 									{data?.academicSemester?.title} - {data?.academicSemester?.year}
-								</b>{' '}
-								-{' '}
-								<Tag color="blue">
-									<b>{data?.academicSemester?.isCurrent === true ? 'ONGOING' : ''}</b>
-								</Tag>
+								</h3>{' '}
+								{data?.academicSemester?.isCurrent === true && <>
+
+									<Tag color="blue">
+										<b>ONGOING</b>
+									</Tag>
+								</>}
+
 							</div>
 							<ul style={{ listStyle: 'none', marginTop: '20px' }}>
 								{data?.completedCourses?.map((el: CompletedCoursesEntity) => {
