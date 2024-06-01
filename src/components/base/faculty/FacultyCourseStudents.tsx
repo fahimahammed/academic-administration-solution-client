@@ -1,7 +1,7 @@
 import { IFacultyCourseStudent, QueryParamsType } from '@/types';
 import { ActionBar, BreadCrumbsComp, SearchInput } from '@/ui';
 import PHUTable from '@/ui/PHUTable';
-import { Tooltip } from 'antd';
+import { Tag, Tooltip } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import React, { useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -72,6 +72,21 @@ export default function FacultyCourseStudents() {
 		{
 			title: 'Contact no',
 			dataIndex: 'contactNo',
+		},
+		{
+			title: 'Result',
+			dataIndex: 'courseMarks',
+			render: function (data: any) {
+				return (
+					<>
+						{data.map((result: { examType: string, marks: number }, index: number) => {
+							return (<Tag color={result.examType === 'FINAL' ? 'green' : 'red'} key={index}>
+								{result.examType}: <strong>{result.marks}</strong>
+							</Tag>)
+						})}
+					</>
+				)
+			}
 		},
 		{
 			title: 'action',
