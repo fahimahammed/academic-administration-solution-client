@@ -6,7 +6,7 @@ import { ViewStudents } from '@/components/base/students';
 const ViewStudentPage: NextPage = () => {
 	return (
 		<>
-			<Helmet>view students</Helmet>
+			<Helmet>View Students</Helmet>
 			<ViewStudents base="super-admin" />
 		</>
 	);

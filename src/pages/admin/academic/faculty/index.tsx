@@ -6,7 +6,7 @@ import ViewFaculties from '@/components/academic/faculty/ViewFaculties';
 const AcademicFacultyPage: NextPage = () => {
 	return (
 		<>
-			<Helmet>academic faculties</Helmet>
+			<Helmet>Academic Faculty</Helmet>
 			<ViewFaculties />
 		</>
 	);

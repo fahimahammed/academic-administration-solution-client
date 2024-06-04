@@ -72,8 +72,7 @@ export default function AcademicReport() {
 			<BreadCrumbsComp
 				items={[
 					{ label: `student`, link: `/student` },
-					{ label: `courses`, link: `/student/courses` },
-					{ label: `schedule`, link: `/student/courses/schedule` },
+					{ label: `academic-report`, link: `/student/academic-report` },
 				]}
 			/>
 

@@ -6,7 +6,7 @@ import { NextPage } from 'next';
 const StudentChangePassword: NextPage = () => {
 	return (
 		<>
-			<Helmet>change password</Helmet>
+			<Helmet>Change Password</Helmet>
 			<ChangePassword />
 		</>
 	);

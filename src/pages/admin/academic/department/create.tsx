@@ -6,7 +6,7 @@ import CreateDepartment from '@/components/academic/department/CreateDepartment'
 const CreateAcademicDepartmentPage: NextPage = () => {
 	return (
 		<>
-			<Helmet>create academic departments</Helmet>
+			<Helmet>Create Academic Department</Helmet>
 			<CreateDepartment />
 		</>
 	);

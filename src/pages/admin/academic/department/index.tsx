@@ -6,7 +6,7 @@ import ViewDepartments from '@/components/academic/department/ViewDepartments';
 const AcademicDepartmentPage: NextPage = () => {
 	return (
 		<>
-			<Helmet>academic departments</Helmet>
+			<Helmet>Academic Department</Helmet>
 			<ViewDepartments />
 		</>
 	);

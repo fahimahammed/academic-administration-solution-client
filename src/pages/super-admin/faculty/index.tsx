@@ -6,7 +6,7 @@ import ViewFaculties from '@/components/base/faculty/ViewFaculties';
 const ViewFacultyPage: NextPage = () => {
 	return (
 		<>
-			<Helmet>view faculties</Helmet>
+			<Helmet>View Faculties</Helmet>
 			<ViewFaculties base="super-admin" />
 		</>
 	);
