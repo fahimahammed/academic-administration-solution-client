@@ -2,7 +2,7 @@ import { useMyCoursesQuery } from '@/redux/apis/base-admin/student/coreStudentAp
 import { ICourse, IMyCourse, QueryParamsType } from '@/types';
 import { ActionBar, BreadCrumbsComp } from '@/ui';
 import PHUTable from '@/ui/PHUTable';
-import { Tooltip } from 'antd';
+import { Tag, Tooltip } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import React, { useMemo } from 'react';
 import AcademicSemesterFilter from './filter-options/AcademicSemesterFilter';
@@ -53,6 +53,9 @@ export default function EnrolledCourses() {
 		{
 			title: 'Status',
 			dataIndex: 'status',
+			render: function (data: string) {
+				return <><Tag color={data === 'COMPLETED' ? 'green' : 'red'}>{data}</Tag></>
+			}
 		},
 		{
 			title: 'Grade',
