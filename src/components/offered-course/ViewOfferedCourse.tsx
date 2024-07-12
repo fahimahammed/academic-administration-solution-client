@@ -6,7 +6,7 @@ import { DEBOUNCE_DELAY } from '@/constants';
 import { logger } from '@/services';
 import { notifyError, notifySuccess } from '@/ui/ToastNotification';
 import { ColumnsType } from 'antd/es/table';
-import { Button, Tooltip } from 'antd';
+import { Badge, Button, Tooltip } from 'antd';
 import PHUModal from '@/ui/PHUModal';
 import PHUTable from '@/ui/PHUTable';
 import LinkButton from '@/ui/LinkButton';
@@ -102,6 +102,13 @@ const ViewOfferedCourse = () => {
 			sorter: true,
 			render: function (data) {
 				return <>{data.title}</>;
+			},
+		},
+		{
+			title: 'Academic Semester',
+			dataIndex: 'semesterRegistration',
+			render: function (data) {
+				return <>{data.academicSemester.title} ({data.academicSemester.year}) {data.academicSemester.isCurrent && <Badge status="success" />}</>;
 			},
 		},
 		{
