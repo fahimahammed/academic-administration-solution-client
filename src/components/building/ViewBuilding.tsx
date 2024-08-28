@@ -137,7 +137,7 @@ const ViewBuilding = () => {
 					{ label: 'building', link: '/admin/building' },
 				]}
 			/>
-			<ActionBar title="builsing list">
+			<ActionBar title="Building list">
 				<SearchInput
 					placeholder="search"
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
