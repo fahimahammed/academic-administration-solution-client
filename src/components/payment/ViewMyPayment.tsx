@@ -64,57 +64,57 @@ const ViewMyPayment = () => {
 	};
 
 	const columns: ColumnsType<IOfferedCourseSection> = [
-		{
-			title: 'Student info',
-			dataIndex: 'student',
-			render: function (data) {
-				return (
-					<table style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '10px' }}>
-						<tr style={{ margin: '0px 0px' }}>
-							<td
-								style={{
-									fontWeight: 700,
-									marginRight: '10px',
-									textTransform: 'capitalize',
-									textAlign: 'left',
-								}}
-							>
-								name
-							</td>
-							<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-								<span style={{ marginLeft: '10px', textAlign: 'right' }}>
-									{data?.firstName} {data?.middleName} {data?.lastName}
-								</span>
-							</td>
-						</tr>
+		// {
+		// 	title: 'Student info',
+		// 	dataIndex: 'student',
+		// 	render: function (data) {
+		// 		return (
+		// 			<table style={{ border: '1px solid #d9d9d9', borderRadius: '5px', padding: '10px' }}>
+		// 				{/* <tr style={{ margin: '0px 0px' }}>
+		// 					<td
+		// 						style={{
+		// 							fontWeight: 700,
+		// 							marginRight: '10px',
+		// 							textTransform: 'capitalize',
+		// 							textAlign: 'left',
+		// 						}}
+		// 					>
+		// 						name
+		// 					</td>
+		// 					<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+		// 						<span style={{ marginLeft: '10px', textAlign: 'right' }}>
+		// 							{data?.firstName} {data?.middleName} {data?.lastName}
+		// 						</span>
+		// 					</td>
+		// 				</tr> */}
 
-						<tr style={{ margin: '0px 0px' }}>
-							<td
-								style={{
-									fontWeight: 700,
-									marginRight: '10px',
-									textTransform: 'capitalize',
-									textAlign: 'left',
-								}}
-							>
-								Student id
-							</td>
-							<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-								<span style={{ marginLeft: '10px', textAlign: 'right' }}>{data?.userId}</span>
-							</td>
-						</tr>
-					</table>
-				);
-			},
-		},
+		// 				{/* <tr style={{ margin: '0px 0px' }}>
+		// 					<td
+		// 						style={{
+		// 							fontWeight: 700,
+		// 							marginRight: '10px',
+		// 							textTransform: 'capitalize',
+		// 							textAlign: 'left',
+		// 						}}
+		// 					>
+		// 						Student id
+		// 					</td>
+		// 					<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+		// 						<span style={{ marginLeft: '10px', textAlign: 'right' }}>{data?.userId}</span>
+		// 					</td>
+		// 				</tr> */}
+		// 			</table>
+		// 		);
+		// 	},
+		// },
 		{
 			title: 'Semeter',
 			dataIndex: 'academicSemester',
 			render: function (data: IAcademicCoreSemester) {
 				return (
-					<>
+					<span style={{ fontWeight: 700 }}>
 						{data?.title} - {data?.year}
-					</>
+					</span>
 				);
 			},
 		},
@@ -162,12 +162,13 @@ const ViewMyPayment = () => {
 									marginRight: '10px',
 									textTransform: 'capitalize',
 									textAlign: 'left',
+									color: 'red'
 								}}
 							>
 								total due amount
 							</td>
 							<td style={{ textAlign: 'left', padding: '5px 15px' }}>
-								<span style={{ marginLeft: '10px' }}>{data.totalDueAmount} Tk</span>
+								<span style={{ marginLeft: '10px', color: 'red' }}>{data.totalDueAmount} Tk</span>
 							</td>
 						</tr>
 
@@ -178,11 +179,12 @@ const ViewMyPayment = () => {
 									marginRight: '10px',
 									textTransform: 'capitalize',
 									textAlign: 'left',
+									color: 'green'
 								}}
 							>
 								total paid amount
 							</td>
-							<td style={{ textAlign: 'left', padding: '5px 15px' }}>
+							<td style={{ textAlign: 'left', padding: '5px 15px', color: 'green' }}>
 								<span style={{ marginLeft: '10px' }}>{data.totalPaidAmount} Tk</span>
 							</td>
 						</tr>
