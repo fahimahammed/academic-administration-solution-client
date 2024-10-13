@@ -31,7 +31,7 @@ function UserProfileNav() {
 		{
 			key: '1',
 			label: (
-				<div onClick={signout} style={{ marginLeft: 'auto' }}>
+				<div onClick={signout} style={{ margin: 'center' }}>
 					Logout
 				</div>
 			),
