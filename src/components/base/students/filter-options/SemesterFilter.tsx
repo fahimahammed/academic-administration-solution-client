@@ -21,7 +21,7 @@ export default function SemesterFilter() {
 
 	const academicSemesterOptions = data?.academicSemesters?.map(semester => {
 		return {
-			label: semester.title,
+			label: `${semester.title}-${semester.year}`,
 			value: semester.id,
 		};
 	});
@@ -30,7 +30,7 @@ export default function SemesterFilter() {
 		<>
 			<SelectField
 				value={studentState.filterOptions.academicSemester as string}
-				placeholder="select academic semester"
+				placeholder="Select academic semester"
 				options={academicSemesterOptions as SelectOption[]}
 				handleChange={(el: string) => {
 					dispatch(setFilter({ ...studentState.filterOptions, academicSemester: el }));

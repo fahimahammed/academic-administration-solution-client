@@ -44,7 +44,7 @@ function AcademicSemesterFilter() {
 		<div style={{ width: '20%' }}>
 			<SelectField
 				value={academicSemesterId}
-				placeholder="select academic semester"
+				placeholder="Select academic semester"
 				options={academicSemesterOptions as SelectOption[]}
 				handleChange={(el: string) => {
 					dispatch(setFilter({ ...academicCoreSemesterState.filterOptions, academicSemesterId: el }));

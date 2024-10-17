@@ -23,7 +23,6 @@ function AcademicSemesterFilter() {
 	});
 
 	const academicSemesterId = academicCoreSemesterState?.filterOptions?.academicSemesterId as string;
-
 	return (
 		<div style={{ width: '20%', marginLeft: 'auto' }}>
 			<SelectField

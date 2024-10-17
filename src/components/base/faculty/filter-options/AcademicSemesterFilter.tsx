@@ -33,7 +33,7 @@ function AcademicSemesterFilter() {
 						? academicSemesterId
 						: data?.coreAcademicSemesters[data?.coreAcademicSemesters.length - 1].id
 				}
-				placeholder="select academic semester"
+				placeholder="Select academic semester"
 				options={academicSemesterOptions as SelectOption[]}
 				handleChange={(el: string) => {
 					dispatch(setFilter({ ...facultyState.filterOptions, academicSemesterId: el }));
